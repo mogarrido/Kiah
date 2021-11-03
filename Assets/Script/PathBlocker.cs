@@ -11,19 +11,19 @@ public class PathBlocker : MonoBehaviour
     void Start()
     {
         character = FindObjectOfType<Einho>();
-        character.OnItemCollected += ItemCollected;
+        //character.OnItemCollected += ItemCollected;
     }
 
     void OnDisable(){
-        character.OnItemCollected += ItemCollected;
+        //character.OnItemCollected += ItemCollected;
     }
 
 
     void ItemCollected(CollectableType type){
         if(type != typeRequired) return;
-        if(character.GetItemCount(type) >= requiredAmount){
+        /*if(character.GetItemCount(type) >= requiredAmount){
             //cambiar codigo por una animacion o algo 
             Destroy(this.gameObject);
-        }
+        }*/
     }
 }

@@ -17,7 +17,7 @@ public class Collectable : MonoBehaviour
         {
             Einho character = other.GetComponent<Einho>();
             if(character != null){
-                character.AddItem(type);
+                //character.AddItem(type);
             }
         }
     }

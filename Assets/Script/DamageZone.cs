@@ -11,7 +11,7 @@ public class DamageZone : MonoBehaviour
         if(other.tag == "Player")
         {
             Einho e = other.GetComponent<Einho>();
-            e.TakeDamage(damage);
+            //e.TakeDamage(damage);
         }
     }
 }
