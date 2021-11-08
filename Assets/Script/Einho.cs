@@ -28,6 +28,14 @@ public class Einho : MonoBehaviour
     [SerializeField]
     AnimationClip attackClip;
 
+    //Climb area
+    [SerializeField, Range(0.1f, 20f)]
+    float areaRadius = 5f;
+    [SerializeField]
+    Color areaColor = Color.red;
+    [SerializeField]
+    LayerMask areaDetectionLayer;
+
     void Awake()
     {
         spr = GetComponent<SpriteRenderer>();
@@ -38,6 +46,18 @@ public class Einho : MonoBehaviour
     void Update()
     {
         Movement();
+        if(CanClimb && Axis.y > 0f)
+        {
+            
+            Climb();
+        }
+        else
+        {
+            if(rb2D.isKinematic)
+            {
+                //rb2D.isKinematic = false;
+            }
+        }
     }
 
     void Movement()
@@ -74,10 +94,19 @@ public class Einho : MonoBehaviour
         anim.SetBool("ground", Grounding);
     }
 
+    void Climb()
+    {
+        transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
+        rb2D.isKinematic = true;
+    }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = rayColor;
         Gizmos.DrawRay(transform.position, Vector2.down * rayDistance);
+
+        Gizmos.color = areaColor;
+        Gizmos.DrawWireSphere(transform.position, areaRadius);
     }
 
     Vector2 Axis => new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -85,5 +114,6 @@ public class Einho : MonoBehaviour
     bool IsJumping => Input.GetButtonDown("Jump");
     bool Grounding => Physics2D.Raycast(transform.position, Vector2.down, rayDistance, detectionLayer);
     bool Attack => Input.GetButtonDown("Fire1");
+    bool CanClimb => Physics2D.OverlapCircle(transform.position, areaRadius, areaDetectionLayer);
 
 }
