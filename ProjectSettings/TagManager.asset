@@ -3,13 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Hormiga 1
-  - Hormiga 2
-  - EINHO
-  - Limit
-  - Ladder
-  - Estrella
+  tags: [Limit, Ladder]
   layers:
   - Default
   - TransparentFX
@@ -19,9 +13,10 @@ TagManager:
   - UI
   - 
   - 
-  - EnemyLimit
-  - Enemy
-  - Player
+  - Suelo
+  - ground
+  - 
+  - 
   - 
   - 
   - 
@@ -46,4 +41,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 1662247687
     locked: 0
