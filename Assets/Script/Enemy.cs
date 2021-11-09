@@ -16,6 +16,10 @@ public abstract class Enemy : MonoBehaviour
     protected Vector2 direction = Vector2.right;
     [SerializeField, Range(0.1f, 15f)]
     protected float moveSpeed = 3f;
+    protected bool isAttacking = false;
+    [SerializeField]
+    float attackTime;
+
 
     void Awake()
     {
@@ -31,12 +35,21 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual IEnumerator IdleCoroutine(float duration, string stateName)
     {
-        yield return duration;
+        yield return new WaitForSeconds(duration);
     }
 
     public virtual IEnumerator MovementCoroutine(float duration, string stateName)
     {
-        yield return duration;
+        yield return new WaitForSeconds(duration);
+    }
+
+    public virtual IEnumerator AttackCoroutine(string stateName, AnimationClip clip, IEnumerator coroutine)
+    {
+        isAttacking = true;
+        anim.SetTrigger(stateName);
+        yield return new WaitForSeconds(clip.length + attackTime);
+        isAttacking = false;
+        StartCoroutine(coroutine);
     }
 
 }
