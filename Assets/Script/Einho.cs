@@ -7,6 +7,8 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Einho : MonoBehaviour
 {
+    [SerializeField, Range(0, 100)]
+    int health = 100;
     [SerializeField, Range(0.1f, 15f)]
     float moveSpeed = 2;
     [SerializeField, Range(0.1f, 15f)]
@@ -36,6 +38,8 @@ public class Einho : MonoBehaviour
     [SerializeField]
     LayerMask areaDetectionLayer;
 
+    bool isClimbing = false;
+
     void Awake()
     {
         spr = GetComponent<SpriteRenderer>();
@@ -48,25 +52,50 @@ public class Einho : MonoBehaviour
         Movement();
         if(CanClimb && Axis.y > 0f)
         {
-            
-            Climb();
+            isClimbing = true;
+            spr.flipX = false;
         }
         else
         {
-            if(rb2D.isKinematic)
+            if(!CanClimb)
             {
-                //rb2D.isKinematic = false;
+                isClimbing = false;
+                if(rb2D.isKinematic)
+                {
+                    anim.SetBool("climb", false);
+                    rb2D.isKinematic = false;
+                }
             }
+        }
+
+        if(isClimbing)
+        {
+            rb2D.velocity = Vector2.zero;
+            anim.SetBool("climb", true);
+            anim.SetFloat("magnitude", Axis.magnitude);
+            Climb();
         }
     }
 
     void Movement()
     {
         transform.Translate(Vector2.right * Axis.x * moveSpeed * Time.deltaTime);
-        spr.flipX = FlipSprite;
-        if(IsJumping && Grounding)
+        if(!isClimbing)
         {
-            Jump();
+            spr.flipX = FlipSprite;
+        }
+        if(IsJumping && Grounding || IsJumping && CanClimb)
+        {
+            if(CanClimb)
+            {
+                isClimbing = false;
+                anim.SetBool("climb", false);
+                rb2D.isKinematic = false;
+            }
+            else
+            {
+                Jump();
+            }
         }
         if(Attack && !isAttacking)
         {
@@ -92,11 +121,12 @@ public class Einho : MonoBehaviour
     {
         anim.SetFloat("AxisX", Mathf.Abs(Axis.x));
         anim.SetBool("ground", Grounding);
+        anim.SetFloat("velY", rb2D.velocity.y);
     }
 
     void Climb()
     {
-        transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
+        transform.Translate(Axis * moveSpeed * Time.deltaTime);
         rb2D.isKinematic = true;
     }
 
