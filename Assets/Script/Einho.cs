@@ -2,135 +2,118 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class Einho : MonoBehaviour
 {
-    public float speed = 5.0f;
-    public int maxHitPoints = 10;
-    int currentHitPoints;
-    bool canClimb = false;
-    Rigidbody2D rb2d;
-    public GameManager gameManager;
-    public Animator animatorController;
-    public float force = 20.0f;
-    public Rigidbody2D characterRigidBody;
-    public List<GameObject> estrellaPrefab;
+    [SerializeField, Range(0.1f, 15f)]
+    float moveSpeed = 2;
+    [SerializeField, Range(0.1f, 15f)]
+    float jumpForce = 7;
 
-    public int starsCollected {get; private set;}
-    public int rocksCollected {get; private set;}
-    public int stickCollected {get; private set;}
+    SpriteRenderer spr;
+    Animator anim;
+    Rigidbody2D rb2D;
 
-    public delegate void ItemCollected(CollectableType type);
+    //Raycast things
+    [SerializeField, Range(0.1f, 20f)]
+    float rayDistance = 5f;
+    [SerializeField]
+    Color rayColor = Color.red;
+    [SerializeField]
+    LayerMask detectionLayer;
 
-    public ItemCollected OnItemCollected;
+    bool isAttacking = false;
+    [SerializeField]
+    AnimationClip attackClip;
 
-    // Start is called before the first frame update
-    void Start()
+    //Climb area
+    [SerializeField, Range(0.1f, 20f)]
+    float areaRadius = 5f;
+    [SerializeField]
+    Color areaColor = Color.red;
+    [SerializeField]
+    LayerMask areaDetectionLayer;
+
+    void Awake()
     {
-        currentHitPoints = maxHitPoints;
-        rb2d = GetComponent<Rigidbody2D>();
+        spr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        rb2D = GetComponent<Rigidbody2D>();
     }
 
-
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.D))
+        Movement();
+        if(CanClimb && Axis.y > 0f)
         {
-            this.transform.Translate(speed * Time.deltaTime,0,0);
-            animatorController.Play("WALK_DER");
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            this.transform.Translate(speed * Time.deltaTime * -1,0,0);
-            animatorController.Play("WALK_IZQ");
-        }
-
-        if(Input.GetKey(KeyCode.H))
-        {
-            animatorController.Play("ATTACK_IZQUIERDA");
-        }
-
-        if(Input.GetKey(KeyCode.Space) && !canClimb)
-        {
-            //salto
-            animatorController.Play("EINHO_JUMP_IZQ");
-            characterRigidBody.AddForce(Vector2.up * force);
-            characterRigidBody.velocity = Vector2.zero;
-
-        }
-
-        if(Input.GetKey(KeyCode.W) && canClimb)
-        {
-            this.transform.Translate(0,speed * Time.deltaTime * 1,0);
-            animatorController.Play("CLIMB");
-        }
-        if(Input.GetKey(KeyCode.S) && canClimb)
-        {
-            this.transform.Translate(0,speed * Time.deltaTime * -1,0);
-        }
-    }
-
-
-    public void TakeDamage(int damage)
-    {
-        currentHitPoints -= damage;
-        Debug.Log($"Current Life; {currentHitPoints}");
-        if(currentHitPoints == 0)
-        {
-            gameManager.GameOver();
-            Debug.Log($"GAME OVER");
-        }
-    }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if(other.tag == "Ladder")
-        {
-            canClimb = true;
-            rb2d.gravityScale = 0;
-        }
             
+            Climb();
+        }
+        else
+        {
+            if(rb2D.isKinematic)
+            {
+                //rb2D.isKinematic = false;
+            }
+        }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    void Movement()
     {
-        if(other.tag == "Ladder"){
-            canClimb = false;
-             rb2d.gravityScale = 1;
+        transform.Translate(Vector2.right * Axis.x * moveSpeed * Time.deltaTime);
+        spr.flipX = FlipSprite;
+        if(IsJumping && Grounding)
+        {
+            Jump();
         }
-            
+        if(Attack && !isAttacking)
+        {
+            StartCoroutine(DoAttack());
+        }
     }
 
-    public void AddItem(CollectableType type){
-        switch(type){
-            case CollectableType.STAR:
-            starsCollected++;
-            break;
-            case CollectableType.ROCK:
-            rocksCollected++;
-            break;
-            case CollectableType.STICK:
-            stickCollected++;
-            break;
-
-        }
-        OnItemCollected?.Invoke(type);
+    void Jump()
+    {
+        rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        anim.SetTrigger("jump");
     }
-    
-    public int GetItemCount(CollectableType type){
-        switch(type){
-            case CollectableType.STAR:
-            return starsCollected;
-  
-            case CollectableType.ROCK:
-            return rocksCollected;
-    
-            case CollectableType.STICK:
-            return stickCollected;
-  
 
-        }
-        return 0;
+    IEnumerator DoAttack()
+    {
+        isAttacking = true;
+        anim.SetTrigger("attack");
+        yield return new WaitForSeconds(attackClip.length);
+        isAttacking = false;
     }
+
+    void LateUpdate()
+    {
+        anim.SetFloat("AxisX", Mathf.Abs(Axis.x));
+        anim.SetBool("ground", Grounding);
+    }
+
+    void Climb()
+    {
+        transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
+        rb2D.isKinematic = true;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = rayColor;
+        Gizmos.DrawRay(transform.position, Vector2.down * rayDistance);
+
+        Gizmos.color = areaColor;
+        Gizmos.DrawWireSphere(transform.position, areaRadius);
+    }
+
+    Vector2 Axis => new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+    bool FlipSprite => Axis.x > 0f ? false : Axis.x < 0f ? true : spr.flipX;
+    bool IsJumping => Input.GetButtonDown("Jump");
+    bool Grounding => Physics2D.Raycast(transform.position, Vector2.down, rayDistance, detectionLayer);
+    bool Attack => Input.GetButtonDown("Fire1");
+    bool CanClimb => Physics2D.OverlapCircle(transform.position, areaRadius, areaDetectionLayer);
+
 }
