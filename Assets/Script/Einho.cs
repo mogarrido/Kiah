@@ -13,7 +13,8 @@ public class Einho : MonoBehaviour
     float moveSpeed = 2;
     [SerializeField, Range(0.1f, 15f)]
     float jumpForce = 7;
-
+    
+     
     SpriteRenderer spr;
     Animator anim;
     Rigidbody2D rb2D;
