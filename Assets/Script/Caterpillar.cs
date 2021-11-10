@@ -9,17 +9,49 @@ public class Caterpillar : Enemy
     [SerializeField]
     float patrolTime = 5f;
     float patrolTimer = 0f;
+    float sleepTimer = 0f;
+    [SerializeField]
+    AnimationClip attackClip;
+
+    //Attack area
+    [SerializeField, Range(0.1f, 20f)]
+    float areaRadius = 5f;
+    [SerializeField]
+    Color areaColor = Color.red;
+    [SerializeField]
+    LayerMask areaDetectionLayer;
+    IEnumerator actualCoroutine;
 
     void Start()
     {
+        actualCoroutine = IdleCoroutine(sleepTime, "patrol");
         StartCoroutine(IdleCoroutine(sleepTime, "patrol"));
+    }
+
+    void Update()
+    {
+        if(CanAttack && !isAttacking)
+        {
+            StartCoroutine(AttackCoroutine("attack", attackClip, actualCoroutine));
+            StopCoroutine(actualCoroutine);
+        }
     }
 
     public override IEnumerator IdleCoroutine(float duration, string stateName)
     {
         anim.SetBool(stateName, false);
-        yield return new WaitForSeconds(duration);
-        StartCoroutine(MovementCoroutine(patrolTime, "patrol"));
+        while(true)
+        {
+            sleepTimer += Time.deltaTime;
+            if(sleepTimer >= duration)
+            {
+                sleepTimer = 0f;
+                actualCoroutine = MovementCoroutine(patrolTime, "patrol");
+                StartCoroutine(actualCoroutine);
+                break;
+            }
+            yield return null;
+        }
     }
 
     public override IEnumerator MovementCoroutine(float duration, string stateName)
@@ -30,14 +62,24 @@ public class Caterpillar : Enemy
         while(true)
         {
             patrolTimer += Time.deltaTime;
-            if(patrolTimer >= patrolTime)
+            if(patrolTimer >= duration)
             {
                 patrolTimer = 0f;
-                StartCoroutine(IdleCoroutine(sleepTime, "patrol"));
+                actualCoroutine = IdleCoroutine(sleepTime, "patrol");
+                StartCoroutine(actualCoroutine);
                 break;
             }
             transform.Translate(direction * moveSpeed * Time.deltaTime);
             yield return null;
         }
     }
+
+    
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = areaColor;
+        Gizmos.DrawWireSphere(transform.position, areaRadius);
+    }
+
+    bool CanAttack => Physics2D.OverlapCircle(transform.position, areaRadius, areaDetectionLayer);
 }
