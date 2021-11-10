@@ -17,6 +17,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField, Range(0.1f, 15f)]
     protected float moveSpeed = 3f;
     protected bool isAttacking = false;
+    protected bool isMakingDamage = false;
     [SerializeField]
     float attackTime;
 
@@ -49,6 +50,7 @@ public abstract class Enemy : MonoBehaviour
         anim.SetTrigger(stateName);
         yield return new WaitForSeconds(clip.length + attackTime);
         isAttacking = false;
+        isMakingDamage = false;
         StartCoroutine(coroutine);
     }
 

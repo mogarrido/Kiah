@@ -146,5 +146,7 @@ public class Einho : MonoBehaviour
     bool Grounding => Physics2D.Raycast(transform.position, Vector2.down, rayDistance, detectionLayer);
     bool Attack => Input.GetButtonDown("Fire1");
     bool CanClimb => Physics2D.OverlapCircle(transform.position, areaRadius, areaDetectionLayer);
+    public int GetHealth => health;
+    public void RecivingDamage(int damage) => health -=  health - damage > 0 ? damage : health;
 
 }

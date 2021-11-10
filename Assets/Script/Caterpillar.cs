@@ -22,6 +22,11 @@ public class Caterpillar : Enemy
     LayerMask areaDetectionLayer;
     IEnumerator actualCoroutine;
 
+   [SerializeField]
+    Collider2D headcolliderLeft;
+    [SerializeField]
+    Collider2D headcolliderRight;
+
     void Start()
     {
         actualCoroutine = IdleCoroutine(sleepTime, "patrol");
@@ -82,4 +87,39 @@ public class Caterpillar : Enemy
     }
 
     bool CanAttack => Physics2D.OverlapCircle(transform.position, areaRadius, areaDetectionLayer);
+
+    void MakeDamageToPlayer()
+    {
+        GameManager.instance.GetPlayer.RecivingDamage(damage);
+        GameManager.instance.GetHealthBar.SetValue(GameManager.instance.GetPlayer.GetHealth);
+    }
+
+    void ActivateCollider()
+    {
+        if(spr.flipX)
+        {
+            headcolliderLeft.enabled = true;
+            headcolliderRight.enabled = false;
+        }
+        else
+        {
+            headcolliderLeft.enabled = false;
+            headcolliderRight.enabled = true;
+        }
+    }
+
+    void DesableCollider()
+    {
+        headcolliderLeft.enabled = false;
+        headcolliderRight.enabled = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(!isMakingDamage)
+        {
+            isMakingDamage = true;
+            MakeDamageToPlayer();
+        }
+    }
 }
