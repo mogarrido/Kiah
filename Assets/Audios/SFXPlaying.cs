@@ -26,10 +26,7 @@ public void PlayRestartPause () {
 public void PlayExitPause () {
   ExitPause.Play (); 
 }
-  void OnTriggerWalk () {
-    Einhowalk.Play ();
- }
-
+ 
 public void PlayKiahSong () {
   KiahSong.Play (); 
   
