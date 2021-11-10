@@ -11,6 +11,26 @@ public class GameManager : MonoBehaviour
     public GameObject Tutorial;
     public float coutTimer = 5;
     public TextMeshProUGUI playerMessage;
+    [SerializeField]
+    Einho player;
+    [SerializeField]
+    HealthBar healthBar;
+
+    public static GameManager instance;
+
+    void Awake()
+    {
+        if(instance)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+            instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,5 +90,8 @@ public class GameManager : MonoBehaviour
     {
 
     }
+
+    public HealthBar GetHealthBar => healthBar;
+    public Einho GetPlayer => player;
 
 }

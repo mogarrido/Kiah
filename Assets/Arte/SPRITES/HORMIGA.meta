@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Arte/SPRITES/HORMIGA.meta
 guid: 0430559963c11f0498d3daccdc257687
+=======
+guid: 3eefdf4f1f699d84f90b8bf203a8bd4c
+>>>>>>> jesusc:Assets/Audios/Foley.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
