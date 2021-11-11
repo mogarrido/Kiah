@@ -26,7 +26,6 @@ public class Caterpillar : Enemy
     Collider2D headcolliderLeft;
     [SerializeField]
     Collider2D headcolliderRight;
-
     void Start()
     {
         actualCoroutine = IdleCoroutine(sleepTime, "patrol");
