@@ -1,22 +1,37 @@
 fileFormatVersion: 2
-guid: b26c70cda8e11394eb50cd9eb5cf9675
+guid: 7517726118e308c43b66a0a675cecb42
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4792180631039908476
-    second: Transformation Powerfulmode1_0
+      213: 5173217925277178883
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (27)_0"
   - first:
-      213: -7862172801634722657
-    second: Transformation Powerfulmode1_1
+      213: -8445268754005737488
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (27)_1"
   - first:
-      213: 6384468540554014468
-    second: Transformation Powerfulmode1_2
+      213: 3421557604158371337
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (27)_2"
   - first:
-      213: 7403702874744652845
-    second: Transformation Powerfulmode1_3
+      213: -8263126544721774719
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (27)_3"
   - first:
-      213: 7526500425436601799
-    second: Transformation Powerfulmode1_4
+      213: 2847986627611127921
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (27)_4"
+  - first:
+      213: -247394852483868002
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (27)_5"
+  - first:
+      213: 8012587417632051528
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (27)_14"
+  - first:
+      213: 7517414579582483038
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (27)_24"
+  - first:
+      213: -2726453031105221971
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (27)_27"
+  - first:
+      213: 6500607382087060291
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (27)_32"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -130,13 +145,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Transformation Powerfulmode1_0
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (27)_0"
       rect:
         serializedVersion: 2
-        x: 416
-        y: 207
-        width: 216
-        height: 724
+        x: 26
+        y: 562
+        width: 809
+        height: 524
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7a14a4d4ee318240800000000000000
-      internalID: 4792180631039908476
+      spriteID: 30c54dd4b46fac740800000000000000
+      internalID: 5173217925277178883
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Transformation Powerfulmode1_1
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (27)_1"
       rect:
         serializedVersion: 2
-        x: 682
-        y: 218
-        width: 212
-        height: 699
+        x: 910
+        y: 549
+        width: 784
+        height: 535
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9c13d31e73f3e290800000000000000
-      internalID: -7862172801634722657
+      spriteID: 0ff38cc20d06cca80800000000000000
+      internalID: -8445268754005737488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Transformation Powerfulmode1_2
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (27)_2"
       rect:
         serializedVersion: 2
-        x: 969
-        y: 225
-        width: 189
-        height: 695
+        x: 1748
+        y: 560
+        width: 810
+        height: 524
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,20 +201,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40fe06faf403a9850800000000000000
-      internalID: 6384468540554014468
+      spriteID: 90675664380db7f20800000000000000
+      internalID: 3421557604158371337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Transformation Powerfulmode1_3
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (27)_3"
       rect:
         serializedVersion: 2
-        x: 1226
-        y: 222
-        width: 203
-        height: 667
+        x: 2688
+        y: 549
+        width: 785
+        height: 535
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,20 +222,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2481bfb98c3fb660800000000000000
-      internalID: 7403702874744652845
+      spriteID: 187f1cfff2a735d80800000000000000
+      internalID: -8263126544721774719
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Transformation Powerfulmode1_4
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (27)_4"
       rect:
         serializedVersion: 2
-        x: 1496
-        y: 223
-        width: 115
-        height: 652
+        x: 68
+        y: 14
+        width: 810
+        height: 524
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,8 +243,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cd99f38240837860800000000000000
-      internalID: 7526500425436601799
+      spriteID: 170f2df9fb4168720800000000000000
+      internalID: 2847986627611127921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (27)_5"
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 5
+        width: 786
+        height: 536
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9a507241b3119cf0800000000000000
+      internalID: -247394852483868002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (27)_14"
+      rect:
+        serializedVersion: 2
+        x: 1776
+        y: 10
+        width: 823
+        height: 535
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84119b7cdcd623f60800000000000000
+      internalID: 8012587417632051528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (27)_24"
+      rect:
+        serializedVersion: 2
+        x: 2903
+        y: 13
+        width: 825
+        height: 493
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5a3b5d2bb8335860800000000000000
+      internalID: 7517414579582483038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (27)_27"
+      rect:
+        serializedVersion: 2
+        x: 2069
+        y: 180
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daaaf20e961b92ad0800000000000000
+      internalID: -2726453031105221971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (27)_32"
+      rect:
+        serializedVersion: 2
+        x: 2222
+        y: 77
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34bc499e8fbc63a50800000000000000
+      internalID: 6500607382087060291
       vertices: []
       indices: 
       edges: []

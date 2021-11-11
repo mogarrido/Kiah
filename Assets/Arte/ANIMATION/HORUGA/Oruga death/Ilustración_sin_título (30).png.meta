@@ -1,37 +1,49 @@
 fileFormatVersion: 2
-guid: cce78befa89c33d48896c516cf8f699f
+guid: 92ec621af3fa2f440930e95ebf528d73
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8008624858148974562
-    second: Death Powerfulmode1_0
+      213: 7486381698058596339
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (30)_1"
   - first:
-      213: -2988993560431223511
-    second: Death Powerfulmode1_2
+      213: 5902938196523185162
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (30)_3"
   - first:
-      213: 4880286733409004539
-    second: Death Powerfulmode1_3
+      213: 2919092244060813829
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (30)_4"
   - first:
-      213: -3967873109478781203
-    second: Death Powerfulmode1_4
+      213: 5261280533948581271
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (30)_19"
   - first:
-      213: -5402775204570865384
-    second: Death Powerfulmode1_5
+      213: 5726838754951438936
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (30)_27"
   - first:
-      213: 3171223384613094512
-    second: Death Powerfulmode1_7
+      213: 8565412113479166648
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (30)_57"
   - first:
-      213: 1516457731694080325
-    second: Death Powerfulmode1_18
+      213: -8410574570315688264
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (30)_58"
   - first:
-      213: -8729898726236153316
-    second: Death Powerfulmode1_1
+      213: -3333673141255663703
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (30)_59"
   - first:
-      213: 5516991006879493895
-    second: Death Powerfulmode1_6
+      213: 6501744355831503779
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (30)_60"
   - first:
-      213: 4788152599724637017
-    second: Death Powerfulmode1_8
+      213: 4920292134748312759
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (30)_61"
+  - first:
+      213: 5019408151659598868
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (30)_62"
+  - first:
+      213: 2487078592353990330
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (30)_63"
+  - first:
+      213: 6879882833694174169
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (30)_64"
+  - first:
+      213: 4092173973728057484
+    second: "Ilustraci\xF3n_sin_t\xEDtulo (30)_0"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -145,13 +157,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Death Powerfulmode1_0
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (30)_1"
       rect:
         serializedVersion: 2
-        x: 155
-        y: 164
-        width: 366
-        height: 393
+        x: 20
+        y: 499
+        width: 756
+        height: 573
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ef255180e9542f60800000000000000
-      internalID: 8008624858148974562
+      spriteID: 3ffa4c56d78f4e760800000000000000
+      internalID: 7486381698058596339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death Powerfulmode1_2
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (30)_3"
       rect:
         serializedVersion: 2
-        x: 676
-        y: 136
-        width: 430
-        height: 417
+        x: 874
+        y: 486
+        width: 831
+        height: 577
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92d11927136f486d0800000000000000
-      internalID: -2988993560431223511
+      spriteID: a0479deb3037be150800000000000000
+      internalID: 5902938196523185162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death Powerfulmode1_3
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (30)_4"
       rect:
         serializedVersion: 2
-        x: 1089
-        y: 158
-        width: 489
-        height: 425
+        x: 1741
+        y: 484
+        width: 776
+        height: 575
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfb25ea5de24ab340800000000000000
-      internalID: 4880286733409004539
+      spriteID: 50ab7d11ee2b28820800000000000000
+      internalID: 2919092244060813829
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death Powerfulmode1_4
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (30)_19"
       rect:
         serializedVersion: 2
-        x: 1625
-        y: 113
-        width: 474
-        height: 472
+        x: 3113
+        y: 682
+        width: 237
+        height: 310
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dee41bbfd684fe8c0800000000000000
-      internalID: -3967873109478781203
+      spriteID: 795cea925c2d30940800000000000000
+      internalID: 5261280533948581271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death Powerfulmode1_5
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (30)_27"
       rect:
         serializedVersion: 2
-        x: 3411
-        y: 95
-        width: 427
-        height: 475
+        x: 3507
+        y: 726
+        width: 221
+        height: 171
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 811e34a939c7505b0800000000000000
-      internalID: -5402775204570865384
+      spriteID: 85222da6181d97f40800000000000000
+      internalID: 5726838754951438936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death Powerfulmode1_7
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (30)_57"
       rect:
         serializedVersion: 2
-        x: 3882
-        y: 100
-        width: 403
-        height: 421
+        x: 87
+        y: 155
+        width: 161
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,20 +276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 074864fcdd2720c20800000000000000
-      internalID: 3171223384613094512
+      spriteID: 8bae0ca8fe47ed670800000000000000
+      internalID: 8565412113479166648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death Powerfulmode1_18
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (30)_58"
       rect:
         serializedVersion: 2
-        x: 1967
-        y: 120
-        width: 8
-        height: 7
+        x: 330
+        y: 168
+        width: 100
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,20 +297,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 541358eb54a8b0510800000000000000
-      internalID: 1516457731694080325
+      spriteID: 8b6566b4df2a74b80800000000000000
+      internalID: -8410574570315688264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death Powerfulmode1_1
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (30)_59"
       rect:
         serializedVersion: 2
-        x: 2110
-        y: 100
-        width: 477
-        height: 506
+        x: 568
+        y: 181
+        width: 84
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -306,20 +318,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1a1f898c5b29d680800000000000000
-      internalID: -8729898726236153316
+      spriteID: 9af023ac0f96cb1d0800000000000000
+      internalID: -3333673141255663703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death Powerfulmode1_6
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (30)_60"
       rect:
         serializedVersion: 2
-        x: 2604
-        y: 93
-        width: 406
-        height: 524
+        x: 755
+        y: 198
+        width: 52
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -327,20 +339,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70fa31a271a409c40800000000000000
-      internalID: 5516991006879493895
+      spriteID: 3abdcbd3b06da3a50800000000000000
+      internalID: 6501744355831503779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death Powerfulmode1_8
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (30)_61"
       rect:
         serializedVersion: 2
-        x: 3016
-        y: 88
-        width: 387
-        height: 526
+        x: 855
+        y: 202
+        width: 33
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -348,8 +360,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95b33f4bb6fe27240800000000000000
-      internalID: 4788152599724637017
+      spriteID: 7b452d2b0a3684440800000000000000
+      internalID: 4920292134748312759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (30)_62"
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 177
+        width: 81
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 414de56be1588a540800000000000000
+      internalID: 5019408151659598868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (30)_63"
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 168
+        width: 137
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab6fcb97dc0e38220800000000000000
+      internalID: 2487078592353990330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (30)_64"
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 155
+        width: 196
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9db26ae6cf04a7f50800000000000000
+      internalID: 6879882833694174169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ilustraci\xF3n_sin_t\xEDtulo (30)_0"
+      rect:
+        serializedVersion: 2
+        x: 2544
+        y: 531
+        width: 503
+        height: 538
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c88d82f3c825ac830800000000000000
+      internalID: 4092173973728057484
       vertices: []
       indices: 
       edges: []
