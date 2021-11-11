@@ -22,6 +22,11 @@ public class Inicio : MonoBehaviour
 
     public void StartGame()
     {
+        SceneManager.LoadScene("IntroVideo");
+    }
+
+     public void SkipIntro()
+    {
         SceneManager.LoadScene("SampleScene");
     }
 }

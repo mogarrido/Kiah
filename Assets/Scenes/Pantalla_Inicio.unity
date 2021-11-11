@@ -208,7 +208,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 196845422}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: Inicio, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:

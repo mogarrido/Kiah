@@ -39,6 +39,9 @@ public class Einho : MonoBehaviour
     [SerializeField]
     LayerMask areaDetectionLayer;
 
+    [SerializeField, Range(0, 20)]
+    protected int damage = 10;
+
     bool isClimbing = false;
 
     void Awake()
@@ -149,4 +152,16 @@ public class Einho : MonoBehaviour
     public int GetHealth => health;
     public void RecivingDamage(int damage) => health -=  health - damage > 0 ? damage : health;
 
+    void Vida()
+    {
+        if(health == 0)
+        {
+            
+        }
+    }
+
+    void MakeDamageToEnemy()
+    {
+        GameManager.instance.GetEnemy.RecivingDamage(damage);
+    }
 }
