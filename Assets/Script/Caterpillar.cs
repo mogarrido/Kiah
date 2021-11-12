@@ -141,5 +141,5 @@ public class Caterpillar : Enemy
         anim.SetBool("detection", Detection); 
     }
 
-    bool Detection => Physics2D.Raycast(transform.position, Vector2.down, rayDistance, detectionLayer);
+    bool Detection => Physics2D.Raycast(transform.position, direction, rayDistance, detectionLayer);
 }
