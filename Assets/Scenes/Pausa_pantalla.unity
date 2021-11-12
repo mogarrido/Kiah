@@ -425,6 +425,7 @@ GameObject:
   - component: {fileID: 377305191}
   - component: {fileID: 377305193}
   - component: {fileID: 377305192}
+  - component: {fileID: 377305194}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -489,6 +490,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377305190}
   m_CullTransparentMesh: 0
+--- !u!95 &377305194
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377305190}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 375ce2a8cec8c534cb35f8a9e695efe4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!850595691 &503263834
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -801,6 +821,7 @@ GameObject:
   - component: {fileID: 1000896824}
   - component: {fileID: 1000896823}
   - component: {fileID: 1000896826}
+  - component: {fileID: 1000896827}
   m_Layer: 5
   m_Name: 'Salir '
   m_TagString: Untagged
@@ -935,6 +956,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d048e167ac0a946a3c5db0dfae4936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1000896827
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000896821}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 87f6ea7754421ed418322558ae212f7f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1044954783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,6 +1062,7 @@ GameObject:
   - component: {fileID: 1095928267}
   - component: {fileID: 1095928266}
   - component: {fileID: 1095928269}
+  - component: {fileID: 1095928270}
   m_Layer: 5
   m_Name: Reanudar
   m_TagString: Untagged
@@ -1156,6 +1197,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d048e167ac0a946a3c5db0dfae4936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1095928270
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095928264}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 87f6ea7754421ed418322558ae212f7f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1410288102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,7 +1377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5, y: 396}
+  m_AnchoredPosition: {x: -11.148315, y: 323.2992}
   m_SizeDelta: {x: 1801.7749, y: 878.28687}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1474763756
