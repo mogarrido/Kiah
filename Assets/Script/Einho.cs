@@ -44,6 +44,7 @@ public class Einho : MonoBehaviour
     protected int damage = 10;
 
     bool isClimbing = false;
+    protected bool isMakingDamage = false;
 
     void Awake()
     {
@@ -120,6 +121,16 @@ public class Einho : MonoBehaviour
         anim.SetTrigger("attack");
         yield return new WaitForSeconds(attackClip.length);
         isAttacking = false;
+        
+    }
+
+     void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(!isMakingDamage)
+        {
+            isMakingDamage = true;
+            MakeDamageToEnemy();
+        }
     }
 
     void LateUpdate()
@@ -143,21 +154,11 @@ public class Einho : MonoBehaviour
         Gizmos.color = areaColor;
         Gizmos.DrawWireSphere(transform.position, areaRadius);
     }
-
-    Vector2 Axis => new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-    bool FlipSprite => Axis.x > 0f ? false : Axis.x < 0f ? true : spr.flipX;
-    bool IsJumping => Input.GetButtonDown("Jump");
-    bool Grounding => Physics2D.Raycast(transform.position, Vector2.down, rayDistance, detectionLayer);
-    bool Attack => Input.GetButtonDown("Fire1");
-    bool CanClimb => Physics2D.OverlapCircle(transform.position, areaRadius, areaDetectionLayer);
-    public int GetHealth => health;
-    public void RecivingDamage(int damage) => health -=  health - damage > 0 ? damage : health;
-
     void Vida()
     {
         if(GetHealth == 0)
         {
-            GameOver();
+            anim.SetTrigger("die");
         }
     }
 
@@ -170,4 +171,14 @@ public class Einho : MonoBehaviour
     {
         SceneManager.LoadScene("GameOver");
     }
+
+    Vector2 Axis => new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+    bool FlipSprite => Axis.x > 0f ? false : Axis.x < 0f ? true : spr.flipX;
+    bool IsJumping => Input.GetButtonDown("Jump");
+    bool Grounding => Physics2D.Raycast(transform.position, Vector2.down, rayDistance, detectionLayer);
+    bool Attack => Input.GetButtonDown("Fire1");
+    bool CanClimb => Physics2D.OverlapCircle(transform.position, areaRadius, areaDetectionLayer);
+    public int GetHealth => health;
+    public void RecivingDamage(int damage) => health -=  health - damage > 0 ? damage : health;
+
 }
