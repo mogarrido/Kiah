@@ -89,7 +89,6 @@ public class GameManager : MonoBehaviour
 
     public HealthBar GetHealthBar => healthBar;
     public Einho GetPlayer => player;
-
     public Enemy GetEnemy => enemy;
 
 }
