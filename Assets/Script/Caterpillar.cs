@@ -26,6 +26,15 @@ public class Caterpillar : Enemy
     Collider2D headcolliderLeft;
     [SerializeField]
     Collider2D headcolliderRight;
+
+     //Raycast things
+    [SerializeField, Range(0.1f, 20f)]
+    float rayDistance = 5f;
+    [SerializeField]
+    Color rayColor = Color.red;
+    [SerializeField]
+    LayerMask detectionLayer;
+
     void Start()
     {
         actualCoroutine = IdleCoroutine(sleepTime, "patrol");
@@ -76,6 +85,11 @@ public class Caterpillar : Enemy
             transform.Translate(direction * moveSpeed * Time.deltaTime);
             yield return null;
         }
+
+        if(Detection)
+        {
+            spr.flipX = !spr.flipX;
+        }
     }
 
     
@@ -121,4 +135,11 @@ public class Caterpillar : Enemy
             MakeDamageToPlayer();
         }
     }
+
+    void LateUpdate()
+    {
+        anim.SetBool("detection", Detection); 
+    }
+
+    bool Detection => Physics2D.Raycast(transform.position, Vector2.down, rayDistance, detectionLayer);
 }
