@@ -45,8 +45,13 @@ public class Caterpillar : Enemy
     {
         if(CanAttack && !isAttacking)
         {
+            lastFlip = spr.flipX;
             StartCoroutine(AttackCoroutine("attack", attackClip, actualCoroutine));
             StopCoroutine(actualCoroutine);
+        }
+        if(isAttacking && CanAttack)
+        {
+            spr.flipX = RightRay ? false : LeftRay ? true : spr.flipX;
         }
     }
 
@@ -86,10 +91,10 @@ public class Caterpillar : Enemy
             yield return null;
         }
 
-        if(Detection)
+        /*if(Detection)
         {
             spr.flipX = !spr.flipX;
-        }
+        }*/
     }
 
     
@@ -97,6 +102,9 @@ public class Caterpillar : Enemy
     {
         Gizmos.color = areaColor;
         Gizmos.DrawWireSphere(transform.position, areaRadius);
+        Gizmos.color = rayColor;
+        Gizmos.DrawRay(transform.position, Vector2.right * rayDistance);
+        Gizmos.DrawRay(transform.position, Vector2.left * rayDistance);
     }
 
     bool CanAttack => Physics2D.OverlapCircle(transform.position, areaRadius, areaDetectionLayer);
@@ -138,8 +146,10 @@ public class Caterpillar : Enemy
 
     void LateUpdate()
     {
-        anim.SetBool("detection", Detection); 
+        //anim.SetBool("detection", Detection); 
     }
 
-    bool Detection => Physics2D.Raycast(transform.position, direction, rayDistance, detectionLayer);
+    bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, rayDistance, detectionLayer);
+    bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, rayDistance, detectionLayer);
+
 }

@@ -14,8 +14,7 @@ public class Einho : MonoBehaviour
     float moveSpeed = 2;
     [SerializeField, Range(0.1f, 15f)]
     float jumpForce = 7;
-    
-     
+
     SpriteRenderer spr;
     Animator anim;
     Rigidbody2D rb2D;
@@ -121,10 +120,9 @@ public class Einho : MonoBehaviour
         anim.SetTrigger("attack");
         yield return new WaitForSeconds(attackClip.length);
         isAttacking = false;
-        
     }
 
-     void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerEnter2D(Collider2D collider)
     {
         if(!isMakingDamage)
         {
@@ -164,13 +162,15 @@ public class Einho : MonoBehaviour
 
     void MakeDamageToEnemy()
     {
-        GameManager.instance.GetEnemy.RecivingDamage(damage);
+        //GameManager.instance.GetEnemy.RecivingDamage(damage);
     }
 
     public void GameOver()
     {
         SceneManager.LoadScene("GameOver");
     }
+
+    
 
     Vector2 Axis => new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     bool FlipSprite => Axis.x > 0f ? false : Axis.x < 0f ? true : spr.flipX;
