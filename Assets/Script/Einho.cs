@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
@@ -154,14 +155,19 @@ public class Einho : MonoBehaviour
 
     void Vida()
     {
-        if(health == 0)
+        if(GetHealth == 0)
         {
-            
+            GameOver();
         }
     }
 
     void MakeDamageToEnemy()
     {
         GameManager.instance.GetEnemy.RecivingDamage(damage);
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 }
