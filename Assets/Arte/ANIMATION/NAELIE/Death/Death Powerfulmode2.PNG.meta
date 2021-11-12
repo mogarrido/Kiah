@@ -1,7 +1,43 @@
 fileFormatVersion: 2
 guid: 314b1319b6ee0894ba22c971ec60469d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7388348342596081335
+    second: Death Powerfulmode2_0
+  - first:
+      213: 2558218449628207393
+    second: Death Powerfulmode2_2
+  - first:
+      213: -1648463630988431648
+    second: Death Powerfulmode2_3
+  - first:
+      213: -6005660163953327557
+    second: Death Powerfulmode2_4
+  - first:
+      213: -4780003881581397817
+    second: Death Powerfulmode2_5
+  - first:
+      213: 5159999812798323244
+    second: Death Powerfulmode2_8
+  - first:
+      213: -7495944065586643177
+    second: Death Powerfulmode2_9
+  - first:
+      213: 8451753646868458898
+    second: Death Powerfulmode2_17
+  - first:
+      213: -3746375149189051982
+    second: Death Powerfulmode2_29
+  - first:
+      213: 985764973840722789
+    second: Death Powerfulmode2_1
+  - first:
+      213: 798504906169167619
+    second: Death Powerfulmode2_6
+  - first:
+      213: -5647966965213572809
+    second: Death Powerfulmode2_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +77,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,9 +111,297 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Death Powerfulmode2_0
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 164
+        width: 366
+        height: 393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 949e6bad350577990800000000000000
+      internalID: -7388348342596081335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death Powerfulmode2_2
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 136
+        width: 430
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12990fb302e908320800000000000000
+      internalID: 2558218449628207393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death Powerfulmode2_3
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 158
+        width: 489
+        height: 425
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eea8c1cf0b7f19e0800000000000000
+      internalID: -1648463630988431648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death Powerfulmode2_4
+      rect:
+        serializedVersion: 2
+        x: 1625
+        y: 113
+        width: 474
+        height: 472
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3209d576eb97aca0800000000000000
+      internalID: -6005660163953327557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death Powerfulmode2_5
+      rect:
+        serializedVersion: 2
+        x: 3436
+        y: 87
+        width: 402
+        height: 483
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c83a559bc30aadb0800000000000000
+      internalID: -4780003881581397817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death Powerfulmode2_8
+      rect:
+        serializedVersion: 2
+        x: 3882
+        y: 81
+        width: 419
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a1deaad700c9740800000000000000
+      internalID: 5159999812798323244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death Powerfulmode2_9
+      rect:
+        serializedVersion: 2
+        x: 2116
+        y: 349
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71fb28a669e09f790800000000000000
+      internalID: -7495944065586643177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death Powerfulmode2_17
+      rect:
+        serializedVersion: 2
+        x: 1967
+        y: 120
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29de4ba9929aa4570800000000000000
+      internalID: 8451753646868458898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death Powerfulmode2_29
+      rect:
+        serializedVersion: 2
+        x: 4141
+        y: 85
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b94c35a6a3320cc0800000000000000
+      internalID: -3746375149189051982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death Powerfulmode2_1
+      rect:
+        serializedVersion: 2
+        x: 3005
+        y: 71
+        width: 422
+        height: 515
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56b6cc955042ead00800000000000000
+      internalID: 985764973840722789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death Powerfulmode2_6
+      rect:
+        serializedVersion: 2
+        x: 2606
+        y: 73
+        width: 394
+        height: 517
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30fae934bfbd41b00800000000000000
+      internalID: 798504906169167619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death Powerfulmode2_7
+      rect:
+        serializedVersion: 2
+        x: 2120
+        y: 106
+        width: 460
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 731dd4728f36e91b0800000000000000
+      internalID: -5647966965213572809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
