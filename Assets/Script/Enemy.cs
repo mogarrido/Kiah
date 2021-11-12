@@ -21,7 +21,6 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]
     float attackTime;
 
-
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -53,5 +52,4 @@ public abstract class Enemy : MonoBehaviour
         isMakingDamage = false;
         StartCoroutine(coroutine);
     }
-
 }

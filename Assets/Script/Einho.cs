@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
@@ -38,6 +39,9 @@ public class Einho : MonoBehaviour
     Color areaColor = Color.red;
     [SerializeField]
     LayerMask areaDetectionLayer;
+
+    [SerializeField, Range(0, 20)]
+    protected int damage = 10;
 
     bool isClimbing = false;
 
@@ -149,4 +153,21 @@ public class Einho : MonoBehaviour
     public int GetHealth => health;
     public void RecivingDamage(int damage) => health -=  health - damage > 0 ? damage : health;
 
+    void Vida()
+    {
+        if(GetHealth == 0)
+        {
+            GameOver();
+        }
+    }
+
+    void MakeDamageToEnemy()
+    {
+        GameManager.instance.GetEnemy.RecivingDamage(damage);
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
 }

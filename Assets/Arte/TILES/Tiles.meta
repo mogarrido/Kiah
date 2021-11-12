@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Arte/SPRITES/ARAÑA_NAELIE.meta
+guid: 1df126b5dcc5f40478b1d478271f1dc4
+=======
 guid: f69db6cdda547fe4aabb967ae40b672e
+>>>>>>> jesusc:Assets/Arte/TILES/Tiles.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

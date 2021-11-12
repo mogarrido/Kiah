@@ -7,7 +7,6 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject GameOverObjetos;
     public GameObject Tutorial;
     public float coutTimer = 5;
     public TextMeshProUGUI playerMessage;
@@ -15,6 +14,7 @@ public class GameManager : MonoBehaviour
     Einho player;
     [SerializeField]
     HealthBar healthBar;
+    Enemy enemy;
 
     public static GameManager instance;
 
@@ -35,8 +35,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Tutorial.SetActive(true);
-        GameOverObjetos.SetActive(false);
-        Time.timeScale = 1;
         playerMessage.text = $"Utiliza A y D para mover el personaje de izquierda a derecha";
     }
 
@@ -81,9 +79,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        GameOverObjetos.SetActive(true);
-        Debug.Log("GAME OVER");
-        Time.timeScale = 0;
+        
     }
 
     public void Mensaje()
@@ -93,5 +89,7 @@ public class GameManager : MonoBehaviour
 
     public HealthBar GetHealthBar => healthBar;
     public Einho GetPlayer => player;
+
+    public Enemy GetEnemy => enemy;
 
 }

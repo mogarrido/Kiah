@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Arte/SPRITES.meta
+guid: f950954901fae934183bb710263b2e39
+=======
 guid: 6cce5d680f170254ebc0b3a2c2087504
+>>>>>>> jesusc:Assets/Arte/ANIMATION/Creditos.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
