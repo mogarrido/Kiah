@@ -157,6 +157,7 @@ public class Einho : MonoBehaviour
         if(GetHealth == 0)
         {
             anim.SetTrigger("die");
+            GameOver();
         }
     }
 
