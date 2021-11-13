@@ -9,4 +9,9 @@ public class HealthBar : MonoBehaviour
     Slider slider;
 
     public void SetValue(int health) => slider.value = health;
+
+    void vida()
+    {
+        
+    }
 }

@@ -45,6 +45,14 @@ public class Einho : MonoBehaviour
     bool isClimbing = false;
     protected bool isMakingDamage = false;
 
+
+    [SerializeField, Range(0.1f, 20f)]
+    float RayDistance = 5f;
+    [SerializeField]
+    Color RayColor = Color.red;
+    [SerializeField]
+    LayerMask DetectionLayer;
+
     void Awake()
     {
         spr = GetComponent<SpriteRenderer>();
@@ -120,6 +128,7 @@ public class Einho : MonoBehaviour
         anim.SetTrigger("attack");
         yield return new WaitForSeconds(attackClip.length);
         isAttacking = false;
+        isMakingDamage = false;
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -151,19 +160,29 @@ public class Einho : MonoBehaviour
 
         Gizmos.color = areaColor;
         Gizmos.DrawWireSphere(transform.position, areaRadius);
+
+        Gizmos.color = RayColor;
+        Gizmos.DrawRay(transform.position, Vector2.right * RayDistance);
+        Gizmos.DrawRay(transform.position, Vector2.left * RayDistance);
+
     }
     void Vida()
     {
-        if(GetHealth == 0)
+        if(health == 0)
         {
-            anim.SetTrigger("die");
+            anim.SetBool("die", true);
             GameOver();
+        }
+
+        else
+        {
+            anim.SetBool("die", false);
         }
     }
 
     void MakeDamageToEnemy()
     {
-        //GameManager.instance.GetEnemy.RecivingDamage(damage);
+        GameManager.instance.GetEnemy.RecivingDamage(damage);
     }
 
     public void GameOver()
@@ -181,5 +200,7 @@ public class Einho : MonoBehaviour
     bool CanClimb => Physics2D.OverlapCircle(transform.position, areaRadius, areaDetectionLayer);
     public int GetHealth => health;
     public void RecivingDamage(int damage) => health -=  health - damage > 0 ? damage : health;
+    bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, RayDistance, DetectionLayer);
+    bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, RayDistance, DetectionLayer);
 
 }
