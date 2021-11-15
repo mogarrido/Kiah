@@ -4925,6 +4925,8 @@ GameObject:
   - component: {fileID: 1510324161}
   - component: {fileID: 1510324160}
   - component: {fileID: 1510324162}
+  - component: {fileID: 1510324164}
+  - component: {fileID: 1510324163}
   m_Layer: 0
   m_Name: Avispa
   m_TagString: Untagged
@@ -5017,6 +5019,38 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &1510324163
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510324159}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.6518166, y: -0.14431363}
+  serializedVersion: 2
+  m_Radius: 2.232092
+--- !u!58 &1510324164
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510324159}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.2486124, y: -1.3604227}
+  serializedVersion: 2
+  m_Radius: 1.949657
 --- !u!1 &1516916786
 GameObject:
   m_ObjectHideFlags: 0
