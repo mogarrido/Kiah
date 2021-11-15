@@ -44,6 +44,7 @@ public class Einho : MonoBehaviour
 
     bool isClimbing = false;
     protected bool isMakingDamage = false;
+    string AnimationName  = "EINHO_DEATH";
 
 
     [SerializeField, Range(0.1f, 20f)]
@@ -52,6 +53,11 @@ public class Einho : MonoBehaviour
     Color RayColor = Color.red;
     [SerializeField]
     LayerMask DetectionLayer;
+
+    [SerializeField]
+    Collider2D headcolliderLeft;
+    [SerializeField]
+    Collider2D headcolliderRight;
 
     void Awake()
     {
@@ -166,23 +172,43 @@ public class Einho : MonoBehaviour
         Gizmos.DrawRay(transform.position, Vector2.left * RayDistance);
 
     }
-    void Vida()
+    public void Vida()
     {
         if(health == 0)
         {
-            anim.SetBool("die", true);
+            anim.Play(AnimationName);
             GameOver();
         }
 
         else
         {
-            anim.SetBool("die", false);
+            
         }
     }
 
     void MakeDamageToEnemy()
     {
         GameManager.instance.GetEnemy.RecivingDamage(damage);
+    }
+
+    void ActivateCollider()
+    {
+        if(spr.flipX)
+        {
+            headcolliderLeft.enabled = true;
+            headcolliderRight.enabled = false;
+        }
+        else
+        {
+            headcolliderLeft.enabled = false;
+            headcolliderRight.enabled = true;
+        }
+    }
+
+    void DesableCollider()
+    {
+        headcolliderLeft.enabled = false;
+        headcolliderRight.enabled = false;
     }
 
     public void GameOver()

@@ -144,6 +144,14 @@ public class Caterpillar : Enemy
         }
     }
 
+    public void Vida()
+    {
+        if (health == 0)
+        {
+            anim.SetTrigger("die");
+        }
+    }
+
     void LateUpdate()
     {
         //anim.SetBool("detection", Detection); 
