@@ -14,8 +14,7 @@ public class Einho : MonoBehaviour
     float moveSpeed = 2;
     [SerializeField, Range(0.1f, 15f)]
     float jumpForce = 7;
-    
-     
+
     SpriteRenderer spr;
     Animator anim;
     Rigidbody2D rb2D;
@@ -45,6 +44,20 @@ public class Einho : MonoBehaviour
 
     bool isClimbing = false;
     protected bool isMakingDamage = false;
+    string AnimationName  = "EINHO_DEATH";
+
+
+    [SerializeField, Range(0.1f, 20f)]
+    float RayDistance = 5f;
+    [SerializeField]
+    Color RayColor = Color.red;
+    [SerializeField]
+    LayerMask DetectionLayer;
+
+    [SerializeField]
+    Collider2D headcolliderLeft;
+    [SerializeField]
+    Collider2D headcolliderRight;
 
     void Awake()
     {
@@ -121,10 +134,10 @@ public class Einho : MonoBehaviour
         anim.SetTrigger("attack");
         yield return new WaitForSeconds(attackClip.length);
         isAttacking = false;
-        
+        isMakingDamage = false;
     }
 
-     void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerEnter2D(Collider2D collider)
     {
         if(!isMakingDamage)
         {
@@ -153,12 +166,23 @@ public class Einho : MonoBehaviour
 
         Gizmos.color = areaColor;
         Gizmos.DrawWireSphere(transform.position, areaRadius);
+
+        Gizmos.color = RayColor;
+        Gizmos.DrawRay(transform.position, Vector2.right * RayDistance);
+        Gizmos.DrawRay(transform.position, Vector2.left * RayDistance);
+
     }
-    void Vida()
+    public void Vida()
     {
-        if(GetHealth == 0)
+        if(health == 0)
         {
-            anim.SetTrigger("die");
+            anim.Play(AnimationName);
+            GameOver();
+        }
+
+        else
+        {
+            
         }
     }
 
@@ -167,10 +191,32 @@ public class Einho : MonoBehaviour
         GameManager.instance.GetEnemy.RecivingDamage(damage);
     }
 
+    void ActivateCollider()
+    {
+        if(spr.flipX)
+        {
+            headcolliderLeft.enabled = true;
+            headcolliderRight.enabled = false;
+        }
+        else
+        {
+            headcolliderLeft.enabled = false;
+            headcolliderRight.enabled = true;
+        }
+    }
+
+    void DesableCollider()
+    {
+        headcolliderLeft.enabled = false;
+        headcolliderRight.enabled = false;
+    }
+
     public void GameOver()
     {
         SceneManager.LoadScene("GameOver");
     }
+
+    
 
     Vector2 Axis => new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     bool FlipSprite => Axis.x > 0f ? false : Axis.x < 0f ? true : spr.flipX;
@@ -180,5 +226,7 @@ public class Einho : MonoBehaviour
     bool CanClimb => Physics2D.OverlapCircle(transform.position, areaRadius, areaDetectionLayer);
     public int GetHealth => health;
     public void RecivingDamage(int damage) => health -=  health - damage > 0 ? damage : health;
+    bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, RayDistance, DetectionLayer);
+    bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, RayDistance, DetectionLayer);
 
 }

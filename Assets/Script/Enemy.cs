@@ -20,6 +20,7 @@ public abstract class Enemy : MonoBehaviour
     protected bool isMakingDamage = false;
     [SerializeField]
     float attackTime;
+    protected bool lastFlip = false;
 
     void Awake()
     {

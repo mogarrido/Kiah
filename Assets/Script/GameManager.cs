@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     Einho player;
     [SerializeField]
     HealthBar healthBar;
+    [SerializeField]
     Enemy enemy;
 
     public static GameManager instance;
@@ -89,7 +90,6 @@ public class GameManager : MonoBehaviour
 
     public HealthBar GetHealthBar => healthBar;
     public Einho GetPlayer => player;
-
     public Enemy GetEnemy => enemy;
 
 }
