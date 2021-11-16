@@ -188,7 +188,7 @@ public class Einho : MonoBehaviour
 
     void MakeDamageToEnemy()
     {
-        GameManager.instance.GetEnemy.RecivingDamage(damage);
+        // GameManager.instance.GetEnemy.RecivingDamage(damage);
     }
 
     void ActivateCollider()
