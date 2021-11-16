@@ -8,6 +8,12 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Einho : MonoBehaviour
 {
+    [SerializeField]
+    VCamController vcamController;
+    [SerializeField]
+    float ortoSizeNormal = 6f;
+    [SerializeField]
+    float ortoSizeClimb = 10f;
     [SerializeField, Range(0, 100)]
     int health = 100;
     [SerializeField, Range(0.1f, 15f)]
@@ -85,6 +91,7 @@ public class Einho : MonoBehaviour
         {
             isClimbing = true;
             spr.flipX = false;
+            vcamController.OrtoSize = ortoSizeClimb;
         }
         else
         {
@@ -95,6 +102,7 @@ public class Einho : MonoBehaviour
                 {
                     anim.SetBool("climb", false);
                     rb2D.isKinematic = false;
+                    vcamController.OrtoSize = ortoSizeNormal;
                 }
             }
         }
