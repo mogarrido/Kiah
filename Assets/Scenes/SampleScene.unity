@@ -1575,7 +1575,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489791332}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.626236, z: -21.556454}
+  m_LocalPosition: {x: 0, y: 5.626234, z: -21.556454}
   m_LocalScale: {x: 2.1556454, y: 2.1556454, z: 2.1556454}
   m_Children:
   - {fileID: 2057264382}
@@ -1797,10 +1797,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.626236, z: -21.556454}
+  m_LocalPosition: {x: 0, y: 5.626234, z: -21.556454}
   m_LocalScale: {x: 2.1556454, y: 2.1556454, z: 2.1556454}
-  m_Children:
-  - {fileID: 712565172}
+  m_Children: []
   m_Father: {fileID: 1571566620}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2160,7 +2159,7 @@ GameObject:
   - component: {fileID: 712565172}
   - component: {fileID: 712565171}
   m_Layer: 0
-  m_Name: Music
+  m_Name: BGAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2178,7 +2177,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f3f14cbb008ca074dac2001af7c386a8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2269,12 +2268,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712565170}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.58, y: 31.45, z: -16.83435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 519420032}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &767038342
 GameObject:
@@ -5631,7 +5630,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571566616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.58, y: 28.84, z: -6.83435}
+  m_LocalPosition: {x: 14.58, y: -1.2, z: -6.83435}
   m_LocalScale: {x: 0.4638982, y: 0.4638982, z: 0.4638982}
   m_Children:
   - {fileID: 519420032}
@@ -5676,6 +5675,8 @@ MonoBehaviour:
     m_Bits: 512
   headcolliderLeft: {fileID: 1571566626}
   headcolliderRight: {fileID: 1571566625}
+  footSteps: {fileID: 1571566624}
+  footstepsDelay: 0.4
 --- !u!95 &1571566622
 Animator:
   serializedVersion: 3
@@ -5705,11 +5706,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8e0f70de5c2999941beab4ef82bb1a29, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -5803,6 +5804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a7fea826c65cf4899ebd561fd03888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stepsSFX: {fileID: 8300000, guid: 8e0f70de5c2999941beab4ef82bb1a29, type: 3}
 --- !u!58 &1571566625
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6857,7 +6859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1861670287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6876,6 +6878,7 @@ MonoBehaviour:
   ExitPause: {fileID: 0}
   KiahSong: {fileID: 712565171}
   MenuSoundtrack: {fileID: 0}
+  bgMusicVolume: 0
 --- !u!4 &1861670288
 Transform:
   m_ObjectHideFlags: 0

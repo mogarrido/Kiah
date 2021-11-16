@@ -65,6 +65,11 @@ public class Einho : MonoBehaviour
     [SerializeField]
     Collider2D headcolliderRight;
 
+    [SerializeField]
+    FootStepEinho footSteps;
+    [SerializeField]
+    float footstepsDelay = 2f;
+    bool canPlayFootsteps = true;
     bool diying = false;
 
     void Awake()
@@ -116,8 +121,21 @@ public class Einho : MonoBehaviour
         }
     }
 
+    IEnumerator PlayFootSteps()
+    {
+        footSteps.PlayFootSteps();
+        yield return new WaitForSeconds(footstepsDelay);
+        canPlayFootsteps = true;
+    }
+
     void Movement()
     {
+        if(IsWalking && canPlayFootsteps)
+        {
+            canPlayFootsteps = false;
+            StartCoroutine(PlayFootSteps());
+        }
+
         transform.Translate(Vector2.right * Axis.x * moveSpeed * Time.deltaTime);
         if(!isClimbing)
         {
@@ -239,4 +257,5 @@ public class Einho : MonoBehaviour
     bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, RayDistance, DetectionLayer);
     bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, RayDistance, DetectionLayer);
     bool Die => health == 0;
+    bool IsWalking => Grounding && Axis.x != 0f;
 }
