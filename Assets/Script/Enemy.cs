@@ -27,6 +27,9 @@ public abstract class Enemy : MonoBehaviour
     protected bool diying = false;
     protected bool isRecivingDamage = false;
 
+    [SerializeField]
+    Object srcStar;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -41,7 +44,11 @@ public abstract class Enemy : MonoBehaviour
 
     public int GetDamage => damage;
 
-    public void DeleteFromScene() => Destroy(gameObject);
+    public void DeleteFromScene()
+    {
+        Instantiate(srcStar, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
 
     public virtual IEnumerator IdleCoroutine(float duration, string stateName)
     {

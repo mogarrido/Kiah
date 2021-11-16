@@ -192,6 +192,12 @@ public class Einho : MonoBehaviour
                 MakeDamageToEnemy(enemy);
             }
         }
+
+        if(collider.CompareTag("Estrella"))
+        {
+            StarCollectable star = collider.GetComponent<StarCollectable>();
+            star.Collect();
+        }
     }
 
     void LateUpdate()
