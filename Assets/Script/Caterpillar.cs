@@ -10,8 +10,6 @@ public class Caterpillar : Enemy
     float patrolTime = 5f;
     float patrolTimer = 0f;
     float sleepTimer = 0f;
-    [SerializeField]
-    AnimationClip attackClip;
 
     //Attack area
     [SerializeField, Range(0.1f, 20f)]
@@ -43,6 +41,15 @@ public class Caterpillar : Enemy
 
     void Update()
     {
+        if (Die)
+        {
+            if(!diying)
+            {
+                diying = true;
+                anim.SetTrigger("die");
+            }
+            return;
+        }
         if(CanAttack && !isAttacking)
         {
             lastFlip = spr.flipX;
@@ -144,14 +151,6 @@ public class Caterpillar : Enemy
         }
     }
 
-    public void Vida()
-    {
-        if (health == 0)
-        {
-            anim.SetTrigger("die");
-        }
-    }
-
     void LateUpdate()
     {
         //anim.SetBool("detection", Detection); 
@@ -159,5 +158,6 @@ public class Caterpillar : Enemy
 
     bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, rayDistance, detectionLayer);
     bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, rayDistance, detectionLayer);
+    bool Die => health == 0;
 
 }

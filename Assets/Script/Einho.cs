@@ -152,6 +152,7 @@ public class Einho : MonoBehaviour
     void MakeDamageToEnemy(Enemy enemy)
     {
         enemy.RecivingDamage(damage);
+        enemy.IsRecivingDamage = true;
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -176,7 +177,7 @@ public class Einho : MonoBehaviour
 
     void Climb()
     {
-        transform.Translate(Axis * moveSpeed * Time.deltaTime);
+        transform.Translate(Axis.normalized * moveSpeed * Time.deltaTime);
         rb2D.isKinematic = true;
     }
 

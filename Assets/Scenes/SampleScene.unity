@@ -6119,7 +6119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b7612d9c96d4f458f991a64e0a3ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 30
   damage: 10
   direction: {x: -1, y: 0}
   moveSpeed: 2

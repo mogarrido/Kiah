@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public abstract class Enemy : MonoBehaviour
 {
+    [SerializeField]
+    protected AnimationClip attackClip;
     protected Animator anim;
     protected SpriteRenderer spr;
     [SerializeField, Range(0, 200)]
@@ -22,17 +24,24 @@ public abstract class Enemy : MonoBehaviour
     float attackTime;
     protected bool lastFlip = false;
 
+    protected bool diying = false;
+    protected bool isRecivingDamage = false;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
         spr = GetComponent<SpriteRenderer>();
     }
 
+    public bool IsRecivingDamage { get => isRecivingDamage; set => isRecivingDamage = value;}
+
     public int GetHealth => health;
 
     public void RecivingDamage(int damage) => health -=  health - damage > 0 ? damage : health;
 
     public int GetDamage => damage;
+
+    public void DeleteFromScene() => Destroy(gameObject);
 
     public virtual IEnumerator IdleCoroutine(float duration, string stateName)
     {
@@ -51,6 +60,13 @@ public abstract class Enemy : MonoBehaviour
         yield return new WaitForSeconds(clip.length + attackTime);
         isAttacking = false;
         isMakingDamage = false;
+        spr.flipX = lastFlip;
         StartCoroutine(coroutine);
+    }
+
+    public IEnumerator CanelAttackDelay()
+    {
+        yield return new WaitForSeconds(attackClip.length);
+        isRecivingDamage = false;
     }
 }
