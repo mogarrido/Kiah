@@ -10,6 +10,7 @@ TagManager:
   - Limit
   - Ladder
   - Estrella
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 3473913195
+    locked: 0
+  - name: item
+    uniqueID: 1877197119
     locked: 0
   - name: Player
     uniqueID: 68366699
