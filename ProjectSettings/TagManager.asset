@@ -10,6 +10,7 @@ TagManager:
   - Limit
   - Ladder
   - Estrella
+  - Enemy
   layers:
   - Default
   - TransparentFX

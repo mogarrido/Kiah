@@ -1170,19 +1170,7 @@ MonoBehaviour:
   m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1571566621}
-        m_TargetAssemblyTypeName: Einho, Assembly-CSharp
-        m_MethodName: Vida
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &460662377
 GameObject:
   m_ObjectHideFlags: 0
@@ -2854,7 +2842,6 @@ MonoBehaviour:
   playerMessage: {fileID: 593787079}
   player: {fileID: 1571566621}
   healthBar: {fileID: 516531066}
-  enemy: {fileID: 1596949338}
 --- !u!4 &912483897
 Transform:
   m_ObjectHideFlags: 0
@@ -5669,8 +5656,8 @@ MonoBehaviour:
   DetectionLayer:
     serializedVersion: 2
     m_Bits: 512
-  headcolliderLeft: {fileID: 1571566617}
-  headcolliderRight: {fileID: 1571566617}
+  headcolliderLeft: {fileID: 1571566626}
+  headcolliderRight: {fileID: 1571566625}
 --- !u!95 &1571566622
 Animator:
   serializedVersion: 3
@@ -5827,9 +5814,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -3.98, y: -2}
+  m_Offset: {x: -2.63, y: -3.04}
   serializedVersion: 2
-  m_Radius: 1.2703345
+  m_Radius: 1.12
 --- !u!1 &1571906289
 GameObject:
   m_ObjectHideFlags: 0
@@ -6030,7 +6017,7 @@ GameObject:
   - component: {fileID: 1596949340}
   m_Layer: 9
   m_Name: Caterpillar
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

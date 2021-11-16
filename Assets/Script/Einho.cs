@@ -59,6 +59,8 @@ public class Einho : MonoBehaviour
     [SerializeField]
     Collider2D headcolliderRight;
 
+    bool diying = false;
+
     void Awake()
     {
         spr = GetComponent<SpriteRenderer>();
@@ -68,6 +70,16 @@ public class Einho : MonoBehaviour
 
     void Update()
     {
+
+        if(Die)
+        {
+            if(!diying)
+            {
+                diying = true;
+                anim.SetTrigger("die");
+            }
+            return;
+        }
         Movement();
         if(CanClimb && Axis.y > 0f)
         {
@@ -137,12 +149,21 @@ public class Einho : MonoBehaviour
         isMakingDamage = false;
     }
 
+    void MakeDamageToEnemy(Enemy enemy)
+    {
+        enemy.RecivingDamage(damage);
+    }
+
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(!isMakingDamage)
+        if(collider.CompareTag("Enemy"))
         {
-            isMakingDamage = true;
-            MakeDamageToEnemy();
+            if(!isMakingDamage)
+            {
+                isMakingDamage = true;
+                Enemy enemy = collider.GetComponent<Enemy>();
+                MakeDamageToEnemy(enemy);
+            }
         }
     }
 
@@ -172,24 +193,6 @@ public class Einho : MonoBehaviour
         Gizmos.DrawRay(transform.position, Vector2.left * RayDistance);
 
     }
-    public void Vida()
-    {
-        if(health == 0)
-        {
-            anim.Play(AnimationName);
-            GameOver();
-        }
-
-        else
-        {
-            
-        }
-    }
-
-    void MakeDamageToEnemy()
-    {
-        // GameManager.instance.GetEnemy.RecivingDamage(damage);
-    }
 
     void ActivateCollider()
     {
@@ -216,8 +219,6 @@ public class Einho : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
-    
-
     Vector2 Axis => new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     bool FlipSprite => Axis.x > 0f ? false : Axis.x < 0f ? true : spr.flipX;
     bool IsJumping => Input.GetButtonDown("Jump");
@@ -228,5 +229,5 @@ public class Einho : MonoBehaviour
     public void RecivingDamage(int damage) => health -=  health - damage > 0 ? damage : health;
     bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, RayDistance, DetectionLayer);
     bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, RayDistance, DetectionLayer);
-
+    bool Die => health == 0;
 }
