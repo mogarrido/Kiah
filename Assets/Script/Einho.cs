@@ -8,6 +8,12 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Einho : MonoBehaviour
 {
+    [SerializeField]
+    VCamController vcamController;
+    [SerializeField]
+    float ortoSizeNormal = 6f;
+    [SerializeField]
+    float ortoSizeClimb = 10f;
     [SerializeField, Range(0, 100)]
     int health = 100;
     [SerializeField, Range(0.1f, 15f)]
@@ -59,6 +65,13 @@ public class Einho : MonoBehaviour
     [SerializeField]
     Collider2D headcolliderRight;
 
+    [SerializeField]
+    FootStepEinho footSteps;
+    [SerializeField]
+    float footstepsDelay = 2f;
+    bool canPlayFootsteps = true;
+    bool diying = false;
+
     void Awake()
     {
         spr = GetComponent<SpriteRenderer>();
@@ -68,11 +81,22 @@ public class Einho : MonoBehaviour
 
     void Update()
     {
+
+        if(Die)
+        {
+            if(!diying)
+            {
+                diying = true;
+                anim.SetTrigger("die");
+            }
+            return;
+        }
         Movement();
         if(CanClimb && Axis.y > 0f)
         {
             isClimbing = true;
             spr.flipX = false;
+            vcamController.OrtoSize = ortoSizeClimb;
         }
         else
         {
@@ -83,6 +107,7 @@ public class Einho : MonoBehaviour
                 {
                     anim.SetBool("climb", false);
                     rb2D.isKinematic = false;
+                    vcamController.OrtoSize = ortoSizeNormal;
                 }
             }
         }
@@ -96,8 +121,21 @@ public class Einho : MonoBehaviour
         }
     }
 
+    IEnumerator PlayFootSteps()
+    {
+        footSteps.PlayFootSteps();
+        yield return new WaitForSeconds(footstepsDelay);
+        canPlayFootsteps = true;
+    }
+
     void Movement()
     {
+        if(IsWalking && canPlayFootsteps)
+        {
+            canPlayFootsteps = false;
+            StartCoroutine(PlayFootSteps());
+        }
+
         transform.Translate(Vector2.right * Axis.x * moveSpeed * Time.deltaTime);
         if(!isClimbing)
         {
@@ -137,12 +175,28 @@ public class Einho : MonoBehaviour
         isMakingDamage = false;
     }
 
+    void MakeDamageToEnemy(Enemy enemy)
+    {
+        enemy.RecivingDamage(damage);
+        enemy.IsRecivingDamage = true;
+    }
+
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(!isMakingDamage)
+        if(collider.CompareTag("Enemy"))
         {
-            isMakingDamage = true;
-            MakeDamageToEnemy();
+            if(!isMakingDamage)
+            {
+                isMakingDamage = true;
+                Enemy enemy = collider.GetComponent<Enemy>();
+                MakeDamageToEnemy(enemy);
+            }
+        }
+
+        if(collider.CompareTag("Estrella"))
+        {
+            StarCollectable star = collider.GetComponent<StarCollectable>();
+            star.Collect();
         }
     }
 
@@ -155,7 +209,7 @@ public class Einho : MonoBehaviour
 
     void Climb()
     {
-        transform.Translate(Axis * moveSpeed * Time.deltaTime);
+        transform.Translate(Axis.normalized * moveSpeed * Time.deltaTime);
         rb2D.isKinematic = true;
     }
 
@@ -171,24 +225,6 @@ public class Einho : MonoBehaviour
         Gizmos.DrawRay(transform.position, Vector2.right * RayDistance);
         Gizmos.DrawRay(transform.position, Vector2.left * RayDistance);
 
-    }
-    public void Vida()
-    {
-        if(health == 0)
-        {
-            anim.Play(AnimationName);
-            GameOver();
-        }
-
-        else
-        {
-            
-        }
-    }
-
-    void MakeDamageToEnemy()
-    {
-        GameManager.instance.GetEnemy.RecivingDamage(damage);
     }
 
     void ActivateCollider()
@@ -216,8 +252,6 @@ public class Einho : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
-    
-
     Vector2 Axis => new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     bool FlipSprite => Axis.x > 0f ? false : Axis.x < 0f ? true : spr.flipX;
     bool IsJumping => Input.GetButtonDown("Jump");
@@ -228,5 +262,6 @@ public class Einho : MonoBehaviour
     public void RecivingDamage(int damage) => health -=  health - damage > 0 ? damage : health;
     bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, RayDistance, DetectionLayer);
     bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, RayDistance, DetectionLayer);
-
+    bool Die => health == 0;
+    bool IsWalking => Grounding && Axis.x != 0f;
 }
