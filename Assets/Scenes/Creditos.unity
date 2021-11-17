@@ -692,6 +692,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2141637442}
   - component: {fileID: 2141637443}
+  - component: {fileID: 2141637444}
   m_Layer: 5
   m_Name: Creditos
   m_TagString: Untagged
@@ -738,3 +739,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2141637444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141637441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb61b81d18943b1489862c24b6fdf37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
