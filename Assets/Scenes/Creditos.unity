@@ -268,10 +268,10 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\n\n\nEquipo Estrellitas \n\r\n\nEscritora:   Adela Andrea Mendoza Mejia
-    \n\nDirecci\xF3n:   Montserrat Elizabeth Garrido Zavala\n\n\nProgramaci\xF3n\n\nLead
-    Programmer:   Ludwika Jeanette Garc\xEDa Aceves\n\nProgrammers:    Ludwika Jeanette
-    Garc\xEDa Aceves\n\nAdditional Programmer support: Montserrat Elizabeth Garrido
-    Zavala, Samantha Michelle\nGonzales Rodriguez\n\n\nProducci\xF3n\n\nDirectora
+    \n\nDirecci\xF3n:   Montserrat Elizabeth Garrido Zavala\n\n\nProgramaci\xF3n\n\nLider
+    de programaci\xF3n:   Ludwika Jeanette Garc\xEDa Aceves\n\nProgramadores:   
+    Ludwika Jeanette Garc\xEDa Aceves\n\nSoporte adiccional de programaci\xF3n: Montserrat
+    Elizabeth Garrido Zavala, Samantha Michelle\nGonzales Rodriguez\n\n\nProducci\xF3n\n\nDirectora
     de arte:   Adela Andrea Mendoza Mejia\n\nDise\xF1o de nivel:   Samantha Michelle
     Gonzales Rodriguez \n\nDise\xF1o de pantalla:   Erick Mendoza Rodriguez y Montserrat
     Elizabeth Garrido Zavala\n\nDise\xF1o de personajes:   Adela Andrea Mendoza,
@@ -281,9 +281,10 @@ MonoBehaviour:
     Erick Mendoza Rodriguez, Juan Pablo Figueroa Chavez\n\nIlustraciones:  Montserrat
     Elizabeth Garrido Zavala, Maria Jose Escalante Reens, \n                            
     Samantha Michelle Gonzales Rodriguez, Adela Andrea Mendoza Mejia\nJuan Pablo
-    Figueora \n\nHUD Design:    Erick Mendoza Rodriguez \n\nDise\xF1o de fondos: 
-    Samantha Michelle Gonz\xE1lez Rodriguez, Montserrat Elizabeth Garrido\n                         
-    Zavala, Juan Pablo Figueora Ch\xE1vez y Adela Andrea Mendoz Mejia \n\n\n\nAnimaci\xF3n\n\n\n        
+    Figueroa\n\nTipograf\xEDa:    Gustavo Enrique Montero Soto  \n\nHUD Design:   
+    Erick Mendoza Rodriguez \n\nDise\xF1o de fondos:  Samantha Michelle Gonz\xE1lez
+    Rodriguez, Montserrat Elizabeth Garrido\n                          Zavala, Juan
+    Pablo Figueora Ch\xE1vez y Adela Andrea Mendoz Mejia \n\n\n\nAnimaci\xF3n\n\n\n        
     Einho:    Samantha Michelle Gonzalez Rodriguez \n                         y Montserrat
     Elizabeth Garrido Zavala\n\nHormiga:    Estefany Dennise Guzman Cantu \n\nOruga:      
     Estefany Dennise Guzman Cantu \n\nAvispa:      Estefany Denisse Guzman Cantu
@@ -692,6 +693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2141637442}
   - component: {fileID: 2141637443}
+  - component: {fileID: 2141637444}
   m_Layer: 5
   m_Name: Creditos
   m_TagString: Untagged
@@ -738,3 +740,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2141637444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141637441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb61b81d18943b1489862c24b6fdf37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

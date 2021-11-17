@@ -50,7 +50,6 @@ public class Einho : MonoBehaviour
 
     bool isClimbing = false;
     protected bool isMakingDamage = false;
-    string AnimationName  = "EINHO_DEATH";
 
 
     [SerializeField, Range(0.1f, 20f)]
