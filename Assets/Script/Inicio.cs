@@ -29,4 +29,9 @@ public class Inicio : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+    
+    public void Creditos ()
+    {
+        SceneManager.LoadScene("Creditos");
+    }
 }
