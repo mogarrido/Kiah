@@ -5380,7 +5380,6 @@ GameObject:
   - component: {fileID: 1510324161}
   - component: {fileID: 1510324160}
   - component: {fileID: 1510324162}
-  - component: {fileID: 1510324163}
   - component: {fileID: 1510324164}
   m_Layer: 9
   m_Name: Avispa
@@ -5477,27 +5476,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!50 &1510324163
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1510324159}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &1510324164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5692,6 +5670,7 @@ GameObject:
   - component: {fileID: 1571566622}
   - component: {fileID: 1571566623}
   - component: {fileID: 1571566624}
+  - component: {fileID: 1571566627}
   - component: {fileID: 1571566625}
   - component: {fileID: 1571566626}
   m_Layer: 10
@@ -5843,6 +5822,7 @@ MonoBehaviour:
   headcolliderLeft: {fileID: 1571566626}
   headcolliderRight: {fileID: 1571566625}
   footSteps: {fileID: 1571566624}
+  attackEinhoSound: {fileID: 1571566627}
   footstepsDelay: 0.4
 --- !u!95 &1571566622
 Animator:
@@ -6004,6 +5984,19 @@ CircleCollider2D:
   m_Offset: {x: -2.63, y: -3.04}
   serializedVersion: 2
   m_Radius: 1.12
+--- !u!114 &1571566627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571566616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40262aa67f3efcb4eab45589ecb93812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackSFX: {fileID: 8300000, guid: b3ddc30cdc249044688f713e441ae9a8, type: 3}
 --- !u!1 &1571906289
 GameObject:
   m_ObjectHideFlags: 0
@@ -6567,6 +6560,7 @@ GameObject:
   - component: {fileID: 1727343398}
   - component: {fileID: 1727343399}
   - component: {fileID: 1727343401}
+  - component: {fileID: 1727343402}
   m_Layer: 9
   m_Name: HORMIGA_WALK IDLE
   m_TagString: Untagged
@@ -6733,6 +6727,19 @@ CapsuleCollider2D:
   m_Offset: {x: -0.000004691116, y: -0.35889357}
   m_Size: {x: 7.8487115, y: 3.9610355}
   m_Direction: 1
+--- !u!114 &1727343402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727343394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820de49f8ed21e04d9f9f964327278bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hormigaSFX: {fileID: 8300000, guid: 902b8c6079f0fc844869c30b8db62861, type: 3}
 --- !u!1 &1753787893
 GameObject:
   m_ObjectHideFlags: 0

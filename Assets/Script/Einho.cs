@@ -68,9 +68,17 @@ public class Einho : MonoBehaviour
     [SerializeField]
     FootStepEinho footSteps;
     [SerializeField]
+    
+     AttackEinho attackEinhoSound; 
+     [SerializeField]
+
     float footstepsDelay = 2f;
     bool canPlayFootsteps = true;
     bool diying = false;
+
+    float attackDelay = 2f; 
+    bool canPlayAttackSounds = true;
+
 
     void Awake()
     {
@@ -127,7 +135,13 @@ public class Einho : MonoBehaviour
         yield return new WaitForSeconds(footstepsDelay);
         canPlayFootsteps = true;
     }
-
+    
+    IEnumerator PlayAttackSound()
+    {
+        attackEinhoSound.PlayAttackSound(); 
+        yield return new WaitForSeconds(attackDelay);
+        canPlayAttackSounds = true; 
+    }
     void Movement()
     {
         if(IsWalking && canPlayFootsteps)
@@ -154,9 +168,12 @@ public class Einho : MonoBehaviour
                 Jump();
             }
         }
-        if(Attack && !isAttacking)
+        if(Attack && !isAttacking && canPlayAttackSounds)
         {
+            canPlayAttackSounds = false; 
+            StartCoroutine(PlayAttackSound());
             StartCoroutine(DoAttack());
+
         }
     }
 
