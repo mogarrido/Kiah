@@ -8,6 +8,7 @@ public abstract class Enemy : MonoBehaviour
 {
     [SerializeField]
     protected AnimationClip attackClip;
+    protected AnimationClip damageClip; 
     protected Animator anim;
     protected SpriteRenderer spr;
     [SerializeField, Range(0, 200)]
@@ -75,5 +76,9 @@ public abstract class Enemy : MonoBehaviour
     {
         yield return new WaitForSeconds(attackClip.length);
         isRecivingDamage = false;
+        
+        
     }
+
+    
 }
