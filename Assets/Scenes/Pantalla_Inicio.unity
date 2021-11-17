@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 196845420}
   - component: {fileID: 196845419}
   - component: {fileID: 196845422}
+  - component: {fileID: 196845423}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -160,8 +161,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -597, y: -229}
-  m_SizeDelta: {x: 383.16492, y: 116.786316}
+  m_AnchoredPosition: {x: -576, y: -213}
+  m_SizeDelta: {x: 452.66, y: 112.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &196845419
 MonoBehaviour:
@@ -270,6 +271,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a9eaafb4233c340b28794f90ff374d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &196845423
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196845417}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6966823080a8e21469a35e89da060e54, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &242488028
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,7 +384,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 12
+  m_characterSpacing: 27.22
   m_wordSpacing: 0
   m_lineSpacing: 4
   m_lineSpacingMax: 0
@@ -1143,6 +1163,7 @@ GameObject:
   - component: {fileID: 1533081134}
   - component: {fileID: 1533081136}
   - component: {fileID: 1533081135}
+  - component: {fileID: 1533081137}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1266,6 +1287,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533081133}
   m_CullTransparentMesh: 0
+--- !u!95 &1533081137
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533081133}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 52d7930c523cccb4eb3a708d1463716b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1709373842
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,8 +1464,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -597, y: -378}
-  m_SizeDelta: {x: 383, y: 116}
+  m_AnchoredPosition: {x: -576, y: -356.03998}
+  m_SizeDelta: {x: 452.47, y: 111.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1745909464
 MonoBehaviour:
