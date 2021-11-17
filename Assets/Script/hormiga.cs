@@ -13,11 +13,13 @@ public class hormiga : MonoBehaviour
 
     public float pushForce = 100.0f;
 
+
     const string attack = "HORMIGA_ATTACK_IZQ";
 
     [Range(-1, 1)]
     public int initialFacingDirection = -1;
     int currentFacingDirection;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +39,12 @@ public class hormiga : MonoBehaviour
 
         if(animatorController.GetCurrentAnimatorStateInfo(0).IsName("HORMIGA_WALK"))
          this.transform.Translate(speed * Time.deltaTime * currentFacingDirection,0,0);
+         
+         
     }
-
+    
+     
+   
     void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.tag == "Limit")
