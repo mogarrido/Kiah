@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject Tutorial;
     public float coutTimer = 5;
-    public TextMeshProUGUI playerMessage;
+    
     [SerializeField]
     Einho player;
     [SerializeField]
@@ -17,6 +17,12 @@ public class GameManager : MonoBehaviour
     //[SerializeField]
     // Enemy enemy;
 
+    
+    public Sprite Tutorial_2;
+    public Sprite Tutorial_3;
+    public Sprite Tutorial_4;
+
+    public Sprite Tutorial_5;
     public static GameManager instance;
 
     void Awake()
@@ -36,7 +42,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Tutorial.SetActive(true);
-        playerMessage.text = $"Utiliza A y D para mover el personaje de izquierda a derecha";
+        
+       
     }
 
     // Update is called once per frame
@@ -47,29 +54,24 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Pausa_Pantalla");
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.D))
         {
-            playerMessage.text = $"Utiliza Spacebar para poder saltar, solo aplica cuando no estas en el tronco";
+            this.gameObject.GetComponent<Image>().sprite = Tutorial_2;
         }
 
         if (Input.GetKey(KeyCode.Space))
         {
-            playerMessage.text = $"Utiliza H para lanzar una patada";
-        }
-
-        if (Input.GetKey(KeyCode.H))
-        {
-            playerMessage.text = $"Utiliza J para lanzar una piedra, K para lanzar una rama y L para disparar una flecha";
+            this.gameObject.GetComponent<Image>().sprite = Tutorial_3;
         }
 
         if (Input.GetKey(KeyCode.L))
         {
-            playerMessage.text = $"Para escalar por el tronco utiliza W y para bajar utiliza S";
+            this.gameObject.GetComponent<Image>().sprite = Tutorial_4;
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            playerMessage.text = $"Para terminar con el tutorial por favor oprima P y Hasta aquí llega el final del tutorial y Recuerda que si quieres volver al menú principal solo debes oprimir Esc ;)";
+            this.gameObject.GetComponent<Image>().sprite = Tutorial_5;
         }
 
         if (Input.GetKey(KeyCode.P))
