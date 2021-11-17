@@ -170,9 +170,9 @@ public class Einho : MonoBehaviour
         if(Attack && !isAttacking && canPlayAttackSounds)
         {
             canPlayAttackSounds = false; 
-            StartCoroutine(PlayAttackSound());
+            StartCoroutine(PlayAttackSound()); 
             StartCoroutine(DoAttack());
-
+             
         }
     }
 
