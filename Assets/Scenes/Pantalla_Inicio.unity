@@ -1436,7 +1436,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1745909462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc741999eadc0e4abc9af02c9da4034, type: 3}
+  m_Script: {fileID: 11500000, guid: 64a9eaafb4233c340b28794f90ff374d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1745909465
@@ -1484,7 +1484,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1745909464}
-        m_TargetAssemblyTypeName: Pantalla_inicio, Assembly-CSharp
+        m_TargetAssemblyTypeName: Inicio, Assembly-CSharp
         m_MethodName: Creditos
         m_Mode: 1
         m_Arguments:
