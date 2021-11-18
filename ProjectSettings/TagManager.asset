@@ -11,6 +11,7 @@ TagManager:
   - Ladder
   - Estrella
   - Enemy
+  - HealthBar
   layers:
   - Default
   - TransparentFX

@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Pantalla_Inicio.unity
     guid: 4d9f9e441657ccc4aafc55ceb4447d1b
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/IntroVideo.unity
+    guid: e490fdc0e2d87ea4f80af769d6be8e35
   - enabled: 1
     path: Assets/Scenes/Pausa_pantalla.unity
     guid: e62adba9dcb31884dbe130760ba8eb51
   - enabled: 1
-    path: Assets/Scenes/IntroVideo.unity
-    guid: e490fdc0e2d87ea4f80af769d6be8e35
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: f57035d774faec94a86c6cac9f734f46

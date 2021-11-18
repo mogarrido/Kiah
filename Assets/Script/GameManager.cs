@@ -80,16 +80,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GameOver()
-    {
-        
-    }
-
-    public void Mensaje()
-    {
-
-    }
-
     public HealthBar GetHealthBar => healthBar;
     public Einho GetPlayer => player;
     // public Enemy GetEnemy => enemy;
