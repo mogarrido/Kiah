@@ -1,15 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class hormiga : MonoBehaviour
 {
+    
+    [SerializeField]
+
     public float speed = 5.0f;
     public CapsuleCollider2D cc;
     public Rigidbody2D rb;
     public GameManager GameManager;
     public Animator animatorController;
     SpriteRenderer spriteRenderer;
+
+[SerializeField]
+   public HormigaSounds hormigaSound; 
+    [SerializeField]
+    
 
     public float pushForce = 100.0f;
 
@@ -19,6 +28,7 @@ public class hormiga : MonoBehaviour
     [Range(-1, 1)]
     public int initialFacingDirection = -1;
     int currentFacingDirection;
+    bool canPlayHormigaSound = true; 
     
 
     // Start is called before the first frame update
@@ -32,18 +42,22 @@ public class hormiga : MonoBehaviour
     void Update()
     {
         Move();
+        canPlayHormigaSound = true;   
+        
     }
+    
+   
+
 
     void Move()
     {
 
         if(animatorController.GetCurrentAnimatorStateInfo(0).IsName("HORMIGA_WALK"))
          this.transform.Translate(speed * Time.deltaTime * currentFacingDirection,0,0);
-         
-         
+          
     }
     
-     
+   
    
     void OnCollisionEnter2D(Collision2D other)
     {
