@@ -6657,6 +6657,7 @@ GameObject:
   - component: {fileID: 1571566624}
   - component: {fileID: 1571566625}
   - component: {fileID: 1571566626}
+  - component: {fileID: 1571566627}
   m_Layer: 10
   m_Name: EINHO
   m_TagString: Player
@@ -6806,6 +6807,7 @@ MonoBehaviour:
   headcolliderLeft: {fileID: 1571566626}
   headcolliderRight: {fileID: 1571566625}
   footSteps: {fileID: 1571566624}
+  attackEinhoSound: {fileID: 1571566627}
   footstepsDelay: 0.4
 --- !u!95 &1571566622
 Animator:
@@ -6967,6 +6969,19 @@ CircleCollider2D:
   m_Offset: {x: -2.63, y: -3.04}
   serializedVersion: 2
   m_Radius: 1.12
+--- !u!114 &1571566627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571566616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40262aa67f3efcb4eab45589ecb93812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackSFX: {fileID: 8300000, guid: b3ddc30cdc249044688f713e441ae9a8, type: 3}
 --- !u!1 &1571906289
 GameObject:
   m_ObjectHideFlags: 0
@@ -7913,6 +7928,7 @@ GameObject:
   - component: {fileID: 1727343398}
   - component: {fileID: 1727343399}
   - component: {fileID: 1727343401}
+  - component: {fileID: 1727343402}
   m_Layer: 9
   m_Name: HORMIGA_WALK IDLE
   m_TagString: Untagged
@@ -8079,6 +8095,19 @@ CapsuleCollider2D:
   m_Offset: {x: -0.000004691116, y: -0.35889357}
   m_Size: {x: 7.8487115, y: 3.9610355}
   m_Direction: 1
+--- !u!114 &1727343402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727343394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820de49f8ed21e04d9f9f964327278bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hormigaSFX: {fileID: 8300000, guid: 902b8c6079f0fc844869c30b8db62861, type: 3}
 --- !u!1 &1753787893
 GameObject:
   m_ObjectHideFlags: 0
