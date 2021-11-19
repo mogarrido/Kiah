@@ -538,6 +538,7 @@ GameObject:
   - component: {fileID: 1087527621}
   - component: {fileID: 1087527620}
   - component: {fileID: 1087527619}
+  - component: {fileID: 1087527622}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -608,7 +609,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1087527620}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1087527622}
+        m_TargetAssemblyTypeName: FinalToCredits, Assembly-CSharp
+        m_MethodName: EndingVideo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1087527620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,6 +661,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087527617}
   m_CullTransparentMesh: 1
+--- !u!114 &1087527622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087527617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac3b843e8f26103438bf9ac7a3e62120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1217434727
 GameObject:
   m_ObjectHideFlags: 0
