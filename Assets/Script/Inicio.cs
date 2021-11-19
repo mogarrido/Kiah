@@ -34,4 +34,8 @@ public class Inicio : MonoBehaviour
     {
         SceneManager.LoadScene("Creditos");
     }
+    public void FinalVideoToCredits()
+    {
+        SceneManager.LoadScene("");
+    }
 }
