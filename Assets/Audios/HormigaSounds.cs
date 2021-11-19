@@ -16,10 +16,10 @@ public class HormigaSounds : MonoBehaviour
 
     }
      
-     public void hormigaSound()
-     {
-         audioSource.PlayOneShot(hormigaSFX); 
-     }
+    public void hormigaSound()
+    {
+        audioSource.PlayOneShot(hormigaSFX); 
+    }
     // Update is called once per frame
     void Update()
     {
