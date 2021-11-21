@@ -5358,43 +5358,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0412a1c4d4e5d594e956e24d9e173b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackClip: {fileID: 7400000, guid: 92af14da3afee874da263a52458c340c, type: 2}
-  damageClip: {fileID: 0}
-  anim: {fileID: 0}
-  spr: {fileID: 0}
-  health: 30
-  damage: 10
-  direction: {x: 1, y: 0}
-  moveSpeed: 3
-  isAttacking: 0
-  isMakingDamage: 0
-  attackTime: 0
-  lastFlip: 0
-  diying: 0
-  isRecivingDamage: 0
-  srcStar: {fileID: 1039232944}
-  areaRadius: 1.4
-  areaColor:
-    r: 1
-    g: 0
-    b: 0
-    a: 1
-  areaDetectionLayer:
-    m_Bits: 1024
-  headcolliderLeft: {fileID: 1510324165}
-  headcolliderRight: {fileID: 1510324166}
-  rayDistance: 2.2
-  rayColor:
-    r: 1
-    g: 0.976174
-    b: 0
-    a: 1
-  detectionLayer:
-    m_Bits: 1024
-  sleepTime: 0.5
-  patrolTime: 7
-  patrolTimer: 0
-  sleepTimer: 0
 --- !u!58 &1510324165
 CircleCollider2D:
   m_ObjectHideFlags: 0

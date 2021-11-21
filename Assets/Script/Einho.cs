@@ -70,6 +70,7 @@ public class Einho : MonoBehaviour
     
      AttackEinho attackEinhoSound; 
      [SerializeField]
+     DEATH deathsound;
 
     float footstepsDelay = 2f;
     bool canPlayFootsteps = true;
@@ -77,6 +78,9 @@ public class Einho : MonoBehaviour
 
     float attackDelay = 2f; 
     bool canPlayAttackSounds = true;
+
+    float deathDelay = 2f;
+    bool canPLayDeathSound = true;
 
 
     void Awake()
@@ -91,10 +95,12 @@ public class Einho : MonoBehaviour
 
         if(Die)
         {
-            if(!diying)
+            if(!diying && canPLayDeathSound)
             {
                 diying = true;
                 anim.SetTrigger("die");
+                canPLayDeathSound = false;
+                StartCoroutine(PlayDeathSound());
             }
             return;
         }
@@ -140,6 +146,13 @@ public class Einho : MonoBehaviour
         attackEinhoSound.PlayAttackSound(); 
         yield return new WaitForSeconds(attackDelay);
         canPlayAttackSounds = true; 
+    }
+
+    IEnumerator PlayDeathSound()
+    {
+        deathsound.PlayDEathSound();
+        yield return new WaitForSeconds(deathDelay);
+        canPLayDeathSound = true;
     }
     void Movement()
     {
