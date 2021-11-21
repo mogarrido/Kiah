@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class avispa : Enemy
+public class Avispa : Enemy
 {
     //Attack area
     [SerializeField, Range(0.1f, 20f)]

@@ -70,7 +70,7 @@ public class Einho : MonoBehaviour
     
      AttackEinho attackEinhoSound; 
      [SerializeField]
-     DEATH deathsound;
+    death deathsound;
 
     float footstepsDelay = 2f;
     bool canPlayFootsteps = true;
@@ -150,7 +150,7 @@ public class Einho : MonoBehaviour
 
     IEnumerator PlayDeathSound()
     {
-        deathsound.PlayDEathSound();
+        deathsound.PlayDeathSound();
         yield return new WaitForSeconds(deathDelay);
         canPLayDeathSound = true;
     }

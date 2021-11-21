@@ -2,22 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DEATH : MonoBehaviour
+public class death : MonoBehaviour
 {
-   private AudioSource audioSource;
-    private bool IsDying; 
+    private AudioSource audioSource;
+    private bool IsDead;
     [SerializeField]
-    Audioclip DeathsFX;
+    AudioClip stepsSFX;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = gameobject.GetComponent<AudioSource>();
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     public void PlayDeathSound()
     {
 
-        audioSource.PlayOneShot(DeathsFX);
+        audioSource.PlayOneShot(stepsSFX);
+        
     }
 }
