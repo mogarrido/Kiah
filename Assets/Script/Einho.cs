@@ -70,7 +70,7 @@ public class Einho : MonoBehaviour
     
      AttackEinho attackEinhoSound; 
      [SerializeField]
-    death deathsound;
+    DEATH deathsound;
 
     float footstepsDelay = 2f;
     bool canPlayFootsteps = true;
@@ -279,6 +279,11 @@ public class Einho : MonoBehaviour
     public void GameOver()
     {
         SceneManager.LoadScene("GameOver");
+    }
+
+    public void Life()
+    {
+        health = 100;
     }
 
     Vector2 Axis => new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
