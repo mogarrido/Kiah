@@ -70,6 +70,12 @@ public class Einho : MonoBehaviour
     
      AttackEinho attackEinhoSound; 
      [SerializeField]
+    DEATH deathsound;
+     [SerializeField]
+     public ClimbEinho climbEinho; 
+     float climbingSoundDelay = 2f;
+     bool canPlayClimbingSound = true; 
+ 
 
     float footstepsDelay = 2f;
     bool canPlayFootsteps = true;
@@ -77,6 +83,9 @@ public class Einho : MonoBehaviour
 
     float attackDelay = 2f; 
     bool canPlayAttackSounds = true;
+
+    float deathDelay = 2f;
+    bool canPLayDeathSound = true;
 
 
     void Awake()
@@ -91,10 +100,12 @@ public class Einho : MonoBehaviour
 
         if(Die)
         {
-            if(!diying)
+            if(!diying && canPLayDeathSound)
             {
                 diying = true;
                 anim.SetTrigger("die");
+                canPLayDeathSound = false;
+                StartCoroutine(PlayDeathSound());
             }
             return;
         }
@@ -104,6 +115,7 @@ public class Einho : MonoBehaviour
             isClimbing = true;
             spr.flipX = false;
             vcamController.OrtoSize = ortoSizeClimb;
+            
         }
         else
         {
@@ -115,6 +127,7 @@ public class Einho : MonoBehaviour
                     anim.SetBool("climb", false);
                     rb2D.isKinematic = false;
                     vcamController.OrtoSize = ortoSizeNormal;
+                    
                 }
             }
         }
@@ -125,7 +138,17 @@ public class Einho : MonoBehaviour
             anim.SetBool("climb", true);
             anim.SetFloat("magnitude", Axis.magnitude);
             Climb();
+
+            
+            if (isClimbing && canPlayClimbingSound)
+       {
+           canPlayClimbingSound = true;
+           StartCoroutine(PlayClimbingSound());
+       }
+             
+            
         }
+       
     }
 
     IEnumerator PlayFootSteps()
@@ -140,6 +163,20 @@ public class Einho : MonoBehaviour
         attackEinhoSound.PlayAttackSound(); 
         yield return new WaitForSeconds(attackDelay);
         canPlayAttackSounds = true; 
+    }
+
+    IEnumerator PlayDeathSound()
+    {
+        deathsound.PlayDeathSound();
+        yield return new WaitForSeconds(deathDelay);
+        canPLayDeathSound = true;
+    }
+
+    IEnumerator PlayClimbingSound()
+    {
+        climbEinho.ClimbingSoundEinho();
+        yield return new WaitForSeconds(climbingSoundDelay);
+        canPlayClimbingSound = true; 
     }
     void Movement()
     {
@@ -227,6 +264,7 @@ public class Einho : MonoBehaviour
     {
         transform.Translate(Axis.normalized * moveSpeed * Time.deltaTime);
         rb2D.isKinematic = true;
+        
     }
 
     void OnDrawGizmosSelected()
@@ -266,6 +304,11 @@ public class Einho : MonoBehaviour
     public void GameOver()
     {
         SceneManager.LoadScene("GameOver");
+    }
+
+    public void Life()
+    {
+        health = 100;
     }
 
     Vector2 Axis => new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
