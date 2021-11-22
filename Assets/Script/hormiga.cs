@@ -40,8 +40,12 @@ public class hormiga : Enemy
     public HormigaSounds hormigaSound; 
     float footstepsDelay = 2f;
     bool canPlayHormigaSound = true;
-    
 
+    [SerializeField]
+    public AttackAntSound attackingSound;
+    float attackingDelay = 2f;
+    bool canPlayattackingSound = true;
+    [SerializeField]
     // Start is called before the first frame update
     void Start()
     {
@@ -67,12 +71,16 @@ public class hormiga : Enemy
         {
             lastFlip = spr.flipX;
             StartCoroutine(AttackCoroutine("attack", attackClip, actualCoroutine));
+            canPlayattackingSound = true;
+            StartCoroutine(PlayAttackSound());
             StopCoroutine(actualCoroutine);
+           
         }
         if(isAttacking && CanAttack)
         {
             spr.flipX = RightRay ? false : LeftRay ? true : spr.flipX;
         } 
+        
     }
     bool CanAttack => Physics2D.OverlapCircle(transform.position, areaRadius, areaDetectionLayer);
 
@@ -172,7 +180,12 @@ public class hormiga : Enemy
         yield return new WaitForSeconds(footstepsDelay);
         canPlayHormigaSound = true;
     }
-
+    IEnumerator PlayAttackSound()
+    {
+        attackingSound.AttackSound();
+        yield return new WaitForSeconds(attackingDelay);
+        canPlayattackingSound = true; 
+    }
     bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, rayDistance, detectionLayer);
     bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, rayDistance, detectionLayer);
     bool Die => health == 0;

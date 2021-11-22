@@ -19,9 +19,13 @@ public class StarCollectable : Collectable
             StartCoroutine(PlaySoundStarOne());
         }
     }
-
-    public void Collect() => animator.SetTrigger("destroy");
     
+    public void Collect() => animator.SetTrigger("destroy");
+    void Collected() 
+    {
+        canPlayStarSoundOne = true; 
+        StartCoroutine(PlaySoundStarOne());
+    }
     
     void RemoveFromScene() => Destroy(gameObject);
 
