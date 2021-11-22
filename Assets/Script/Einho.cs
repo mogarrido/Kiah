@@ -71,10 +71,17 @@ public class Einho : MonoBehaviour
      AttackEinho attackEinhoSound; 
      [SerializeField]
     DEATH deathsound;
+
+
      [SerializeField]
      public ClimbEinho climbEinho; 
      float climbingSoundDelay = 2f;
      bool canPlayClimbingSound = true; 
+
+     [SerializeField]
+    public StarSoundOne starSoundOne; 
+     float starSoundDelay = 2f; 
+     bool canPlayStarSoundOne; 
  
 
     float footstepsDelay = 2f;
@@ -178,6 +185,13 @@ public class Einho : MonoBehaviour
         yield return new WaitForSeconds(climbingSoundDelay);
         canPlayClimbingSound = true; 
     }
+
+     IEnumerator PlaySoundStarOne()
+    {
+        starSoundOne.estrella1Sound();
+        yield return new WaitForSeconds(starSoundDelay);
+        canPlayStarSoundOne = true; 
+    }
     void Movement()
     {
         if(IsWalking && canPlayFootsteps)
@@ -250,6 +264,8 @@ public class Einho : MonoBehaviour
         {
             StarCollectable star = collider.GetComponent<StarCollectable>();
             star.Collect();
+            canPlayStarSoundOne = true;
+            StartCoroutine(PlaySoundStarOne());
         }
     }
 
