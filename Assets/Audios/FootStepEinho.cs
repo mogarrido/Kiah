@@ -8,6 +8,8 @@ public class FootStepEinho : MonoBehaviour
     private bool IsMoving;
     [SerializeField]
     AudioClip stepsSFX;
+    [SerializeField, Range(0f, 15f)]
+    float sfxVolume = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +20,7 @@ public class FootStepEinho : MonoBehaviour
     public void PlayFootSteps()
     {
 
-        audioSource.PlayOneShot(stepsSFX);
+        audioSource.PlayOneShot(stepsSFX, sfxVolume);
         
     }
 

@@ -43,7 +43,7 @@ public class Inicio : MonoBehaviour
     {
         if (true)
         {
-            GameManager.instance.GetPlayer.Life();
+            //GameManager.instance.GetPlayer.Life();
             GameManager.instance.GetHealthBar.SetValue(GameManager.instance.GetPlayer.GetHealth);
         }
     }

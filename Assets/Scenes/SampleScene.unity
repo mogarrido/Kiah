@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Estrella1: {fileID: 8300000, guid: acfe55e2f3943904997912de21656b89, type: 3}
+  sfxVolume: 1
 --- !u!1 &200920294
 GameObject:
   m_ObjectHideFlags: 0
@@ -3188,6 +3189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Estrella1: {fileID: 8300000, guid: acfe55e2f3943904997912de21656b89, type: 3}
+  sfxVolume: 0.01
 --- !u!1 &1062781719
 GameObject:
   m_ObjectHideFlags: 0
@@ -5460,16 +5462,16 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ab19224463cd20a41a383fa731813533, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.033
+  m_Volume: 0.014
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 178
+  Priority: 93
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -5909,6 +5911,7 @@ MonoBehaviour:
   deathsound: {fileID: 1571566628}
   climbEinho: {fileID: 1571566629}
   starSoundOne: {fileID: 1571566630}
+  footstepsDelay: 0.45
 --- !u!95 &1571566622
 Animator:
   serializedVersion: 3
@@ -6037,6 +6040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepsSFX: {fileID: 8300000, guid: 8e0f70de5c2999941beab4ef82bb1a29, type: 3}
+  sfxVolume: 0.5
 --- !u!58 &1571566625
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6121,6 +6125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Estrella1: {fileID: 8300000, guid: acfe55e2f3943904997912de21656b89, type: 3}
+  sfxVolume: 0.1
 --- !u!1 &1596949334
 GameObject:
   m_ObjectHideFlags: 0
@@ -7034,6 +7039,7 @@ MonoBehaviour:
   sleepTime: 2
   patrolTime: 2.5
   hormigaSound: {fileID: 1727343401}
+  footstepsDelay: 8
   attackingSound: {fileID: 1727343403}
 --- !u!114 &1727343401
 MonoBehaviour:
@@ -7047,7 +7053,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820de49f8ed21e04d9f9f964327278bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hormigaSFX: {fileID: 8300000, guid: 902b8c6079f0fc844869c30b8db62861, type: 3}
+  hormigaSFX: {fileID: 8300000, guid: c74d83efa268a3d4796bea85f3282894, type: 3}
+  sfxVolume: 0.33
 --- !u!82 &1727343402
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7058,8 +7065,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 902b8c6079f0fc844869c30b8db62861, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 0.102
   m_Pitch: 1
   Loop: 0
