@@ -3,100 +3,191 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; 
 
-public class hormiga : MonoBehaviour
+public class hormiga : Enemy
 {
+    //Attack area
+    [SerializeField, Range(0.1f, 20f)]
+    float areaRadius = 5f;
+    [SerializeField]
+    Color areaColor = Color.red;
+    [SerializeField]
+    LayerMask areaDetectionLayer;
+    IEnumerator actualCoroutine;
+
+   [SerializeField]
+    Collider2D headcolliderLeft;
+    [SerializeField]
+    Collider2D headcolliderRight;
+
+     //Raycast things
+    [SerializeField, Range(0.1f, 20f)]
+    float rayDistance = 5f;
+    [SerializeField]
+    Color rayColor = Color.red;
+    [SerializeField]
+    LayerMask detectionLayer;
+    
     
     [SerializeField]
-
-    public float speed = 5.0f;
-    public CapsuleCollider2D cc;
-    public Rigidbody2D rb;
-    public GameManager GameManager;
-    public Animator animatorController;
-    SpriteRenderer spriteRenderer;
-
-[SerializeField]
-   public HormigaSounds hormigaSound; 
+    float sleepTime = 2f;
     [SerializeField]
-    
+    float patrolTime = 5f;
+    float patrolTimer = 0f;
+    float sleepTimer = 0f;
 
-    public float pushForce = 100.0f;
 
+    [SerializeField]
+    public HormigaSounds hormigaSound; 
+    float footstepsDelay = 2f;
+    bool canPlayHormigaSound = true;
 
-    const string attack = "HORMIGA_ATTACK_IZQ";
-
-    [Range(-1, 1)]
-    public int initialFacingDirection = -1;
-    int currentFacingDirection;
-    bool canPlayHormigaSound = true; 
-    
-
+    [SerializeField]
+    public AttackAntSound attackingSound;
+    float attackingDelay = 2f;
+    bool canPlayattackingSound = true;
+    [SerializeField]
     // Start is called before the first frame update
     void Start()
     {
-        currentFacingDirection = initialFacingDirection;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        actualCoroutine = IdleCoroutine(sleepTime, "patrol");
+        StartCoroutine(IdleCoroutine(sleepTime, "patrol"));
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
-        canPlayHormigaSound = true;   
+        if (Die)
+        {
+            if(!diying)
+            {
+                diying = true;
+                anim.SetTrigger("die");
+                DeleteFromScene();
+                canPlayHormigaSound = false;
+            }
+            return;
+        }
+        if(CanAttack && !isAttacking)
+        {
+            lastFlip = spr.flipX;
+            StartCoroutine(AttackCoroutine("attack", attackClip, actualCoroutine));
+            canPlayattackingSound = true;
+            StartCoroutine(PlayAttackSound());
+            StopCoroutine(actualCoroutine);
+           
+        }
+        if(isAttacking && CanAttack)
+        {
+            spr.flipX = RightRay ? false : LeftRay ? true : spr.flipX;
+        } 
         
     }
-    
-   
+    bool CanAttack => Physics2D.OverlapCircle(transform.position, areaRadius, areaDetectionLayer);
 
-
-    void Move()
+    void OnDrawGizmosSelected()
     {
-
-        if(animatorController.GetCurrentAnimatorStateInfo(0).IsName("HORMIGA_WALK"))
-         this.transform.Translate(speed * Time.deltaTime * currentFacingDirection,0,0);
-          
-    }
-    
-   
-   
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if(other.gameObject.tag == "Limit")
-        {
-            currentFacingDirection *= -1;
-            float dir = transform.localScale.x * -1;
-            transform.localScale = new Vector3(dir, transform.localScale.y, transform.localScale.z);
-        }
+        Gizmos.color = areaColor;
+        Gizmos.DrawWireSphere(transform.position, areaRadius);
+        Gizmos.color = rayColor;
+        Gizmos.DrawRay(transform.position, Vector2.right * rayDistance);
+        Gizmos.DrawRay(transform.position, Vector2.left * rayDistance);
     }
 
-    void OnTriggerStay2D(Collider2D other)
+     public override IEnumerator IdleCoroutine(float duration, string stateName)
     {
-        if(other.tag == "Player")
+        anim.SetBool(stateName, false);
+        while(true)
         {
-            Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
-            //saber  si el player esta a la derecha o a la izquierda de la posicion 
-            if(other.transform.position.x < transform.position.x)
+            sleepTimer += Time.deltaTime;
+            if(sleepTimer >= duration)
             {
-                //esta a la izquierda
-                if(currentFacingDirection == 1 )
-                {
-                    spriteRenderer.flipX = !spriteRenderer.flipX;
-                    currentFacingDirection *= -1;
-                }
-                playerRb.AddForce(new Vector2(-pushForce, 0.0f));
-            }else if(other.transform.position.x > transform.position.x)
-            {
-                 if(currentFacingDirection == -1)
-                 {
-                    spriteRenderer.flipX = !spriteRenderer.flipX;
-                     currentFacingDirection *= -1;
-                    
-                }
-                 playerRb.AddForce(new Vector2(pushForce, 0.0f));
+                sleepTimer = 0f;
+                actualCoroutine = MovementCoroutine(patrolTime, "patrol");
+                StartCoroutine(actualCoroutine);
+                break;
             }
-            animatorController.Play(attack);
+            yield return null;
         }
     }
 
-    
+    public override IEnumerator MovementCoroutine(float duration, string stateName)
+    {
+        anim.SetBool(stateName, true);
+        spr.flipX = !spr.flipX;
+        direction = new Vector2(-direction.x, direction.y);
+        while(true)
+        {
+            if (Die)
+            {
+                break;
+            }
+            patrolTimer += Time.deltaTime;
+            if(patrolTimer >= duration)
+            {
+                patrolTimer = 0f;
+                actualCoroutine = IdleCoroutine(sleepTime, "patrol");
+                StartCoroutine(actualCoroutine);
+                break;
+            }
+            transform.Translate(direction * moveSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        if(canPlayHormigaSound)
+        {
+            canPlayHormigaSound = false;
+            StartCoroutine(PlayFootSteps());
+        }
+    }
+
+    void ActivateCollider()
+    {
+        if(spr.flipX)
+        {
+            headcolliderLeft.enabled = true;
+            headcolliderRight.enabled = false;
+        }
+        else
+        {
+            headcolliderLeft.enabled = false;
+            headcolliderRight.enabled = true;
+        }
+    }
+
+    void DesableCollider()
+    {
+        headcolliderLeft.enabled = false;
+        headcolliderRight.enabled = false;
+    }
+
+    void MakeDamageToPlayer()
+    {
+        GameManager.instance.GetPlayer.RecivingDamage(damage);
+        GameManager.instance.GetHealthBar.SetValue(GameManager.instance.GetPlayer.GetHealth);
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(!isMakingDamage)
+        {
+            isMakingDamage = true;
+            MakeDamageToPlayer();
+        }
+    }
+    IEnumerator PlayFootSteps()
+    {
+        hormigaSound.hormigaSound();
+        yield return new WaitForSeconds(footstepsDelay);
+        canPlayHormigaSound = true;
+    }
+    IEnumerator PlayAttackSound()
+    {
+        attackingSound.AttackSound();
+        yield return new WaitForSeconds(attackingDelay);
+        canPlayattackingSound = true; 
+    }
+    bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, rayDistance, detectionLayer);
+    bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, rayDistance, detectionLayer);
+    bool Die => health == 0;
+
 }

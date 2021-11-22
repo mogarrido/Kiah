@@ -47,7 +47,6 @@ public class Einho : MonoBehaviour
 
     [SerializeField, Range(0, 20)]
     protected int damage = 10;
-
     bool isClimbing = false;
     protected bool isMakingDamage = false;
 
@@ -70,6 +69,19 @@ public class Einho : MonoBehaviour
     
      AttackEinho attackEinhoSound; 
      [SerializeField]
+    DEATH deathsound;
+
+
+     [SerializeField]
+     public ClimbEinho climbEinho; 
+     float climbingSoundDelay = 2f;
+     bool canPlayClimbingSound = true; 
+
+     [SerializeField]
+    public StarSoundOne starSoundOne; 
+     float starSoundDelay = 2f; 
+     bool canPlayStarSoundOne; 
+ 
 
     float footstepsDelay = 2f;
     bool canPlayFootsteps = true;
@@ -77,6 +89,9 @@ public class Einho : MonoBehaviour
 
     float attackDelay = 2f; 
     bool canPlayAttackSounds = true;
+
+    float deathDelay = 2f;
+    bool canPLayDeathSound = true;
 
 
     void Awake()
@@ -91,10 +106,12 @@ public class Einho : MonoBehaviour
 
         if(Die)
         {
-            if(!diying)
+            if(!diying && canPLayDeathSound)
             {
                 diying = true;
                 anim.SetTrigger("die");
+                canPLayDeathSound = false;
+                StartCoroutine(PlayDeathSound());
             }
             return;
         }
@@ -104,6 +121,7 @@ public class Einho : MonoBehaviour
             isClimbing = true;
             spr.flipX = false;
             vcamController.OrtoSize = ortoSizeClimb;
+            
         }
         else
         {
@@ -115,6 +133,7 @@ public class Einho : MonoBehaviour
                     anim.SetBool("climb", false);
                     rb2D.isKinematic = false;
                     vcamController.OrtoSize = ortoSizeNormal;
+                    
                 }
             }
         }
@@ -125,7 +144,17 @@ public class Einho : MonoBehaviour
             anim.SetBool("climb", true);
             anim.SetFloat("magnitude", Axis.magnitude);
             Climb();
+
+            
+            if (isClimbing && canPlayClimbingSound)
+       {
+           canPlayClimbingSound = true;
+           StartCoroutine(PlayClimbingSound());
+       }
+             
+            
         }
+       
     }
 
     IEnumerator PlayFootSteps()
@@ -140,6 +169,27 @@ public class Einho : MonoBehaviour
         attackEinhoSound.PlayAttackSound(); 
         yield return new WaitForSeconds(attackDelay);
         canPlayAttackSounds = true; 
+    }
+
+    IEnumerator PlayDeathSound()
+    {
+        deathsound.PlayDeathSound();
+        yield return new WaitForSeconds(deathDelay);
+        canPLayDeathSound = true;
+    }
+
+    IEnumerator PlayClimbingSound()
+    {
+        climbEinho.ClimbingSoundEinho();
+        yield return new WaitForSeconds(climbingSoundDelay);
+        canPlayClimbingSound = true; 
+    }
+
+     IEnumerator PlaySoundStarOne()
+    {
+        starSoundOne.estrella1Sound();
+        yield return new WaitForSeconds(starSoundDelay);
+        canPlayStarSoundOne = true; 
     }
     void Movement()
     {
@@ -213,6 +263,8 @@ public class Einho : MonoBehaviour
         {
             StarCollectable star = collider.GetComponent<StarCollectable>();
             star.Collect();
+            canPlayStarSoundOne = true;
+            StartCoroutine(PlaySoundStarOne());
         }
     }
 
@@ -227,6 +279,7 @@ public class Einho : MonoBehaviour
     {
         transform.Translate(Axis.normalized * moveSpeed * Time.deltaTime);
         rb2D.isKinematic = true;
+        
     }
 
     void OnDrawGizmosSelected()
@@ -268,6 +321,11 @@ public class Einho : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
+    /*public void Life()
+    {
+        health = 100;
+    }*/
+
     Vector2 Axis => new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     bool FlipSprite => Axis.x > 0f ? false : Axis.x < 0f ? true : spr.flipX;
     bool IsJumping => Input.GetButtonDown("Jump");
@@ -280,4 +338,5 @@ public class Einho : MonoBehaviour
     bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, RayDistance, DetectionLayer);
     bool Die => health == 0;
     bool IsWalking => Grounding && Axis.x != 0f;
+    public void Obstacle(int obstacleDamage) => health -= health - obstacleDamage > 0 ? obstacleDamage : health;
 }

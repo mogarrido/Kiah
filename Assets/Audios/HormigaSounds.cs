@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class HormigaSounds : MonoBehaviour
 {
-    private  AudioSource audioSource;  
+    private  AudioSource audioSource;
+    private bool IsMoving;
+    [SerializeField]  
     public AudioClip hormigaSFX; 
     
     // Start is called before the first frame update
@@ -14,10 +16,10 @@ public class HormigaSounds : MonoBehaviour
 
     }
      
-     public void hormigaSound()
-     {
-         audioSource.PlayOneShot(hormigaSFX); 
-     }
+    public void hormigaSound()
+    {
+        audioSource.PlayOneShot(hormigaSFX); 
+    }
     // Update is called once per frame
     void Update()
     {

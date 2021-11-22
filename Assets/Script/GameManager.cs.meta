@@ -3,7 +3,14 @@ guid: cef311a7a534ff34fb5c60a6ea3b8881
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Tutorial: {instanceID: 0}
+  - player: {instanceID: 0}
+  - healthBar: {instanceID: 0}
+  - Tutorial_2: {fileID: 21300000, guid: c4a1b6a2808e54dce897582c508d303d, type: 3}
+  - Tutorial_3: {fileID: 21300000, guid: 482e84b6252c24b2ea4e315c96f11697, type: 3}
+  - Tutorial_4: {fileID: 21300000, guid: 656ca0c3c6a5a4dddbd4299d60f25cf0, type: 3}
+  - Tutorial_5: {fileID: 21300000, guid: f7eced0ad8a6045708d4dd33d1cdcbe5, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
