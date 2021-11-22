@@ -275,6 +275,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131425332}
   m_CullTransparentMesh: 1
+--- !u!1 &196056528 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6684357671807197330, guid: 453e0c97344c54a46b126fb8f4dc9eb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1715600925}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &196056534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196056528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a022ea160bc7514ab9c1358ea5426e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Estrella1: {fileID: 8300000, guid: acfe55e2f3943904997912de21656b89, type: 3}
 --- !u!1 &200920294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,6 +1146,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1233,6 +1253,38 @@ Transform:
   m_Father: {fileID: 1571566620}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &538761323
 GameObject:
   m_ObjectHideFlags: 0
@@ -5428,13 +5480,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ab19224463cd20a41a383fa731813533, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.084
+  m_Volume: 0.033
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 178
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -6805,6 +6857,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: star (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6684357671807197334, guid: 453e0c97344c54a46b126fb8f4dc9eb0,
+        type: 3}
+      propertyPath: starSoundOne
+      value: 
+      objectReference: {fileID: 196056534}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 453e0c97344c54a46b126fb8f4dc9eb0, type: 3}
 --- !u!1 &1727343394
@@ -7008,13 +7065,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 902b8c6079f0fc844869c30b8db62861, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.102
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 144
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -7435,6 +7492,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1992409698}
   - component: {fileID: 1992409697}
+  - component: {fileID: 1992409699}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -7499,6 +7557,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1992409699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992409696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &2057264381
 GameObject:
   m_ObjectHideFlags: 3
