@@ -33,6 +33,18 @@ public class Avispa : Enemy
     float patrolTime = 5f;
     float patrolTimer = 0f;
     float sleepTimer = 0f;
+
+    [SerializeField]
+    public  AvispaIdle avispaIdle; 
+    float avispaIdleDelay = 2f;
+    bool canPlayavispaIdle = true; 
+    
+
+    [SerializeField]
+    public AvispaAttackSound avispaAttackSound; 
+    float avispaAttackSoundDelay = 2f;
+    bool canPlayAvispaAttackSound = true; 
+
     
 
     // Start is called before the first frame update
@@ -59,12 +71,20 @@ public class Avispa : Enemy
         {
             lastFlip = spr.flipX;
             StartCoroutine(AttackCoroutine("attack", attackClip, actualCoroutine));
+            canPlayAvispaAttackSound = true; 
+            StartCoroutine(PlayAvispaAttackSound()); 
+            
             StopCoroutine(actualCoroutine);
         }
         if(isAttacking && CanAttack)
         {
             spr.flipX = RightRay ? false : LeftRay ? true : spr.flipX;
         } 
+
+       
+        
+           
+        
     }
     bool CanAttack => Physics2D.OverlapCircle(transform.position, areaRadius, areaDetectionLayer);
 
@@ -116,6 +136,11 @@ public class Avispa : Enemy
             transform.Translate(direction * moveSpeed * Time.deltaTime);
             yield return null;
         }
+        if (canPlayavispaIdle)
+        {
+            canPlayavispaIdle = true;
+            StartCoroutine(PlayAvispaIdleSound());
+        }
     }
 
     void ActivateCollider()
@@ -151,6 +176,20 @@ public class Avispa : Enemy
             isMakingDamage = true;
             MakeDamageToPlayer();
         }
+    }
+
+    IEnumerator PlayAvispaIdleSound()
+    {
+        avispaIdle.AvispaIdleSound();
+        yield return new WaitForSeconds (avispaIdleDelay);
+        canPlayavispaIdle = true;
+    }
+
+    IEnumerator PlayAvispaAttackSound()
+    {
+        avispaAttackSound.AttackAvispaSound();
+        yield return new WaitForSeconds (avispaAttackSoundDelay);
+        canPlayAvispaAttackSound = true; 
     }
 
     bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, rayDistance, detectionLayer);

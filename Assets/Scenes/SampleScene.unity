@@ -3209,6 +3209,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6684357673136532642}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1039232950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039232944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a022ea160bc7514ab9c1358ea5426e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Estrella1: {fileID: 8300000, guid: acfe55e2f3943904997912de21656b89, type: 3}
 --- !u!1 &1062781719
 GameObject:
   m_ObjectHideFlags: 0
@@ -5329,6 +5342,8 @@ GameObject:
   - component: {fileID: 1510324166}
   - component: {fileID: 1510324165}
   - component: {fileID: 1510324164}
+  - component: {fileID: 1510324167}
+  - component: {fileID: 1510324168}
   m_Layer: 0
   m_Name: Avispa
   m_TagString: Enemy
@@ -5428,14 +5443,14 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510324159}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ab19224463cd20a41a383fa731813533, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.084
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -5550,6 +5565,8 @@ MonoBehaviour:
     m_Bits: 1024
   sleepTime: 0.5
   patrolTime: 3
+  avispaIdle: {fileID: 1510324167}
+  avispaAttackSound: {fileID: 1510324168}
 --- !u!58 &1510324165
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5582,6 +5599,32 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4.028222
+--- !u!114 &1510324167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510324159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d2b592089cee34fa5cc02ad433367c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Avispaidle: {fileID: 8300000, guid: df0e921e127f4564b9611aaf90eba3d4, type: 3}
+--- !u!114 &1510324168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510324159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd0ff6ec91e5b347b0b34a7f7c4f94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avispaattack1: {fileID: 8300000, guid: 2d5bc86cc49e13646bbfba58ff874b9d, type: 3}
 --- !u!1 &1516916786
 GameObject:
   m_ObjectHideFlags: 0
@@ -5699,6 +5742,7 @@ GameObject:
   - component: {fileID: 1571566626}
   - component: {fileID: 1571566627}
   - component: {fileID: 1571566628}
+  - component: {fileID: 1571566629}
   m_Layer: 10
   m_Name: EINHO
   m_TagString: Player
@@ -5850,6 +5894,7 @@ MonoBehaviour:
   footSteps: {fileID: 1571566624}
   attackEinhoSound: {fileID: 1571566627}
   deathsound: {fileID: 1571566628}
+  climbEinho: {fileID: 1571566629}
 --- !u!95 &1571566622
 Animator:
   serializedVersion: 3
@@ -6036,6 +6081,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepsSFX: {fileID: 8300000, guid: 55dd57a0f398295469105f5e85b8f62c, type: 3}
+--- !u!114 &1571566629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571566616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2728c4e698ca008419e6c3747982759d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpToClimb: {fileID: 8300000, guid: 325e3d42cc99d4346b3e46c321bf3028, type: 3}
 --- !u!1 &1596949334
 GameObject:
   m_ObjectHideFlags: 0
@@ -6785,6 +6843,7 @@ GameObject:
   - component: {fileID: 1727343399}
   - component: {fileID: 1727343398}
   - component: {fileID: 1727343401}
+  - component: {fileID: 1727343403}
   m_Layer: 9
   m_Name: HORMIGA_WALK IDLE
   m_TagString: Enemy
@@ -6943,6 +7002,7 @@ MonoBehaviour:
   sleepTime: 2
   patrolTime: 2.5
   hormigaSound: {fileID: 1727343401}
+  attackingSound: {fileID: 1727343403}
 --- !u!114 &1727343401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6966,18 +7026,18 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 902b8c6079f0fc844869c30b8db62861, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.049
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 1.5035074
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -7052,6 +7112,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1727343403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727343394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ab50f0966e5c64bbf1c867d989183e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AntAttack: {fileID: 8300000, guid: 577619a02cddbe14bb6e28f926759619, type: 3}
 --- !u!1 &1753787893
 GameObject:
   m_ObjectHideFlags: 0
@@ -7488,5 +7561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: star
       objectReference: {fileID: 0}
+    - target: {fileID: 6684357671807197334, guid: 453e0c97344c54a46b126fb8f4dc9eb0,
+        type: 3}
+      propertyPath: starSoundOne
+      value: 
+      objectReference: {fileID: 1039232950}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 453e0c97344c54a46b126fb8f4dc9eb0, type: 3}
