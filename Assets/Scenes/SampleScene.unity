@@ -5252,6 +5252,14 @@ GameObject:
   - component: {fileID: 1510324160}
   - component: {fileID: 1510324162}
   - component: {fileID: 1510324163}
+<<<<<<< Updated upstream
+=======
+  - component: {fileID: 1510324166}
+  - component: {fileID: 1510324165}
+  - component: {fileID: 1510324164}
+  - component: {fileID: 1510324167}
+  - component: {fileID: 1510324168}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Avispa
   m_TagString: Untagged
@@ -5355,14 +5363,14 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ab19224463cd20a41a383fa731813533, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.084
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 66
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -5440,6 +5448,102 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+<<<<<<< Updated upstream
+=======
+--- !u!114 &1510324164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510324159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0412a1c4d4e5d594e956e24d9e173b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackClip: {fileID: 7400000, guid: 92af14da3afee874da263a52458c340c, type: 2}
+  health: 30
+  damage: 10
+  direction: {x: 1, y: 0}
+  moveSpeed: 8
+  attackTime: 0
+  srcStar: {fileID: 1039232944}
+  areaRadius: 1.3
+  areaColor: {r: 1, g: 0, b: 0, a: 1}
+  areaDetectionLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  headcolliderLeft: {fileID: 1510324165}
+  headcolliderRight: {fileID: 1510324166}
+  rayDistance: 2.3
+  rayColor: {r: 1, g: 0.8391529, b: 0, a: 1}
+  detectionLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  sleepTime: 0.5
+  patrolTime: 3
+  AvispaIdle: {fileID: 1510324167}
+  AvispaAttackSound: {fileID: 1510324168}
+--- !u!58 &1510324165
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510324159}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4.028222
+--- !u!58 &1510324166
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510324159}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4.028222
+--- !u!114 &1510324167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510324159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d2b592089cee34fa5cc02ad433367c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Avispaidle: {fileID: 8300000, guid: df0e921e127f4564b9611aaf90eba3d4, type: 3}
+--- !u!114 &1510324168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510324159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd0ff6ec91e5b347b0b34a7f7c4f94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avispaattack1: {fileID: 8300000, guid: 2d5bc86cc49e13646bbfba58ff874b9d, type: 3}
+>>>>>>> Stashed changes
 --- !u!1 &1516916786
 GameObject:
   m_ObjectHideFlags: 0
@@ -5586,6 +5690,11 @@ GameObject:
   - component: {fileID: 1571566625}
   - component: {fileID: 1571566626}
   - component: {fileID: 1571566627}
+<<<<<<< Updated upstream
+=======
+  - component: {fileID: 1571566628}
+  - component: {fileID: 1571566629}
+>>>>>>> Stashed changes
   m_Layer: 10
   m_Name: EINHO
   m_TagString: Player
@@ -5736,7 +5845,12 @@ MonoBehaviour:
   headcolliderRight: {fileID: 1571566625}
   footSteps: {fileID: 1571566624}
   attackEinhoSound: {fileID: 1571566627}
+<<<<<<< Updated upstream
   footstepsDelay: 0.4
+=======
+  deathsound: {fileID: 1571566628}
+  climbingSound: {fileID: 1571566629}
+>>>>>>> Stashed changes
 --- !u!95 &1571566622
 Animator:
   serializedVersion: 3
@@ -5775,7 +5889,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 256
-  DopplerLevel: 1
+  DopplerLevel: 0.61
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -5910,6 +6024,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackSFX: {fileID: 8300000, guid: b3ddc30cdc249044688f713e441ae9a8, type: 3}
+<<<<<<< Updated upstream
+=======
+--- !u!114 &1571566628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571566616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2291f859c0ee84aa6d5193ed5bce46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepsSFX: {fileID: 8300000, guid: d3968be38ce80484cbc973400dab974c, type: 3}
+--- !u!114 &1571566629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571566616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2728c4e698ca008419e6c3747982759d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpToClimb: {fileID: 8300000, guid: 8e0f70de5c2999941beab4ef82bb1a29, type: 3}
+>>>>>>> Stashed changes
 --- !u!1 &1596949334
 GameObject:
   m_ObjectHideFlags: 0
@@ -6589,7 +6732,12 @@ GameObject:
   - component: {fileID: 1727343398}
   - component: {fileID: 1727343399}
   - component: {fileID: 1727343401}
+<<<<<<< Updated upstream
   - component: {fileID: 1727343402}
+=======
+  - component: {fileID: 1727343403}
+  - component: {fileID: 1727343404}
+>>>>>>> Stashed changes
   m_Layer: 9
   m_Name: HORMIGA_WALK IDLE
   m_TagString: Untagged
@@ -6733,6 +6881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e2e5fa63932014d87be4cd9b367d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   speed: 5
   cc: {fileID: 1571566617}
   rb: {fileID: 0}
@@ -6743,12 +6892,41 @@ MonoBehaviour:
   initialFacingDirection: -1
 --- !u!70 &1727343401
 CapsuleCollider2D:
+=======
+  attackClip: {fileID: 7400000, guid: 6226fe27f3445a04ca50aef88844fe1f, type: 2}
+  health: 30
+  damage: 10
+  direction: {x: 1, y: 0}
+  moveSpeed: 3
+  attackTime: 1
+  srcStar: {fileID: 1039232944}
+  areaRadius: 1.5
+  areaColor: {r: 1, g: 0, b: 0, a: 1}
+  areaDetectionLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  headcolliderLeft: {fileID: 1727343398}
+  headcolliderRight: {fileID: 1727343399}
+  rayDistance: 2.8
+  rayColor: {r: 1, g: 0.989954, b: 0, a: 1}
+  detectionLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  sleepTime: 2
+  patrolTime: 2.5
+  hormigaSound: {fileID: 1727343401}
+  antAttacking: {fileID: 1727343403}
+  starSoundOne: {fileID: 1727343404}
+--- !u!114 &1727343401
+MonoBehaviour:
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727343394}
   m_Enabled: 1
+<<<<<<< Updated upstream
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -6757,6 +6935,14 @@ CapsuleCollider2D:
   m_Offset: {x: -0.000004691116, y: -0.35889357}
   m_Size: {x: 7.8487115, y: 3.9610355}
   m_Direction: 1
+=======
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820de49f8ed21e04d9f9f964327278bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsMoving: 0
+  hormigaSFX: {fileID: 8300000, guid: 902b8c6079f0fc844869c30b8db62861, type: 3}
+>>>>>>> Stashed changes
 --- !u!82 &1727343402
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6853,6 +7039,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1727343403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727343394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ab50f0966e5c64bbf1c867d989183e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AntAttack: {fileID: 8300000, guid: 577619a02cddbe14bb6e28f926759619, type: 3}
+--- !u!114 &1727343404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727343394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a022ea160bc7514ab9c1358ea5426e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Estrella1: {fileID: 8300000, guid: acfe55e2f3943904997912de21656b89, type: 3}
 --- !u!1 &1753787893
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,6 +22,7 @@ public class hormiga : MonoBehaviour
 
     public float pushForce = 100.0f;
 
+<<<<<<< Updated upstream
 
     const string attack = "HORMIGA_ATTACK_IZQ";
 
@@ -29,6 +30,23 @@ public class hormiga : MonoBehaviour
     public int initialFacingDirection = -1;
     int currentFacingDirection;
     bool canPlayHormigaSound = true; 
+=======
+    [SerializeField]
+    public HormigaSounds hormigaSound; 
+    float footstepsDelay = 2f;
+    bool canPlayHormigaSound = true;
+
+   [SerializeField]
+   public AttackAntSound antAttacking;
+   float attackSoundDelay = 2f;
+   bool canplayantAttacking = true;
+    [SerializeField]
+   public StarSoundOne starSoundOne; 
+     float starSoundDelay = 2f; 
+     bool canPlayStarSoundOne; 
+
+
+>>>>>>> Stashed changes
     
 
     // Start is called before the first frame update
@@ -41,9 +59,38 @@ public class hormiga : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< Updated upstream
         Move();
         canPlayHormigaSound = true;   
         
+=======
+        if (Die)
+        {
+            if(!diying)
+            {
+                diying = true;
+                anim.SetTrigger("die");
+                DeleteFromScene();
+                canPlayHormigaSound = false;
+                canPlayStarSoundOne = true; 
+                StartCoroutine(PlaySoundStarOne());
+            }
+            return;
+        }
+        if(CanAttack && !isAttacking)
+        {
+            lastFlip = spr.flipX;
+            StartCoroutine(AttackCoroutine("attack", attackClip, actualCoroutine));
+            StopCoroutine(actualCoroutine);
+            canplayantAttacking = false;
+            StartCoroutine(PlayattackSound());
+        }
+        if(isAttacking && CanAttack)
+        {
+            spr.flipX = RightRay ? false : LeftRay ? true : spr.flipX;
+        } 
+
+>>>>>>> Stashed changes
     }
     
    
@@ -96,7 +143,77 @@ public class hormiga : MonoBehaviour
             }
             animatorController.Play(attack);
         }
+<<<<<<< Updated upstream
     }
 
     
+=======
+
+        if(canPlayHormigaSound)
+        {
+            canPlayHormigaSound = true;
+            StartCoroutine(PlayFootSteps());
+        }
+    }
+
+    void ActivateCollider()
+    {
+        if(spr.flipX)
+        {
+            headcolliderLeft.enabled = true;
+            headcolliderRight.enabled = false;
+        }
+        else
+        {
+            headcolliderLeft.enabled = false;
+            headcolliderRight.enabled = true;
+        }
+    }
+
+    void DesableCollider()
+    {
+        headcolliderLeft.enabled = false;
+        headcolliderRight.enabled = false;
+    }
+
+    void MakeDamageToPlayer()
+    {
+        GameManager.instance.GetPlayer.RecivingDamage(damage);
+        GameManager.instance.GetHealthBar.SetValue(GameManager.instance.GetPlayer.GetHealth);
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(!isMakingDamage)
+        {
+            isMakingDamage = true;
+            MakeDamageToPlayer();
+        }
+    }
+    IEnumerator PlayFootSteps()
+    {
+        hormigaSound.hormigaSound();
+        yield return new WaitForSeconds(footstepsDelay);
+        canPlayHormigaSound = true;
+    }
+    IEnumerator PlayattackSound()
+    {
+        antAttacking.AttackSound();
+        yield return new WaitForSeconds(attackSoundDelay);
+        canplayantAttacking = true; 
+    }
+
+    IEnumerator PlaySoundStarOne()
+    {
+        starSoundOne.estrella1Sound();
+        yield return new WaitForSeconds(starSoundDelay);
+        canPlayStarSoundOne = true; 
+    }
+    
+
+    bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, rayDistance, detectionLayer);
+    bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, rayDistance, detectionLayer);
+    bool Die => health == 0;
+
+>>>>>>> Stashed changes
 }
