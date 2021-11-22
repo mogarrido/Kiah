@@ -5942,7 +5942,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.533
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6094,7 +6094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2291f859c0ee84aa6d5193ed5bce46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepsSFX: {fileID: 8300000, guid: 55dd57a0f398295469105f5e85b8f62c, type: 3}
+  stepsSFX: {fileID: 8300000, guid: d3968be38ce80484cbc973400dab974c, type: 3}
 --- !u!114 &1571566629
 MonoBehaviour:
   m_ObjectHideFlags: 0
