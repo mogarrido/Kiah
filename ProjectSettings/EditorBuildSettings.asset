@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Naelie_Level.unity
     guid: d59873e554d29ff439e73da32fdc2782
+  - enabled: 1
+    path: Assets/Scenes/EndingVideo.unity
+    guid: 9efb6992c70abca41860b14cf879dde0
   m_configObjects: {}
