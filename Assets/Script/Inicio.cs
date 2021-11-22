@@ -38,4 +38,13 @@ public class Inicio : MonoBehaviour
     {
         SceneManager.LoadScene("");
     }
+
+    public void Vida()
+    {
+        if (true)
+        {
+            GameManager.instance.GetPlayer.Life();
+            GameManager.instance.GetHealthBar.SetValue(GameManager.instance.GetPlayer.GetHealth);
+        }
+    }
 }

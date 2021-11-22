@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Chase : MonoBehaviour
 {
-     public Avispa [] enemyArray; 
+    /*public Avispa [] enemyArray; 
      private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
@@ -24,7 +24,7 @@ public class Chase : MonoBehaviour
                 enemy.chase = false; 
             }
         }
-    }
+    }*/
 
     // Start is called before the first frame update
     void Start()

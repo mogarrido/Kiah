@@ -3,67 +3,55 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; 
 
-public class hormiga : MonoBehaviour
+public class hormiga : Enemy
 {
+    //Attack area
+    [SerializeField, Range(0.1f, 20f)]
+    float areaRadius = 5f;
+    [SerializeField]
+    Color areaColor = Color.red;
+    [SerializeField]
+    LayerMask areaDetectionLayer;
+    IEnumerator actualCoroutine;
+
+   [SerializeField]
+    Collider2D headcolliderLeft;
+    [SerializeField]
+    Collider2D headcolliderRight;
+
+     //Raycast things
+    [SerializeField, Range(0.1f, 20f)]
+    float rayDistance = 5f;
+    [SerializeField]
+    Color rayColor = Color.red;
+    [SerializeField]
+    LayerMask detectionLayer;
+    
     
     [SerializeField]
-
-    public float speed = 5.0f;
-    public CapsuleCollider2D cc;
-    public Rigidbody2D rb;
-    public GameManager GameManager;
-    public Animator animatorController;
-    SpriteRenderer spriteRenderer;
-
-[SerializeField]
-   public HormigaSounds hormigaSound; 
+    float sleepTime = 2f;
     [SerializeField]
-    
+    float patrolTime = 5f;
+    float patrolTimer = 0f;
+    float sleepTimer = 0f;
 
-    public float pushForce = 100.0f;
 
-<<<<<<< Updated upstream
-
-    const string attack = "HORMIGA_ATTACK_IZQ";
-
-    [Range(-1, 1)]
-    public int initialFacingDirection = -1;
-    int currentFacingDirection;
-    bool canPlayHormigaSound = true; 
-=======
     [SerializeField]
     public HormigaSounds hormigaSound; 
     float footstepsDelay = 2f;
     bool canPlayHormigaSound = true;
-
-   [SerializeField]
-   public AttackAntSound antAttacking;
-   float attackSoundDelay = 2f;
-   bool canplayantAttacking = true;
-    [SerializeField]
-   public StarSoundOne starSoundOne; 
-     float starSoundDelay = 2f; 
-     bool canPlayStarSoundOne; 
-
-
->>>>>>> Stashed changes
     
 
     // Start is called before the first frame update
     void Start()
     {
-        currentFacingDirection = initialFacingDirection;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        actualCoroutine = IdleCoroutine(sleepTime, "patrol");
+        StartCoroutine(IdleCoroutine(sleepTime, "patrol"));
     }
 
     // Update is called once per frame
     void Update()
     {
-<<<<<<< Updated upstream
-        Move();
-        canPlayHormigaSound = true;   
-        
-=======
         if (Die)
         {
             if(!diying)
@@ -72,8 +60,6 @@ public class hormiga : MonoBehaviour
                 anim.SetTrigger("die");
                 DeleteFromScene();
                 canPlayHormigaSound = false;
-                canPlayStarSoundOne = true; 
-                StartCoroutine(PlaySoundStarOne());
             }
             return;
         }
@@ -82,76 +68,66 @@ public class hormiga : MonoBehaviour
             lastFlip = spr.flipX;
             StartCoroutine(AttackCoroutine("attack", attackClip, actualCoroutine));
             StopCoroutine(actualCoroutine);
-            canplayantAttacking = false;
-            StartCoroutine(PlayattackSound());
         }
         if(isAttacking && CanAttack)
         {
             spr.flipX = RightRay ? false : LeftRay ? true : spr.flipX;
         } 
-
->>>>>>> Stashed changes
     }
-    
-   
+    bool CanAttack => Physics2D.OverlapCircle(transform.position, areaRadius, areaDetectionLayer);
 
-
-    void Move()
+    void OnDrawGizmosSelected()
     {
-
-        if(animatorController.GetCurrentAnimatorStateInfo(0).IsName("HORMIGA_WALK"))
-         this.transform.Translate(speed * Time.deltaTime * currentFacingDirection,0,0);
-          
+        Gizmos.color = areaColor;
+        Gizmos.DrawWireSphere(transform.position, areaRadius);
+        Gizmos.color = rayColor;
+        Gizmos.DrawRay(transform.position, Vector2.right * rayDistance);
+        Gizmos.DrawRay(transform.position, Vector2.left * rayDistance);
     }
-    
-   
-   
-    void OnCollisionEnter2D(Collision2D other)
+
+     public override IEnumerator IdleCoroutine(float duration, string stateName)
     {
-        if(other.gameObject.tag == "Limit")
+        anim.SetBool(stateName, false);
+        while(true)
         {
-            currentFacingDirection *= -1;
-            float dir = transform.localScale.x * -1;
-            transform.localScale = new Vector3(dir, transform.localScale.y, transform.localScale.z);
-        }
-    }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if(other.tag == "Player")
-        {
-            Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
-            //saber  si el player esta a la derecha o a la izquierda de la posicion 
-            if(other.transform.position.x < transform.position.x)
+            sleepTimer += Time.deltaTime;
+            if(sleepTimer >= duration)
             {
-                //esta a la izquierda
-                if(currentFacingDirection == 1 )
-                {
-                    spriteRenderer.flipX = !spriteRenderer.flipX;
-                    currentFacingDirection *= -1;
-                }
-                playerRb.AddForce(new Vector2(-pushForce, 0.0f));
-            }else if(other.transform.position.x > transform.position.x)
-            {
-                 if(currentFacingDirection == -1)
-                 {
-                    spriteRenderer.flipX = !spriteRenderer.flipX;
-                     currentFacingDirection *= -1;
-                    
-                }
-                 playerRb.AddForce(new Vector2(pushForce, 0.0f));
+                sleepTimer = 0f;
+                actualCoroutine = MovementCoroutine(patrolTime, "patrol");
+                StartCoroutine(actualCoroutine);
+                break;
             }
-            animatorController.Play(attack);
+            yield return null;
         }
-<<<<<<< Updated upstream
     }
 
-    
-=======
+    public override IEnumerator MovementCoroutine(float duration, string stateName)
+    {
+        anim.SetBool(stateName, true);
+        spr.flipX = !spr.flipX;
+        direction = new Vector2(-direction.x, direction.y);
+        while(true)
+        {
+            if (Die)
+            {
+                break;
+            }
+            patrolTimer += Time.deltaTime;
+            if(patrolTimer >= duration)
+            {
+                patrolTimer = 0f;
+                actualCoroutine = IdleCoroutine(sleepTime, "patrol");
+                StartCoroutine(actualCoroutine);
+                break;
+            }
+            transform.Translate(direction * moveSpeed * Time.deltaTime);
+            yield return null;
+        }
 
         if(canPlayHormigaSound)
         {
-            canPlayHormigaSound = true;
+            canPlayHormigaSound = false;
             StartCoroutine(PlayFootSteps());
         }
     }
@@ -196,24 +172,9 @@ public class hormiga : MonoBehaviour
         yield return new WaitForSeconds(footstepsDelay);
         canPlayHormigaSound = true;
     }
-    IEnumerator PlayattackSound()
-    {
-        antAttacking.AttackSound();
-        yield return new WaitForSeconds(attackSoundDelay);
-        canplayantAttacking = true; 
-    }
-
-    IEnumerator PlaySoundStarOne()
-    {
-        starSoundOne.estrella1Sound();
-        yield return new WaitForSeconds(starSoundDelay);
-        canPlayStarSoundOne = true; 
-    }
-    
 
     bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, rayDistance, detectionLayer);
     bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, rayDistance, detectionLayer);
     bool Die => health == 0;
 
->>>>>>> Stashed changes
 }

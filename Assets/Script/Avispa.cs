@@ -2,43 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Avispa : MonoBehaviour
+public class Avispa : Enemy
 {
-    private GameObject player;
-    public float speed;
-    public bool chase = false; 
-    public Transform startingPoint; 
-   
-    
-    
-<<<<<<< Updated upstream
-     
-=======
+    //Attack area
+    [SerializeField, Range(0.1f, 20f)]
+    float areaRadius = 5f;
     [SerializeField]
-    public AvispaIdle AvispaIdle; 
-    float idleSoundDelay = 2f; 
-    bool canPlayAvispaIdle = true; 
+    Color areaColor = Color.red;
     [SerializeField]
-    public AvispaAttackSound AvispaAttackSound; 
-    float attackavispaDelay = 2f; 
-    bool canPlayAvispaAttackSound = true; 
+    LayerMask areaDetectionLayer;
+    IEnumerator actualCoroutine;
 
->>>>>>> Stashed changes
+   [SerializeField]
+    Collider2D headcolliderLeft;
+    [SerializeField]
+    Collider2D headcolliderRight;
+
+     //Raycast things
+    [SerializeField, Range(0.1f, 20f)]
+    float rayDistance = 5f;
+    [SerializeField]
+    Color rayColor = Color.red;
+    [SerializeField]
+    LayerMask detectionLayer;
+    
+    
+    [SerializeField]
+    float sleepTime = 2f;
+    [SerializeField]
+    float patrolTime = 5f;
+    float patrolTimer = 0f;
+    float sleepTimer = 0f;
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        actualCoroutine = IdleCoroutine(sleepTime, "patrol");
+        StartCoroutine(IdleCoroutine(sleepTime, "patrol"));
     }
 
     // Update is called once per frame
     void Update()
     {
-<<<<<<< Updated upstream
-        if(player == null)
-           return; 
-        if (chase==true)
-           return; 
-=======
         if (Die)
         {
             if(!diying)
@@ -46,7 +52,6 @@ public class Avispa : MonoBehaviour
                 diying = true;
                 anim.SetTrigger("die");
                 DeleteFromScene();
-                canPlayAvispaIdle = false; 
             }
             return;
         }
@@ -55,8 +60,6 @@ public class Avispa : MonoBehaviour
             lastFlip = spr.flipX;
             StartCoroutine(AttackCoroutine("attack", attackClip, actualCoroutine));
             StopCoroutine(actualCoroutine);
-            canPlayAvispaAttackSound = false; 
-            StartCoroutine(PlayattackingSound());
         }
         if(isAttacking && CanAttack)
         {
@@ -64,16 +67,16 @@ public class Avispa : MonoBehaviour
         } 
     }
     bool CanAttack => Physics2D.OverlapCircle(transform.position, areaRadius, areaDetectionLayer);
->>>>>>> Stashed changes
 
-           
-        else 
-           //go to starting point
-           ReturnStartPosition(); 
-           Flip (); 
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = areaColor;
+        Gizmos.DrawWireSphere(transform.position, areaRadius);
+        Gizmos.color = rayColor;
+        Gizmos.DrawRay(transform.position, Vector2.right * rayDistance);
+        Gizmos.DrawRay(transform.position, Vector2.left * rayDistance);
+    }
 
-<<<<<<< Updated upstream
-=======
      public override IEnumerator IdleCoroutine(float duration, string stateName)
     {
         anim.SetBool(stateName, false);
@@ -89,15 +92,10 @@ public class Avispa : MonoBehaviour
             }
             yield return null;
         }
-        
->>>>>>> Stashed changes
     }
 
-    private void Chase ()
+    public override IEnumerator MovementCoroutine(float duration, string stateName)
     {
-<<<<<<< Updated upstream
-        transform.position=Vector2.MoveTowards(transform.position,player.transform.position,speed * Time.deltaTime); 
-=======
         anim.SetBool(stateName, true);
         spr.flipX = !spr.flipX;
         direction = new Vector2(-direction.x, direction.y);
@@ -118,46 +116,44 @@ public class Avispa : MonoBehaviour
             transform.Translate(direction * moveSpeed * Time.deltaTime);
             yield return null;
         }
+    }
 
-        if (canPlayAvispaIdle)
+    void ActivateCollider()
+    {
+        if(spr.flipX)
         {
-            canPlayAvispaIdle = true; 
-            StartCoroutine(PlayavispaIdleSound());
+            headcolliderLeft.enabled = true;
+            headcolliderRight.enabled = false;
         }
-        
->>>>>>> Stashed changes
-    }
-    
-    private void ReturnStartPosition()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, startingPoint.position, speed * Time.deltaTime); 
-    }
-    private void Flip()
-    {
-        if(transform.position.x>player.transform.position.x)
-        transform.rotation = Quaternion.Euler(0,0,0);
         else
-        transform.rotation = Quaternion.Euler(0,180,0);
-    }
-    IEnumerator PlayavispaIdleSound()
-    {
-        AvispaIdle.AvispaIdleSound();
-        yield return new WaitForSeconds(idleSoundDelay);
-        canPlayAvispaIdle = true; 
-    }
-    
-    IEnumerator PlayattackingSound()
-    {
-        AvispaAttackSound.AttackAvispaSound();
-        yield return new WaitForSeconds(attackavispaDelay);
-        canPlayAvispaAttackSound = true; 
+        {
+            headcolliderLeft.enabled = false;
+            headcolliderRight.enabled = true;
+        }
     }
 
-<<<<<<< Updated upstream
-=======
-    
+    void DesableCollider()
+    {
+        headcolliderLeft.enabled = false;
+        headcolliderRight.enabled = false;
+    }
+
+    void MakeDamageToPlayer()
+    {
+        GameManager.instance.GetPlayer.RecivingDamage(damage);
+        GameManager.instance.GetHealthBar.SetValue(GameManager.instance.GetPlayer.GetHealth);
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(!isMakingDamage)
+        {
+            isMakingDamage = true;
+            MakeDamageToPlayer();
+        }
+    }
+
     bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, rayDistance, detectionLayer);
     bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, rayDistance, detectionLayer);
     bool Die => health == 0;
->>>>>>> Stashed changes
 }

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -70,14 +70,8 @@ public class Einho : MonoBehaviour
     
      AttackEinho attackEinhoSound; 
      [SerializeField]
-<<<<<<< Updated upstream
-
-=======
     DEATH deathsound;
-    [SerializeField]
-    public ClimbEinho climbingSound; 
-   
->>>>>>> Stashed changes
+
     float footstepsDelay = 2f;
     bool canPlayFootsteps = true;
     bool diying = false;
@@ -85,15 +79,10 @@ public class Einho : MonoBehaviour
     float attackDelay = 2f; 
     bool canPlayAttackSounds = true;
 
-<<<<<<< Updated upstream
-
-=======
     float deathDelay = 2f;
     bool canPLayDeathSound = true;
 
-    float climbingDelay = 2f;
-    bool canPlayClimbingSound = true; 
->>>>>>> Stashed changes
+
     void Awake()
     {
         spr = GetComponent<SpriteRenderer>();
@@ -106,10 +95,12 @@ public class Einho : MonoBehaviour
 
         if(Die)
         {
-            if(!diying)
+            if(!diying && canPLayDeathSound)
             {
                 diying = true;
                 anim.SetTrigger("die");
+                canPLayDeathSound = false;
+                StartCoroutine(PlayDeathSound());
             }
             return;
         }
@@ -139,8 +130,6 @@ public class Einho : MonoBehaviour
             rb2D.velocity = Vector2.zero;
             anim.SetBool("climb", true);
             anim.SetFloat("magnitude", Axis.magnitude);
-            canPlayClimbingSound = true;
-            StartCoroutine(PlayClimbingEinho());
             Climb();
         }
     }
@@ -158,8 +147,6 @@ public class Einho : MonoBehaviour
         yield return new WaitForSeconds(attackDelay);
         canPlayAttackSounds = true; 
     }
-<<<<<<< Updated upstream
-=======
 
     IEnumerator PlayDeathSound()
     {
@@ -167,14 +154,6 @@ public class Einho : MonoBehaviour
         yield return new WaitForSeconds(deathDelay);
         canPLayDeathSound = true;
     }
-
-    IEnumerator PlayClimbingEinho()
-    {
-      climbingSound.ClimbingSoundEinho();
-      yield return new WaitForSeconds(climbingDelay);
-      canPlayClimbingSound = true; 
-    }
->>>>>>> Stashed changes
     void Movement()
     {
         if(IsWalking && canPlayFootsteps)
@@ -300,6 +279,11 @@ public class Einho : MonoBehaviour
     public void GameOver()
     {
         SceneManager.LoadScene("GameOver");
+    }
+
+    public void Life()
+    {
+        health = 100;
     }
 
     Vector2 Axis => new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
