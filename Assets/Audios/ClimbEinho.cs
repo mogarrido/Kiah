@@ -2,24 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Climbsound: MonoBehaviour
+public class ClimbEinho : MonoBehaviour
 {
      private AudioSource audioSource;
-    private bool isClimbing;
-    [SerializeField]
-    public Audioclip jumpToClimb; 
-
+     private bool isClimbing; 
+     [SerializeField]
+     public AudioClip jumpToClimb; 
     // Start is called before the first frame update
     void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
     }
 
-    public void ClimbingSound()
+    public void ClimbingSoundEinho()
     {
-
         audioSource.PlayOneShot(jumpToClimb);
-        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         
     }
 }

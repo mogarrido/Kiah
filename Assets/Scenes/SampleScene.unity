@@ -6073,7 +6073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2728c4e698ca008419e6c3747982759d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpToClimb: {fileID: 8300000, guid: cd761af2e873ab34cba3efd0bd468b83, type: 3}
+  jumpToClimb: {fileID: 8300000, guid: 325e3d42cc99d4346b3e46c321bf3028, type: 3}
 --- !u!1 &1596949334
 GameObject:
   m_ObjectHideFlags: 0
