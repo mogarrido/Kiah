@@ -217,6 +217,7 @@ public class Einho : MonoBehaviour
             StartCoroutine(PlayAttackSound());
             StartCoroutine(DoAttack());
         }
+      
     }
 
     void Jump()
