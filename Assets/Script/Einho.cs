@@ -72,7 +72,7 @@ public class Einho : MonoBehaviour
      [SerializeField]
     DEATH deathsound;
      [SerializeField]
-     public ClimbEinho climbEinho; 
+     public Climbsound Climb; 
      float climbingSoundDelay = 2f;
      bool canPlayClimbingSound = true; 
  
@@ -174,7 +174,7 @@ public class Einho : MonoBehaviour
 
     IEnumerator PlayClimbingSound()
     {
-        climbEinho.ClimbingSoundEinho();
+        Climbsound.ClimbingSound();
         yield return new WaitForSeconds(climbingSoundDelay);
         canPlayClimbingSound = true; 
     }
