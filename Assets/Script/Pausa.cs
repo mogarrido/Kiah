@@ -29,12 +29,12 @@ public class Pausa : MonoBehaviour
         SceneManager.LoadScene("Pantalla_Inicio");
     }
 
-    public void Vida()
+    /*public void Vida()
     {
         if (true)
         {
             GameManager.instance.GetPlayer.Life();
             GameManager.instance.GetHealthBar.SetValue(GameManager.instance.GetPlayer.GetHealth);
         }
-    }
+    }*/
 }

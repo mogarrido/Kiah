@@ -47,7 +47,6 @@ public class Einho : MonoBehaviour
 
     [SerializeField, Range(0, 20)]
     protected int damage = 10;
-
     bool isClimbing = false;
     protected bool isMakingDamage = false;
 
@@ -306,10 +305,10 @@ public class Einho : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
-    public void Life()
+    /*public void Life()
     {
         health = 100;
-    }
+    }*/
 
     Vector2 Axis => new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     bool FlipSprite => Axis.x > 0f ? false : Axis.x < 0f ? true : spr.flipX;
@@ -323,4 +322,5 @@ public class Einho : MonoBehaviour
     bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, RayDistance, DetectionLayer);
     bool Die => health == 0;
     bool IsWalking => Grounding && Axis.x != 0f;
+    public void Obstacle(int obstacleDamage) => health -= health - obstacleDamage > 0 ? obstacleDamage : health;
 }
