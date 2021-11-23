@@ -33,6 +33,17 @@ public class Caterpillar : Enemy
     [SerializeField]
     LayerMask detectionLayer;
 
+[SerializeField]
+    public CatterpillarWalking WalkingSound;
+    float walkingCaterpillarDelay = 2f;
+    bool canPlayWalkingSound = true;
+[SerializeField]
+     public CatterpillarAttack attackSound; 
+     float attackSoundDelay = 2f;
+     bool canPlayAttackOrugaSound = true; 
+
+
+
     void Start()
     {
         actualCoroutine = IdleCoroutine(sleepTime, "patrol");
@@ -54,6 +65,8 @@ public class Caterpillar : Enemy
         {
             lastFlip = spr.flipX;
             StartCoroutine(AttackCoroutine("attack", attackClip, actualCoroutine));
+            canPlayAttackOrugaSound = true;
+            StartCoroutine(PlayOrugaAttacking());
             StopCoroutine(actualCoroutine);
         }
         if(isAttacking && CanAttack)
@@ -92,16 +105,38 @@ public class Caterpillar : Enemy
                 patrolTimer = 0f;
                 actualCoroutine = IdleCoroutine(sleepTime, "patrol");
                 StartCoroutine(actualCoroutine);
+                
                 break;
+                
             }
-            transform.Translate(direction * moveSpeed * Time.deltaTime);
-            yield return null;
+         transform.Translate(direction * moveSpeed * Time.deltaTime);
+            
+         yield return null; 
         }
+          if (canPlayWalkingSound)
+           {
+               canPlayWalkingSound = true;
+               StartCoroutine(PlayWalkingSoundCatterpillar());
+           }
 
         /*if(Detection)
         {
             spr.flipX = !spr.flipX;
         }*/
+         
+    }
+    IEnumerator PlayWalkingSoundCatterpillar()
+    {
+        WalkingSound.SoundWalkingCatterpillar(); 
+        yield return new WaitForSeconds (walkingCaterpillarDelay);
+        canPlayWalkingSound = true; 
+    }
+
+    IEnumerator PlayOrugaAttacking()
+    {
+        attackSound.AttackingOruga();
+        yield return new WaitForSeconds (attackSoundDelay);
+        canPlayAttackOrugaSound = true; 
     }
 
     
@@ -155,6 +190,8 @@ public class Caterpillar : Enemy
     {
         //anim.SetBool("detection", Detection); 
     }
+
+    
 
     bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, rayDistance, detectionLayer);
     bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, rayDistance, detectionLayer);

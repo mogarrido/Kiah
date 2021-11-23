@@ -5184,6 +5184,8 @@ GameObject:
   - component: {fileID: 1356333275}
   - component: {fileID: 1356333274}
   - component: {fileID: 1356333273}
+  - component: {fileID: 1356333279}
+  - component: {fileID: 1356333280}
   m_Layer: 9
   m_Name: Caterpillar (1)
   m_TagString: Enemy
@@ -5256,6 +5258,8 @@ MonoBehaviour:
   detectionLayer:
     serializedVersion: 2
     m_Bits: 1024
+  WalkingSound: {fileID: 1356333279}
+  attackSound: {fileID: 0}
 --- !u!95 &1356333276
 Animator:
   serializedVersion: 3
@@ -5341,6 +5345,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1356333279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356333272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8931687737806744f879f537fedd624d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OrugaWalkFoleyEdit: {fileID: 8300000, guid: 97330713e0e9b6a498973119304a67e6, type: 3}
+--- !u!114 &1356333280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356333272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ad7bb22569d834daeeb5885a2ec504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OrugaAtaqueFoleyEditado: {fileID: 8300000, guid: fd812d5310c04924db9de1e698e17aab,
+    type: 3}
 --- !u!1 &1510324159
 GameObject:
   m_ObjectHideFlags: 0
@@ -6111,7 +6142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2728c4e698ca008419e6c3747982759d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpToClimb: {fileID: 8300000, guid: 325e3d42cc99d4346b3e46c321bf3028, type: 3}
+  jumpToClimb: {fileID: 8300000, guid: 5fb46a56f342cff4ebff7ed9394b2b9e, type: 3}
 --- !u!114 &1571566630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6140,6 +6171,8 @@ GameObject:
   - component: {fileID: 1596949338}
   - component: {fileID: 1596949339}
   - component: {fileID: 1596949340}
+  - component: {fileID: 1596949341}
+  - component: {fileID: 1596949342}
   m_Layer: 9
   m_Name: Caterpillar
   m_TagString: Enemy
@@ -6265,6 +6298,8 @@ MonoBehaviour:
   detectionLayer:
     serializedVersion: 2
     m_Bits: 1024
+  WalkingSound: {fileID: 1596949341}
+  attackSound: {fileID: 1596949342}
 --- !u!58 &1596949339
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6297,6 +6332,33 @@ CircleCollider2D:
   m_Offset: {x: 1.82, y: 0.67}
   serializedVersion: 2
   m_Radius: 2
+--- !u!114 &1596949341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596949334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8931687737806744f879f537fedd624d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OrugaWalkFoleyEdit: {fileID: 8300000, guid: 97330713e0e9b6a498973119304a67e6, type: 3}
+--- !u!114 &1596949342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596949334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ad7bb22569d834daeeb5885a2ec504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OrugaAtaqueFoleyEditado: {fileID: 8300000, guid: fd812d5310c04924db9de1e698e17aab,
+    type: 3}
 --- !u!1 &1603379017
 GameObject:
   m_ObjectHideFlags: 0
