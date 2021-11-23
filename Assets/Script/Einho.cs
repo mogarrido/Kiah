@@ -330,5 +330,4 @@ public class Einho : MonoBehaviour
     bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, RayDistance, DetectionLayer);
     bool Die => health == 0;
     bool IsWalking => Grounding && Axis.x != 0f;
-    public void Obstacle(int obstacleDamage) => health -= health - obstacleDamage > 0 ? obstacleDamage : health;
 }
