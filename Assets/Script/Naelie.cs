@@ -19,7 +19,7 @@ public class Naelie : Boss
     LayerMask areaDetectionLayer;
     IEnumerator actualCoroutine;
 
-   [SerializeField]
+    [SerializeField]
     Collider2D headcolliderLeft;
     [SerializeField]
     Collider2D headcolliderRight;
@@ -95,10 +95,12 @@ public class Naelie : Boss
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        anim.SetFloat("Phase", Phase);
     }
+
+    float Phase => health >= 100 ?  0 : health < 100f && health > 50f ? 1 : 2;
     bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, rayDistance, detectionLayer);
     bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, rayDistance, detectionLayer);
     bool Die => health == 0;

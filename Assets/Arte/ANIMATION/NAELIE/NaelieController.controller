@@ -38,7 +38,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: b532be611aba91f449edfade7b803f48, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 0.01
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
@@ -54,15 +54,15 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: ebf951f5e95cadb4a8e8014ff7617eba, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 2
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
-  m_BlendParameter: Blend
+  m_BlendParameter: Phase
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
-  m_UseAutomaticThresholds: 1
+  m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
 --- !u!206 &-8153129650484995433
@@ -277,10 +277,10 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 5098246185727381605}
   m_Tag: 
-  m_SpeedParameter: Blend
+  m_SpeedParameter: Phase
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
-  m_TimeParameter: Blend
+  m_TimeParameter: Phase
 --- !u!206 &-1929689851737002182
 BlendTree:
   m_ObjectHideFlags: 1
@@ -293,7 +293,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: 06d3ac504f19c3f4ea0c53552b8b5117, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 0.01
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
@@ -309,11 +309,11 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: a4e41f4dcddbf074c9c15fd107a66212, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 2
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
-  m_BlendParameter: Blend
+  m_BlendParameter: Phase
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -354,12 +354,6 @@ AnimatorController:
   m_Name: NaelieController
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Blend
-    m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
   - m_Name: Attack
     m_Type: 9
     m_DefaultFloat: 0
@@ -368,6 +362,12 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: patrol
     m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: Phase
+    m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -423,7 +423,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: 9ecc86ec2579b90409dfad994e5f2160, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 0.01
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
@@ -439,15 +439,15 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: a23d74c60db0c684d909271647311713, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 2
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
-  m_BlendParameter: Blend
+  m_BlendParameter: Phase
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
-  m_UseAutomaticThresholds: 1
+  m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
 --- !u!206 &5327692341741727429
@@ -462,7 +462,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: d0e2fb8edbb3a8b409b26cf4e4cd8d5f, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 0.01
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
@@ -478,15 +478,15 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: bcca13650522a634fa44215bbc4ad942, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 2
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
-  m_BlendParameter: Blend
+  m_BlendParameter: Phase
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
-  m_UseAutomaticThresholds: 1
+  m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
 --- !u!206 &7668238180558510040

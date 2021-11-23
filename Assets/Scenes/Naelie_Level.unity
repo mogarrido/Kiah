@@ -816,7 +816,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!1 &479734866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,6 +1663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpToClimb: {fileID: 8300000, guid: 325e3d42cc99d4346b3e46c321bf3028, type: 3}
+  sfxVolume: 0
 --- !u!114 &1129764377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1891,8 +1892,14 @@ MonoBehaviour:
   attackEinhoSound: {fileID: 1129764378}
   deathsound: {fileID: 1129764377}
   climbEinho: {fileID: 1129764376}
+  climbingSoundDelay: 2
   starSoundOne: {fileID: 1129764375}
   footstepsDelay: 0.45
+  rayWallDistance: 5
+  rayWallColor: {r: 0, g: 1, b: 1, a: 1}
+  detectionWallLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!70 &1129764385
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
