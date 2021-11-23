@@ -8,7 +8,7 @@ public class CatterpillarWalking : MonoBehaviour
     private AudioSource audioSource;
     private bool isWalking;
     [SerializeField]
-    public AudioClip OrugaWalk;
+    public AudioClip OrugaWalkSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,7 @@ public class CatterpillarWalking : MonoBehaviour
     }
     public void WalkingSoundCatterpillar()
     {
-        audioSource.PlayOneShot(OrugaWalk);
+        audioSource.PlayOneShot(OrugaWalkSFX);
     }
     // Update is called once per frame
     void Update()

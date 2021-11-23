@@ -5258,10 +5258,8 @@ MonoBehaviour:
   detectionLayer:
     serializedVersion: 2
     m_Bits: 1024
-  WalkingSound: {fileID: 0}
-  walkingCaterpillarDelay: 2
-  attackSound: {fileID: 0}
-  attackSoundDelay: 2
+  WalkingSound: {fileID: 1356333279}
+  attackSound: {fileID: 1356333280}
 --- !u!95 &1356333276
 Animator:
   serializedVersion: 3
@@ -6302,9 +6300,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   WalkingSound: {fileID: 1596949341}
-  walkingCaterpillarDelay: 2
   attackSound: {fileID: 1596949342}
-  attackSoundDelay: 2
 --- !u!58 &1596949339
 CircleCollider2D:
   m_ObjectHideFlags: 0
