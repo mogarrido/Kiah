@@ -34,8 +34,17 @@ public class Inicio : MonoBehaviour
     {
         SceneManager.LoadScene("Creditos");
     }
-    public void FinalVideoToCredits()
+    
+    public void FinalVideoScene()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("EndingVideo");
+    }
+    public void Vida()
+    {
+        if (true)
+        {
+            //GameManager.instance.GetPlayer.Life();
+            GameManager.instance.GetHealthBar.SetValue(GameManager.instance.GetPlayer.GetHealth);
+        }
     }
 }

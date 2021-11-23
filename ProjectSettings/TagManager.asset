@@ -12,6 +12,7 @@ TagManager:
   - Estrella
   - Enemy
   - HealthBar
+  - ChangeLevel
   layers:
   - Default
   - TransparentFX

@@ -30,6 +30,8 @@ public abstract class Enemy : MonoBehaviour
 
     [SerializeField]
     Object srcStar;
+     [SerializeField]
+     
 
     void Awake()
     {
@@ -49,6 +51,7 @@ public abstract class Enemy : MonoBehaviour
     {
         Instantiate(srcStar, transform.position, Quaternion.identity);
         Destroy(gameObject);
+
     }
 
     public virtual IEnumerator IdleCoroutine(float duration, string stateName)
@@ -79,6 +82,7 @@ public abstract class Enemy : MonoBehaviour
         
         
     }
+   
 
     
 }
