@@ -8,6 +8,8 @@ public class StarSoundOne : MonoBehaviour
     private bool isDying;
     [SerializeField] 
     public AudioClip Estrella1; 
+    [SerializeField, Range(0f, 15f)]
+    float sfxVolume = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,11 +17,6 @@ public class StarSoundOne : MonoBehaviour
     }
     public void estrella1Sound()
     {
-        audioSource.PlayOneShot(Estrella1);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+        audioSource.PlayOneShot(Estrella1, sfxVolume);
     }
 }

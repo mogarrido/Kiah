@@ -37,7 +37,8 @@ public class hormiga : Enemy
 
 
     [SerializeField]
-    public HormigaSounds hormigaSound; 
+    public HormigaSounds hormigaSound;
+    [SerializeField] 
     float footstepsDelay = 2f;
     bool canPlayHormigaSound = true;
 
@@ -112,6 +113,7 @@ public class hormiga : Enemy
 
     public override IEnumerator MovementCoroutine(float duration, string stateName)
     {
+        canPlayHormigaSound = true;
         anim.SetBool(stateName, true);
         spr.flipX = !spr.flipX;
         direction = new Vector2(-direction.x, direction.y);
@@ -122,6 +124,11 @@ public class hormiga : Enemy
                 break;
             }
             patrolTimer += Time.deltaTime;
+            if(canPlayHormigaSound)
+            {
+                canPlayHormigaSound = false;
+                StartCoroutine(PlayFootSteps());
+            }
             if(patrolTimer >= duration)
             {
                 patrolTimer = 0f;
@@ -133,11 +140,11 @@ public class hormiga : Enemy
             yield return null;
         }
 
-        if(canPlayHormigaSound)
+        /*if(canPlayHormigaSound)
         {
             canPlayHormigaSound = false;
             StartCoroutine(PlayFootSteps());
-        }
+        }*/
     }
 
     void ActivateCollider()
@@ -184,7 +191,7 @@ public class hormiga : Enemy
     {
         attackingSound.AttackSound();
         yield return new WaitForSeconds(attackingDelay);
-        canPlayattackingSound = true; 
+        //canPlayattackingSound = true; 
     }
     bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, rayDistance, detectionLayer);
     bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, rayDistance, detectionLayer);

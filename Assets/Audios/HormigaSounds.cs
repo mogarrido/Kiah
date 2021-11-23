@@ -8,6 +8,8 @@ public class HormigaSounds : MonoBehaviour
     private bool IsMoving;
     [SerializeField]  
     public AudioClip hormigaSFX; 
+    [SerializeField, Range(0f, 15f)]
+    float sfxVolume = 0.1f;
     
     // Start is called before the first frame update
     void Start()
@@ -18,7 +20,7 @@ public class HormigaSounds : MonoBehaviour
      
     public void hormigaSound()
     {
-        audioSource.PlayOneShot(hormigaSFX); 
+        audioSource.PlayOneShot(hormigaSFX, sfxVolume); 
     }
     // Update is called once per frame
     void Update()
