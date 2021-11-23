@@ -32,6 +32,10 @@ public class Naelie : Boss
     [SerializeField]
     LayerMask detectionLayer;
 
+    bool canAttack = true;
+    [SerializeField]
+    float delayAttack;
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = areaColor;
@@ -55,6 +59,8 @@ public class Naelie : Boss
             {
                 sleepTimer = 0f;
                 actualCoroutine = MovementCoroutine(patrolTime, "patrol");
+                anim.SetBool("patrol", true);
+                spr.flipX = !spr.flipX;
                 StartCoroutine(actualCoroutine);
                 break;
             }
@@ -64,11 +70,15 @@ public class Naelie : Boss
 
     public override IEnumerator MovementCoroutine(float duration, string stateName)
     {
-        anim.SetBool(stateName, true);
-        spr.flipX = !spr.flipX;
         direction = new Vector2(-direction.x, direction.y);
         while(true)
         {
+            if((RightRay || LeftRay) && canAttack)
+            {
+                actualCoroutine = MovementCoroutine(patrolTime, "patrol");
+                Attack();
+                break;
+            }
             patrolTimer += Time.deltaTime;
             if(patrolTimer >= duration)
             {
@@ -100,8 +110,28 @@ public class Naelie : Boss
         anim.SetFloat("Phase", Phase);
     }
 
-    float Phase => health >= 100 ?  0 : health < 100f && health > 50f ? 1 : 2;
-    bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, rayDistance, detectionLayer);
-    bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, rayDistance, detectionLayer);
+    void Attack()
+    {
+        canAttack = false;
+        anim.SetBool("patrol", false);
+        anim.SetTrigger("Attack");
+    }
+
+    void ResetAttack()
+    {
+        StartCoroutine(ResetAttackRoutine());
+    }
+
+    IEnumerator ResetAttackRoutine()
+    {
+        yield return new WaitForSeconds(delayAttack);
+        canAttack = true;
+        StartCoroutine(actualCoroutine);
+    }
+
+    //float Phase => health >= 100 ?  0 : health < 100f && health > 50f ? 1 : 2;
+    float Phase => health >= 100 ?  0 : 1;
+    bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, rayDistance, detectionLayer) && !spr.flipX;
+    bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, rayDistance, detectionLayer) && spr.flipX;
     bool Die => health == 0;
 }
