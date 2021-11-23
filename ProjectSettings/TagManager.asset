@@ -13,6 +13,7 @@ TagManager:
   - Enemy
   - HealthBar
   - ChangeLevel
+  - stuckcam
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - Enemy
   - Player
   - Ground
-  - 
+  - Change Level
   - 
   - 
   - 

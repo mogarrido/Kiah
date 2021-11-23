@@ -8,6 +8,8 @@ public class ClimbEinho : MonoBehaviour
      private bool isClimbing; 
      [SerializeField]
      public AudioClip jumpToClimb; 
+     [SerializeField]
+     float sfxVolume;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,7 @@ public class ClimbEinho : MonoBehaviour
 
     public void ClimbingSoundEinho()
     {
-        audioSource.PlayOneShot(jumpToClimb);
+        audioSource.PlayOneShot(jumpToClimb, sfxVolume);
     }
 
     // Update is called once per frame
