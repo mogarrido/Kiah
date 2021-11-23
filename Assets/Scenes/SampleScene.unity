@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 200920295}
   m_Layer: 5
   m_Name: HUD
-  m_TagString: HealthBar
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3093,9 +3093,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cef311a7a534ff34fb5c60a6ea3b8881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coutTimer: 5
-  player: {fileID: 1571566621}
-  healthBar: {fileID: 516531066}
+  player: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!4 &912483897
 Transform:
   m_ObjectHideFlags: 0
