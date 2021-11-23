@@ -33,12 +33,15 @@ public class Caterpillar : Enemy
     [SerializeField]
     LayerMask detectionLayer;
 
-[SerializeField]
-    public CatterpillarWalking WalkingSound;
+
+    
+     public CatterpillarWalking WalkingSound;
+    [SerializeField]
     float walkingCaterpillarDelay = 2f;
     bool canPlayWalkingSound = true;
-[SerializeField]
+
      public CatterpillarAttack attackSound; 
+     [SerializeField]
      float attackSoundDelay = 2f;
      bool canPlayAttackOrugaSound = true; 
 
@@ -94,40 +97,33 @@ public class Caterpillar : Enemy
 
     public override IEnumerator MovementCoroutine(float duration, string stateName)
     {
+        canPlayWalkingSound = true;
         anim.SetBool(stateName, true);
         spr.flipX = !spr.flipX;
         direction = new Vector2(-direction.x, direction.y);
         while(true)
         {
             patrolTimer += Time.deltaTime;
+            if(canPlayWalkingSound)
+            {
+                canPlayWalkingSound = false;
+                StartCoroutine(PlayWalkingSoundCatterpillar());
+            }
             if(patrolTimer >= duration)
             {
                 patrolTimer = 0f;
                 actualCoroutine = IdleCoroutine(sleepTime, "patrol");
                 StartCoroutine(actualCoroutine);
-                
                 break;
-                
             }
-         transform.Translate(direction * moveSpeed * Time.deltaTime);
-            
+         transform.Translate(direction * moveSpeed * Time.deltaTime);    
          yield return null; 
         }
-          if (canPlayWalkingSound)
-           {
-               canPlayWalkingSound = true;
-               StartCoroutine(PlayWalkingSoundCatterpillar());
-           }
-
-        /*if(Detection)
-        {
-            spr.flipX = !spr.flipX;
-        }*/
-         
+        
     }
     IEnumerator PlayWalkingSoundCatterpillar()
     {
-        WalkingSound.SoundWalkingCatterpillar(); 
+        WalkingSound.WalkingSoundCatterpillar(); 
         yield return new WaitForSeconds (walkingCaterpillarDelay);
         canPlayWalkingSound = true; 
     }
@@ -196,5 +192,6 @@ public class Caterpillar : Enemy
     bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, rayDistance, detectionLayer);
     bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, rayDistance, detectionLayer);
     bool Die => health == 0;
-
+    bool IsWalking => Grounding;
+     bool Grounding => Physics2D.Raycast(transform.position, Vector2.down, rayDistance, detectionLayer);
 }
