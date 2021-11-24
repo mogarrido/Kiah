@@ -231,8 +231,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0025024414, y: -2905}
-  m_SizeDelta: {x: 1819.995, y: 5716.155}
+  m_AnchoredPosition: {x: 0.0025024414, y: -3354.6416}
+  m_SizeDelta: {x: 1819.995, y: 6615.436}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &551572964
 MonoBehaviour:
@@ -289,17 +289,19 @@ MonoBehaviour:
     Elizabeth Garrido Zavala\n\nHormiga:    Estefany Dennise Guzman Cantu \n\nOruga:      
     Estefany Dennise Guzman Cantu \n\nAvispa:      Estefany Denisse Guzman Cantu
     \n\n    Ara\xF1a:        Montserrat Elizabeth Garrido Zavala\n\nEscarabajo:  
-    Montserrat Elizabeth Garrido Zavala\n\n\nMusica y sonido \n\nCompositores:  Maria
-    Jose Escalante Reens y Erick Mendoza Rodriguez\n\nSonidos UI: Erick Mendoza Rodriguez\n\nEdici\xF3n
-    de sonido: Juan Pablo Figueroa Chavez y Erick Mendoza Rodriguez\n\nEfectos de
-    sonidos:  Juan Pablo Figueroa Chavez, Montserrat Elizabeth Garrido Zavala\nMaria
-    Jose Escalante Reens, Ludwika Jeanette Garcia Aceves\n\nProgramaci\xF3n de sonido:
-    Montserrat Elizabeth Garrido Zavala y Juan Pablo Figueroa Chavez\n\n\nVoces\n\nEinho
-    - Juan Pablo Figueroa Chavez\n\nNaelie - Maria Jose Escalante Reens y Ludwika
-    Jeanette Garc\xEDa Aceves\n\nKiah - Juan Pablo Figueroa Chavez\n\n\nVideo \n\nEdicion
-    de video: Montserrat Elizabeth Garrido Zavala y Maria Jose Escalante Reens\n\nCinematica
-    inicial:  Montserrat Elizabeth Garrido Zavala\n\nCinematica del jefe: Samantha
-    Michelle Gonzalez Rodriguez \n\nCinematica final:   Maria Jose Escalante Reens\n\n\n\nGracias
+    Montserrat Elizabeth Garrido Zavala\n\n\nMusica y sonido \n\nCompositores:  
+    Maria Jose Escalante Reens y Erick Mendoza Rodriguez\n\nEdici\xF3n de sonido: 
+    Juan Pablo Figueroa Chavez y Erick Mendoza Rodriguez\n\nSonido UI:   Erick Mendoza
+    Rodriguez\n\n\nEfectos de sonidos - Foley\n\n\nEinho:   Juan Pablo Figueroa Chavez
+    \r\n\r\nNealie:   Mar\xEDa Jose Escalante Reens \r\n\r\nHormiga:    Montserrat
+    Elizabeth Garrido Zavala\r\n\r\nOruga:    Estefany Dennise Guzman Cantu \r\n\r\nAbeja:  
+    Mar\xEDa Jose Escalante Reens\r\n\r\nEstrella:   Mar\xEDa Jose Escalante Reens\r\n\n\nProgramaci\xF3n
+    de sonido:   Montserrat Elizabeth Garrido Zavala y Juan Pablo Figueroa Chavez\n\n\n\nVoces\n\nEinho: 
+    Juan Pablo Figueroa Chavez\n\nNaelie:  Maria Jose Escalante Reens y Ludwika Jeanette
+    Garc\xEDa Aceves\n\nKiah:   Juan Pablo Figueroa Chavez\n\n\nVideo \n\nEdicion
+    de video:  Montserrat Elizabeth Garrido Zavala y Maria Jose Escalante Reens\n\nCinematica
+    inicial:   Montserrat Elizabeth Garrido Zavala\n\nCinematica del jefe:  Samantha
+    Michelle Gonzalez Rodriguez \n\nCinematica final:    Maria Jose Escalante Reens\n\n\n\nGracias
     especiales: \n\n\nMonica Fernandez Villalobos\n\nHomero Rios Licea\n\nJesus Francisco
     Caro Coda\n\nRoberto Javier Guajardo Valero\n\nGerman Vazquez Valero \n\nLuis
     Alejandro Marroquin \n\n\n\n\n\n\n\n\n\n\n\nMuchas grac\xEDas por jugar\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
