@@ -16,8 +16,9 @@ public class Boss : MonoBehaviour
     [SerializeField, Range(0, 20)]
     protected int damage = 20;
     protected float moveSpeed = 3f;
-     [SerializeField]
+    [SerializeField]
     protected Vector2 direction = Vector2.right;
+    protected bool dieying = false;
 
     void Awake()
     {
@@ -54,9 +55,15 @@ public class Boss : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void Update()
     {
-        
+        if(Die && !dieying)
+        {
+            dieying = true;
+            anim.SetTrigger("Die");
+            return;
+        }
     }
+
+    protected bool Die => health == 0;
 }

@@ -702,19 +702,20 @@ MonoBehaviour:
   direction: {x: 1, y: 0}
   sleepTime: 2
   patrolTime: 2
-  areaRadius: 2
+  areaRadius: 4.7
   areaColor: {r: 1, g: 0, b: 0, a: 1}
   areaDetectionLayer:
     serializedVersion: 2
     m_Bits: 1024
   headcolliderLeft: {fileID: 0}
   headcolliderRight: {fileID: 0}
-  rayDistance: 2.4
+  rayDistance: 4.8
   rayColor: {r: 1, g: 0.7831696, b: 0, a: 1}
   detectionLayer:
     serializedVersion: 2
     m_Bits: 1024
   delayAttack: 2
+  maxRangedDistance: 3
 --- !u!212 &298921097
 SpriteRenderer:
   m_ObjectHideFlags: 0
