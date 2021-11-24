@@ -34,11 +34,7 @@ public class Caterpillar : Enemy
     LayerMask detectionLayer;
 
 
-     [SerializeField]
-     public CatterpillarWalking WalkingSound;
-   
-    float walkingCaterpillarDelay = 2f;
-    bool canPlayWalkingSound = true;
+ 
      [SerializeField]
      public CatterpillarAttack attackSound; 
      
@@ -97,18 +93,14 @@ public class Caterpillar : Enemy
 
     public override IEnumerator MovementCoroutine(float duration, string stateName)
     {
-        canPlayWalkingSound =true;
+       
         anim.SetBool(stateName, true);
         spr.flipX = !spr.flipX;
         direction = new Vector2(-direction.x, direction.y);
         while(true)
         {
             patrolTimer += Time.deltaTime;
-            if (canPlayWalkingSound)
-            {
-                canPlayWalkingSound =false;
-                StartCoroutine(PlayWalkingSoundCatterpillar());
-            }
+           
             if(patrolTimer >= duration)
             {
                 patrolTimer = 0f;
@@ -124,12 +116,7 @@ public class Caterpillar : Enemy
        
         
     }
-    IEnumerator PlayWalkingSoundCatterpillar()
-    {
-        WalkingSound.WalkingSoundCatterpillar(); 
-        yield return new WaitForSeconds (walkingCaterpillarDelay);
-        canPlayWalkingSound = true; 
-    }
+  
 
     IEnumerator PlayOrugaAttacking()
     {
