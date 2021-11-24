@@ -33,6 +33,16 @@ public class Caterpillar : Enemy
     [SerializeField]
     LayerMask detectionLayer;
 
+
+ 
+     [SerializeField]
+     public CatterpillarAttack attackSound; 
+     
+     float attackSoundDelay = 2f;
+     bool canPlayAttackOrugaSound = true; 
+
+
+
     void Start()
     {
         actualCoroutine = IdleCoroutine(sleepTime, "patrol");
@@ -54,6 +64,8 @@ public class Caterpillar : Enemy
         {
             lastFlip = spr.flipX;
             StartCoroutine(AttackCoroutine("attack", attackClip, actualCoroutine));
+            canPlayAttackOrugaSound = true;
+            StartCoroutine(PlayOrugaAttacking());
             StopCoroutine(actualCoroutine);
         }
         if(isAttacking && CanAttack)
@@ -81,12 +93,14 @@ public class Caterpillar : Enemy
 
     public override IEnumerator MovementCoroutine(float duration, string stateName)
     {
+       
         anim.SetBool(stateName, true);
         spr.flipX = !spr.flipX;
         direction = new Vector2(-direction.x, direction.y);
         while(true)
         {
             patrolTimer += Time.deltaTime;
+           
             if(patrolTimer >= duration)
             {
                 patrolTimer = 0f;
@@ -94,14 +108,21 @@ public class Caterpillar : Enemy
                 StartCoroutine(actualCoroutine);
                 break;
             }
-            transform.Translate(direction * moveSpeed * Time.deltaTime);
-            yield return null;
+         transform.Translate(direction * moveSpeed * Time.deltaTime);    
+         yield return null; 
+         
         }
+       
+       
+        
+    }
+  
 
-        /*if(Detection)
-        {
-            spr.flipX = !spr.flipX;
-        }*/
+    IEnumerator PlayOrugaAttacking()
+    {
+        attackSound.AttackingOruga();
+        yield return new WaitForSeconds (attackSoundDelay);
+        canPlayAttackOrugaSound = true; 
     }
 
     
@@ -156,8 +177,11 @@ public class Caterpillar : Enemy
         //anim.SetBool("detection", Detection); 
     }
 
+    
+
     bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, rayDistance, detectionLayer);
     bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, rayDistance, detectionLayer);
     bool Die => health == 0;
-
+    bool IsWalking => Grounding;
+     bool Grounding => Physics2D.Raycast(transform.position, Vector2.down, rayDistance, detectionLayer);
 }
