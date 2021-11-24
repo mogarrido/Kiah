@@ -74,6 +74,7 @@ public class Einho : MonoBehaviour
 
     [SerializeField]
     public ClimbEinho climbEinho;
+    [SerializeField]
     float climbingSoundDelay = 2f;
     bool canPlayClimbingSound = true;
 
@@ -92,6 +93,13 @@ public class Einho : MonoBehaviour
 
     float deathDelay = 2f;
     bool canPLayDeathSound = true;
+
+    [SerializeField, Range(0.1f, 20f)]
+    float rayWallDistance = 5f;
+    [SerializeField]
+    Color rayWallColor = Color.cyan;
+    [SerializeField]
+    LayerMask detectionWallLayer;
 
 
     void Awake()
@@ -143,11 +151,20 @@ public class Einho : MonoBehaviour
             anim.SetFloat("magnitude", Axis.magnitude);
             Climb();
 
-            if (isClimbing && canPlayClimbingSound)
+            if (isClimbing && canPlayClimbingSound && Axis.magnitude != 0f)
             {
                 canPlayClimbingSound = false;
                 StartCoroutine(PlayClimbingSound());
             }
+        }
+
+        if(CheckWall)
+        {
+            GetVCam.Follow = null;
+        }
+        else
+        {
+            GetVCam.Follow = transform;
         }
     }
 
@@ -287,6 +304,8 @@ public class Einho : MonoBehaviour
         Gizmos.DrawRay(transform.position, Vector2.right * RayDistance);
         Gizmos.DrawRay(transform.position, Vector2.left * RayDistance);
 
+        Gizmos.color = rayWallColor;
+        Gizmos.DrawRay(transform.position, Vector2.up * rayWallDistance);
     }
 
     void ActivateCollider()
@@ -323,6 +342,8 @@ public class Einho : MonoBehaviour
     bool FlipSprite => Axis.x > 0f ? false : Axis.x < 0f ? true : spr.flipX;
     bool IsJumping => Input.GetButtonDown("Jump");
     bool Grounding => Physics2D.Raycast(transform.position, Vector2.down, rayDistance, detectionLayer);
+    bool CheckWall => Physics2D.Raycast(transform.position, Vector2.up, rayWallDistance, detectionWallLayer);
+
     bool Attack => Input.GetButtonDown("Fire1");
     bool CanClimb => Physics2D.OverlapCircle(transform.position, areaRadius, areaDetectionLayer);
     public int GetHealth => health;
@@ -331,4 +352,5 @@ public class Einho : MonoBehaviour
     bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, RayDistance, DetectionLayer);
     bool Die => health == 0;
     bool IsWalking => Grounding && Axis.x != 0f;
+    public VCamController GetVCam => vcamController;
 }
