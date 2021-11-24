@@ -13,4 +13,6 @@ public class VCamController : MonoBehaviour
     }
 
     public float OrtoSize { get => vcam.m_Lens.OrthographicSize; set => vcam.m_Lens.OrthographicSize = value;}
+
+    public Transform Follow{get => vcam.Follow; set => vcam.Follow = value;}
 }

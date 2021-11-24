@@ -7,17 +7,11 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-   
-    public float coutTimer = 5;
-    
     [SerializeField]
     Einho player;
     [SerializeField]
     HealthBar healthBar;
-    //[SerializeField]
-    // Enemy enemy;
 
-    
     public static GameManager instance;
 
     void Awake()
@@ -33,15 +27,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    
-        
-       
-    }
+    void OnEnable() => Inittialize();
 
-    // Update is called once per frame
+    void OnLevelWasLoaded(int level) => Inittialize();
+
     void Update()
     {
         if (Input.GetKey(KeyCode.Escape))
@@ -49,6 +38,12 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Pausa_Pantalla");
         }
 
+    }
+
+    void Inittialize()
+    {
+        player = GameObject.FindWithTag("Player").GetComponent<Einho>();
+        healthBar = GameObject.FindWithTag("HealthBar").GetComponent<HealthBar>();
     }
 
     public HealthBar GetHealthBar => healthBar;
