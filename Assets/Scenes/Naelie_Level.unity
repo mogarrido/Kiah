@@ -898,7 +898,7 @@ GameObject:
   - component: {fileID: 818205821}
   - component: {fileID: 818205820}
   m_Layer: 5
-  m_Name: 'HealthPanel '
+  m_Name: 'Nealie_health '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
