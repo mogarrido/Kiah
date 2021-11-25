@@ -35,11 +35,7 @@ public class Caterpillar : Enemy
 
 
  
-     [SerializeField]
-     public CatterpillarAttack attackSound; 
-     
-     float attackSoundDelay = 2f;
-     bool canPlayAttackOrugaSound = true; 
+    
 
 
 
@@ -64,8 +60,7 @@ public class Caterpillar : Enemy
         {
             lastFlip = spr.flipX;
             StartCoroutine(AttackCoroutine("attack", attackClip, actualCoroutine));
-            canPlayAttackOrugaSound = true;
-            StartCoroutine(PlayOrugaAttacking());
+            
             StopCoroutine(actualCoroutine);
         }
         if(isAttacking && CanAttack)
@@ -118,12 +113,7 @@ public class Caterpillar : Enemy
     }
   
 
-    IEnumerator PlayOrugaAttacking()
-    {
-        attackSound.AttackingOruga();
-        yield return new WaitForSeconds (attackSoundDelay);
-        canPlayAttackOrugaSound = true; 
-    }
+
 
     
     void OnDrawGizmosSelected()
