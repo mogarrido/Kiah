@@ -286,7 +286,22 @@ public class Einho : MonoBehaviour
             star.Collect();
             //canPlayStarSoundOne = true;
             StartCoroutine(PlaySoundStarOne());
+            if (SceneManager.GetActiveScene().name == "Naelie_Level")
+            {
+                if (!item) 
+            {
+                item = true;
+                MuerteDeNaelie();
+            }
+            }
         }
+    }
+
+    bool item = false;
+
+    void MuerteDeNaelie()
+    {
+        SceneManager.LoadScene("EndingVideo");
     }
 
     void MakeDamageToBoss(Boss boss)
