@@ -4,47 +4,87 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class Inicio : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [SerializeField]
+    Button btnStart;
+    [SerializeField]
+    Button btnCredits;
+    [SerializeField]
+    Button btnFinalVideo;
+    [SerializeField]
+    Button btnSkip;
+    AudioSource aud;
+    [SerializeField]
+    AudioClip clickSfx;
+    [SerializeField]
+    float responseTime = 1f;
+
+    void Awake()
+    {
+        aud = GetComponent<AudioSource>();
+    }
+
     void Start()
     {
-        
-    }
+        if(btnStart != null)
+        {
+            btnStart.onClick.AddListener(StartGame);
+        }
+        if(btnCredits != null)
+        {
+            btnCredits.onClick.AddListener(Creditos);
+        }
+        if(btnFinalVideo != null)
+        {
+            btnFinalVideo.onClick.AddListener(FinalVideoScene);
+        }
+        if(btnSkip != null)
+        {
+            btnSkip.onClick.AddListener(SkipIntro);
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
-
 
     public void StartGame()
     {
-        SceneManager.LoadScene("IntroVideo");
+        aud.PlayOneShot(clickSfx);
+        StartCoroutine(buttonResponse("IntroVideo"));
     }
 
-     public void SkipIntro()
+    public void SkipIntro()
     {
-        SceneManager.LoadScene("SampleScene");
+        aud.PlayOneShot(clickSfx);
+        StartCoroutine(buttonResponse("SampleScene"));
     }
-    
+
     public void Creditos ()
     {
-        SceneManager.LoadScene("Creditos");
+        aud.PlayOneShot(clickSfx);
+        StartCoroutine(buttonResponse("Creditos"));
     }
-    
+
     public void FinalVideoScene()
     {
-        SceneManager.LoadScene("EndingVideo");
+        aud.PlayOneShot(clickSfx);
+        StartCoroutine(buttonResponse("EndingVideo"));
     }
-    public void Vida()
+
+    IEnumerator buttonResponse(string sceneName)
+    {
+        yield return new WaitForSeconds(responseTime);
+        SceneManager.LoadScene(sceneName);
+    }
+
+    /*public void Vida()
     {
         if (true)
         {
             //GameManager.instance.GetPlayer.Life();
             GameManager.instance.GetHealthBar.SetValue(GameManager.instance.GetPlayer.GetHealth);
         }
-    }
+    }*/
 }
