@@ -35,6 +35,10 @@ public class Naelie : Boss
     bool canAttack = true;
     [SerializeField]
     float delayAttack;
+    [SerializeField, Range(0.1f, 15f)]
+    float maxRangedDistance = 3f;
+    [SerializeField]
+    float lastPhase = 0f;
 
     void OnDrawGizmosSelected()
     {
@@ -101,13 +105,27 @@ public class Naelie : Boss
     void Start()
     {
         actualCoroutine = IdleCoroutine(sleepTime, "patrol");
-        StartCoroutine(IdleCoroutine(sleepTime, "patrol"));
+        StartCoroutine(actualCoroutine);
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
         anim.SetFloat("Phase", Phase);
+        anim.SetFloat("Health", health);
+        if(lastPhase < Phase)
+        {
+            lastPhase = Phase;
+            StopAllCoroutines();
+            patrolTimer = 0f;
+            sleepTimer = 0f;
+            anim.SetTrigger("Death");
+            spr.flipX = false;
+            direction = Vector2.right;
+            canAttack = true;
+            anim.SetBool("patrol", false);
+            anim.SetBool("Ranged", false);
+        }
     }
 
     void Attack()
@@ -115,6 +133,7 @@ public class Naelie : Boss
         canAttack = false;
         anim.SetBool("patrol", false);
         anim.SetTrigger("Attack");
+        anim.SetBool("Ranged", PlayerIsRanged);
     }
 
     void ResetAttack()
@@ -129,9 +148,20 @@ public class Naelie : Boss
         StartCoroutine(actualCoroutine);
     }
 
-    //float Phase => health >= 100 ?  0 : health < 100f && health > 50f ? 1 : 2;
-    float Phase => health >= 100 ?  0 : 1;
+    new protected void Update()
+    {
+        base.Update();
+    }
+
+    void ResetStates()
+    {
+        actualCoroutine = IdleCoroutine(sleepTime, "patrol");
+        StartCoroutine(actualCoroutine);
+    }
+
+    float Phase => health >= 100 ?  0 : health < 100f && health > 50f ? 1 : health > 0 ? 2 : 3;
+    //float Phase => health >= 100 ?  0 : 1;
     bool RightRay => Physics2D.Raycast(transform.position, Vector2.right, rayDistance, detectionLayer) && !spr.flipX;
     bool LeftRay => Physics2D.Raycast(transform.position, Vector2.left, rayDistance, detectionLayer) && spr.flipX;
-    bool Die => health == 0;
+    bool PlayerIsRanged => Vector2.Distance(transform.position, GameManager.instance.GetPlayer.transform.position) >= maxRangedDistance;
 }

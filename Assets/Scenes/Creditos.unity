@@ -231,8 +231,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0025024414, y: -2905}
-  m_SizeDelta: {x: 1819.995, y: 5716.155}
+  m_AnchoredPosition: {x: 0.0025024414, y: -3354.6416}
+  m_SizeDelta: {x: 1819.995, y: 6615.436}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &551572964
 MonoBehaviour:
@@ -269,36 +269,42 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "\n\n\nEquipo Estrellitas \n\r\n\nEscritora:   Adela Andrea Mendoza Mejia
     \n\nDirecci\xF3n:   Montserrat Elizabeth Garrido Zavala\n\n\nProgramaci\xF3n\n\nLider
-    de programaci\xF3n:   Ludwika Jeanette Garc\xEDa Aceves\n\nProgramadores:   
-    Ludwika Jeanette Garc\xEDa Aceves\n\nSoporte adiccional de programaci\xF3n: Montserrat
-    Elizabeth Garrido Zavala, Samantha Michelle\nGonzales Rodriguez\n\n\nProducci\xF3n\n\nDirectora
-    de arte:   Adela Andrea Mendoza Mejia\n\nDise\xF1o de nivel:   Samantha Michelle
-    Gonzales Rodriguez \n\nDise\xF1o de pantalla:   Erick Mendoza Rodriguez y Montserrat
-    Elizabeth Garrido Zavala\n\nDise\xF1o de personajes:   Adela Andrea Mendoza,
-    Estefany Denisse Guzman Cantu, Samantha\n                                  Michelle
-    Gonzales Rodriguez, Montserrat Elizabeth Garrido Zavala\n\nDise\xF1o de Tiles:  
-    Maria Jose Escalante Reens, Ludwika Jeanette Garc\xEDa Acceves\n                
+    de programaci\xF3n:   Ludwika Jeanette Garc\xEDa Aceves\n\nProgramador:    Ludwika
+    Jeanette Garc\xEDa Aceves\n\nSoporte adiccional de programaci\xF3n: Montserrat
+    Elizabeth Garrido Zavala, Samantha Michelle\nGonzales Rodriguez y Juan Pablo
+    Figueroa Chavez\n\n\nProducci\xF3n\n\nDirectora de arte:   Adela Andrea Mendoza
+    Mejia\n\nDise\xF1o de nivel:   Samantha Michelle Gonzales Rodriguez \n\nDise\xF1o
+    de pantalla:   Erick Mendoza Rodriguez y Montserrat Elizabeth Garrido Zavala\n\nDise\xF1o
+    de personajes:   Adela Andrea Mendoza, Estefany Denisse Guzman Cantu, Samantha\n                                 
+    Michelle Gonzales Rodriguez, Montserrat Elizabeth Garrido Zavala\n\nDise\xF1o
+    de tiles:   Maria Jose Escalante Reens, Ludwika Jeanette Garc\xEDa Acceves\n                
     Erick Mendoza Rodriguez, Juan Pablo Figueroa Chavez\n\nIlustraciones:  Montserrat
     Elizabeth Garrido Zavala, Maria Jose Escalante Reens, \n                            
     Samantha Michelle Gonzales Rodriguez, Adela Andrea Mendoza Mejia\nJuan Pablo
-    Figueroa\n\nTipograf\xEDa:    Gustavo Enrique Montero Soto  \n\nHUD Design:   
-    Erick Mendoza Rodriguez \n\nDise\xF1o de fondos:  Samantha Michelle Gonz\xE1lez
+    Figueroa Chavez\n\nTipograf\xEDa:    Gustavo Enrique Montero Soto  \n\nDise\xF1o
+    HUD:    Erick Mendoza Rodriguez \n\nDise\xF1o de fondos:  Samantha Michelle Gonz\xE1lez
     Rodriguez, Montserrat Elizabeth Garrido\n                          Zavala, Juan
     Pablo Figueora Ch\xE1vez y Adela Andrea Mendoz Mejia \n\n\n\nAnimaci\xF3n\n\n\n        
     Einho:    Samantha Michelle Gonzalez Rodriguez \n                         y Montserrat
     Elizabeth Garrido Zavala\n\nHormiga:    Estefany Dennise Guzman Cantu \n\nOruga:      
     Estefany Dennise Guzman Cantu \n\nAvispa:      Estefany Denisse Guzman Cantu
     \n\n    Ara\xF1a:        Montserrat Elizabeth Garrido Zavala\n\nEscarabajo:  
-    Montserrat Elizabeth Garrido Zavala\n\n\nMusica\n\nCompositores:  Maria Jose
-    Escalante Reens y Erick Mendoza Rodriguez\n\nEffecto de sonido:  Juan Pablo Figueroa
-    Chavez, Montserrat Elizabeth Garrido Zavala\nMaria Jose Escalante Reens, Ludwika
-    Jeanette Garcia Aceves\n\nProgramaci\xF3n de sonido: Montserrat Elizabeth Garrido
-    Zavala\n\n\nVoces\n\nEinho - Juan Pablo Figueroa Chavez\n\nNaelie - Maria Jose
-    Escalante y Ludwika Jeanette Garc\xEDa Aceves\n\nKiah - Juan Pablo Figueroa Chavez\n\n\nEdicion
-    de video: Montserrat Elizabeth Garrido Zavala y Maria Jose Escalante Reens\n\n\n\n\n\nGracias
+    Montserrat Elizabeth Garrido Zavala\n\n\nMusica y sonido \n\nCompositores:  
+    Maria Jose Escalante Reens y Erick Mendoza Rodriguez\n\nEdici\xF3n de sonido: 
+    Juan Pablo Figueroa Chavez y Erick Mendoza Rodriguez\n\nSonido UI:   Erick Mendoza
+    Rodriguez\n\n\nEfectos de sonidos - Foley\n\n\nEinho:   Juan Pablo Figueroa Chavez
+    \r\n\r\nNealie:   Mar\xEDa Jose Escalante Reens \r\n\r\nHormiga:    Montserrat
+    Elizabeth Garrido Zavala\r\n\r\nOruga:    Estefany Dennise Guzman Cantu \r\n\r\nAbeja:  
+    Mar\xEDa Jose Escalante Reens\r\n\r\nEstrella:   Mar\xEDa Jose Escalante Reens\r\n\n\nProgramaci\xF3n
+    de sonido:   Montserrat Elizabeth Garrido Zavala y Juan Pablo Figueroa Chavez\n\n\n\nVoces\n\nEinho: 
+    Juan Pablo Figueroa Chavez\n\nNaelie:  Maria Jose Escalante Reens y Ludwika Jeanette
+    Garc\xEDa Aceves\n\nKiah:   Juan Pablo Figueroa Chavez\n\n\nVideo \n\nEdicion
+    de video:  Montserrat Elizabeth Garrido Zavala y Maria Jose Escalante Reens\n\nCinematica
+    inicial:   Montserrat Elizabeth Garrido Zavala\n\nCinematica del jefe:  Samantha
+    Michelle Gonzalez Rodriguez \n\nCinematica final:    Maria Jose Escalante Reens\n\n\n\nGracias
     especiales: \n\n\nMonica Fernandez Villalobos\n\nHomero Rios Licea\n\nJesus Francisco
     Caro Coda\n\nRoberto Javier Guajardo Valero\n\nGerman Vazquez Valero \n\nLuis
-    Alejandro Marroquin \n\n\n\n\n\n\n\n\n\n\n\n\nMuchas grac\xEDas por jugar\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+    Alejandro Marroquin \n\n\n\n\n\n\n\n\n\n\n\nMuchas grac\xEDas por jugar\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
 --- !u!222 &551572965
 CanvasRenderer:
   m_ObjectHideFlags: 0
