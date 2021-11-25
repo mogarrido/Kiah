@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 93ad7bb22569d834daeeb5885a2ec504
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - OrugaAtaqueFoleyEditado: {fileID: 8300000, guid: fd812d5310c04924db9de1e698e17aab,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
