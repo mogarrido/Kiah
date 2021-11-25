@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Einho player;
     [SerializeField]
-    HealthBar healthBar;
+    HealthBarEinho healthBar;
+    [SerializeField]
+    HealthBarNaelie healthBarNaelie;
 
     public static GameManager instance;
 
@@ -29,7 +31,13 @@ public class GameManager : MonoBehaviour
 
     void OnEnable() => Inittialize();
 
-    void OnLevelWasLoaded(int level) => Inittialize();
+    void OnLevelWasLoaded(int level)
+    {
+        if (InGameplay(level))
+        {
+            Inittialize();
+        }
+    }
 
     void Update()
     {
@@ -43,11 +51,14 @@ public class GameManager : MonoBehaviour
     void Inittialize()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Einho>();
-        healthBar = GameObject.FindWithTag("HealthBar").GetComponent<HealthBar>();
+        healthBar = GameObject.FindWithTag("HealthBar").GetComponent<HealthBarEinho>();
+        healthBarNaelie = GameObject.FindWithTag("HealthBarNaelie").GetComponent<HealthBarNaelie>();
     }
 
-    public HealthBar GetHealthBar => healthBar;
+    bool InGameplay(int level) => level > 2 && level < 5;
+    public HealthBarEinho GetHealthBar => healthBar;
     public Einho GetPlayer => player;
+    public HealthBarNaelie GetHealthBarNaelie => healthBarNaelie;
     // public Enemy GetEnemy => enemy;
 
 }
