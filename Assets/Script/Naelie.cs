@@ -119,8 +119,8 @@ public class Naelie : Boss
             patrolTimer = 0f;
             sleepTimer = 0f;
             anim.SetTrigger("Death");
-            spr.flipX = false;
-            direction = Vector2.right;
+            //spr.flipX = false;
+            //direction = Vector2.right;
             canAttack = true;
             anim.SetBool("patrol", false);
             anim.SetBool("Ranged", false);
