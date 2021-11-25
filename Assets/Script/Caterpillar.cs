@@ -33,10 +33,16 @@ public class Caterpillar : Enemy
     [SerializeField]
     LayerMask detectionLayer;
 
-
- 
     
-
+     public OrugaAttackSound OrugaAttackSound;
+     [SerializeField]
+     float AttackingSoundDelay = 2f;
+     bool canPlayAttackingSound = true; 
+    
+    public OrugaWalkSound OrugaWalkSound;
+    [SerializeField]
+    float WalkingSoundDelay = 2f;
+    bool canPlayWalkingSound = true; 
 
 
     void Start()
@@ -44,7 +50,8 @@ public class Caterpillar : Enemy
         actualCoroutine = IdleCoroutine(sleepTime, "patrol");
         StartCoroutine(IdleCoroutine(sleepTime, "patrol"));
     }
-
+    
+   
     void Update()
     {
         if (Die)
@@ -60,13 +67,18 @@ public class Caterpillar : Enemy
         {
             lastFlip = spr.flipX;
             StartCoroutine(AttackCoroutine("attack", attackClip, actualCoroutine));
+            canPlayAttackingSound = true; 
+            StartCoroutine(PlayOrugaAttacking());
             
             StopCoroutine(actualCoroutine);
         }
         if(isAttacking && CanAttack)
         {
             spr.flipX = RightRay ? false : LeftRay ? true : spr.flipX;
+            
+
         }
+        
     }
 
     public override IEnumerator IdleCoroutine(float duration, string stateName)
@@ -88,18 +100,24 @@ public class Caterpillar : Enemy
 
     public override IEnumerator MovementCoroutine(float duration, string stateName)
     {
-       
+        canPlayWalkingSound = true; 
         anim.SetBool(stateName, true);
         spr.flipX = !spr.flipX;
         direction = new Vector2(-direction.x, direction.y);
         while(true)
         {
             patrolTimer += Time.deltaTime;
-           
-            if(patrolTimer >= duration)
+            if (canPlayWalkingSound)
+            {
+                canPlayWalkingSound = false; 
+                StartCoroutine(PlayWalkingSound());
+            }
+          
+            if(patrolTimer >= duration )
             {
                 patrolTimer = 0f;
                 actualCoroutine = IdleCoroutine(sleepTime, "patrol");
+                
                 StartCoroutine(actualCoroutine);
                 break;
             }
@@ -107,9 +125,22 @@ public class Caterpillar : Enemy
          yield return null; 
          
         }
+
        
        
         
+    }
+     IEnumerator PlayOrugaAttacking() 
+    {
+        OrugaAttackSound.AttackingOruga();
+        yield return new WaitForSeconds(AttackingSoundDelay);
+        canPlayAttackingSound = true;
+    }
+    IEnumerator PlayWalkingSound()
+    {
+        OrugaWalkSound.WalkingOruga();
+        yield return new WaitForSeconds(WalkingSoundDelay);
+        canPlayWalkingSound = true; 
     }
   
 

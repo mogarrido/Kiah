@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 6dfd0a649194dfd4482538e1ab2270c8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - audioSource: {instanceID: 0}
+  - OrugaWalkFoley: {fileID: 8300000, guid: 97330713e0e9b6a498973119304a67e6, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
