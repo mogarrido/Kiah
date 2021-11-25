@@ -47,6 +47,7 @@ public class Einho : MonoBehaviour
 
     [SerializeField, Range(0, 20)]
     protected int damage = 10;
+    protected int damageboss = 15;
     bool isClimbing = false;
     protected bool isMakingDamage = false;
 
@@ -269,6 +270,15 @@ public class Einho : MonoBehaviour
                 MakeDamageToEnemy(enemy);
             }
         }
+        if (collider.CompareTag("Boss"))
+        {
+            if (!isMakingDamage)
+            {
+                isMakingDamage = true;
+                Boss boss = collider.GetComponent<Boss>();
+                MakeDamageToBoss(boss);
+            }
+        }
 
         if(collider.CompareTag("Estrella"))
         {
@@ -277,6 +287,13 @@ public class Einho : MonoBehaviour
             //canPlayStarSoundOne = true;
             StartCoroutine(PlaySoundStarOne());
         }
+    }
+
+    void MakeDamageToBoss(Boss boss)
+    {
+        boss.RecivingDamage(damageboss);
+        boss.PlayerMakeDamage();
+        boss.IsRecivingDamage = true;
     }
 
     void LateUpdate()

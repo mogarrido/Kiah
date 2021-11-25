@@ -19,6 +19,7 @@ public class Boss : MonoBehaviour
     [SerializeField]
     protected Vector2 direction = Vector2.right;
     protected bool dieying = false;
+    protected bool isMakingDamage = false;
 
     void Awake()
     {
@@ -31,8 +32,11 @@ public class Boss : MonoBehaviour
     public int GetHealth => health;
 
     public void RecivingDamage(int damage) => health -=  health - damage > 0 ? damage : health;
-
     public int GetDamage => damage;
+    public void PlayerMakeDamage()
+    {
+        anim.SetBool("Hurt", true);
+    }
 
     public void DeleteFromScene()
     {

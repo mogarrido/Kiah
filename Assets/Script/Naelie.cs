@@ -20,9 +20,13 @@ public class Naelie : Boss
     IEnumerator actualCoroutine;
 
     [SerializeField]
-    Collider2D headcolliderLeft;
+    Collider2D clawsheadcolliderLeft;
     [SerializeField]
-    Collider2D headcolliderRight;
+    Collider2D clawsheadcolliderRight;
+    [SerializeField]
+    Collider2D throwheadcolliderLeft;
+    [SerializeField]
+    Collider2D throwheadcolliderRight;
 
     //Raycast things
     [SerializeField, Range(0.1f, 20f)]
@@ -48,11 +52,6 @@ public class Naelie : Boss
         Gizmos.DrawRay(transform.position, Vector2.right * rayDistance);
         Gizmos.DrawRay(transform.position, Vector2.left * rayDistance);
     }
-
-    // Hacer que cuando choque (player a boss) empieze el movimiento
-    //Hacer ataques multiples
-    //hacer transformaciones multiples y muertes multiples
-    //Programar healthbar
     public override IEnumerator IdleCoroutine(float duration, string stateName)
     {
         anim.SetBool(stateName, false);
@@ -157,6 +156,60 @@ public class Naelie : Boss
     {
         actualCoroutine = IdleCoroutine(sleepTime, "patrol");
         StartCoroutine(actualCoroutine);
+    }
+    void MakeDamageToPlayer()
+    {
+        GameManager.instance.GetPlayer.RecivingDamage(damage);
+        GameManager.instance.GetHealthBar.SetValue(GameManager.instance.GetPlayer.GetHealth);
+    }
+
+    void ActivateCollider()
+    {
+        if(spr.flipX)
+        {
+            clawsheadcolliderLeft.enabled = true;
+            clawsheadcolliderRight.enabled = false;
+        }
+        else
+        {
+            clawsheadcolliderLeft.enabled = false;
+            clawsheadcolliderRight.enabled = true;
+        }
+    }
+
+    void ActivoColliderThrow()
+    {
+        if (spr.flipX)
+        {
+            throwheadcolliderLeft.enabled = true;
+            throwheadcolliderRight.enabled = false;
+        }
+        else
+        {
+            throwheadcolliderLeft.enabled = false;
+            throwheadcolliderRight.enabled = true;
+        }
+    }
+
+    void DesableCollider()
+    {
+        clawsheadcolliderLeft.enabled = false;
+        clawsheadcolliderRight.enabled = false;
+    }
+
+    void DesactivoColliderThrow()
+    {
+        throwheadcolliderLeft.enabled = false;
+        throwheadcolliderRight.enabled = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(!isMakingDamage)
+        {
+            isMakingDamage = true;
+            MakeDamageToPlayer();
+        }
     }
 
     float Phase => health >= 100 ?  0 : health < 100f && health > 50f ? 1 : health > 0 ? 2 : 3;

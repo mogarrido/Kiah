@@ -658,9 +658,11 @@ GameObject:
   - component: {fileID: 298921100}
   - component: {fileID: 298921099}
   - component: {fileID: 298921096}
+  - component: {fileID: 298921102}
+  - component: {fileID: 298921101}
   m_Layer: 5
   m_Name: 'Naelie '
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -707,8 +709,10 @@ MonoBehaviour:
   areaDetectionLayer:
     serializedVersion: 2
     m_Bits: 1024
-  headcolliderLeft: {fileID: 0}
-  headcolliderRight: {fileID: 0}
+  clawsheadcolliderLeft: {fileID: 298921101}
+  clawsheadcolliderRight: {fileID: 298921102}
+  throwheadcolliderLeft: {fileID: 298921101}
+  throwheadcolliderRight: {fileID: 298921102}
   rayDistance: 4.8
   rayColor: {r: 1, g: 0.7831696, b: 0, a: 1}
   detectionLayer:
@@ -820,6 +824,38 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!58 &298921101
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298921094}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.26
+--- !u!58 &298921102
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298921094}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.425
 --- !u!1 &479734866
 GameObject:
   m_ObjectHideFlags: 0
@@ -2721,9 +2757,10 @@ GameObject:
   - component: {fileID: 1699670820}
   - component: {fileID: 1699670822}
   - component: {fileID: 1699670821}
+  - component: {fileID: 1699670823}
   m_Layer: 0
   m_Name: 'Healthbar '
-  m_TagString: Untagged
+  m_TagString: HealthBarNaelie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2786,6 +2823,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699670819}
   m_CullTransparentMesh: 1
+--- !u!114 &1699670823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699670819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ed12b2b9f1915408300f08766bdd60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1157431799}
 --- !u!1 &1726537677
 GameObject:
   m_ObjectHideFlags: 0
