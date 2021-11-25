@@ -33,10 +33,7 @@ public class GameManager : MonoBehaviour
 
     void OnLevelWasLoaded(int level)
     {
-        if (InGameplay(level))
-        {
-            Inittialize();
-        }
+        Inittialize();
     }
 
     void Update()
@@ -50,9 +47,20 @@ public class GameManager : MonoBehaviour
 
     void Inittialize()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<Einho>();
-        healthBar = GameObject.FindWithTag("HealthBar").GetComponent<HealthBarEinho>();
-        healthBarNaelie = GameObject.FindWithTag("HealthBarNaelie").GetComponent<HealthBarNaelie>();
+        if(SceneManager.GetActiveScene().name != "Pausa_pantalla" 
+        && SceneManager.GetActiveScene().name != "Pantalla_Inicio"
+        && SceneManager.GetActiveScene().name != "GameOver"
+        && SceneManager.GetActiveScene().name != "IntroVideo"
+        && SceneManager.GetActiveScene().name != "Creditos"
+        && SceneManager.GetActiveScene().name != "EndingVideo")
+        {
+            player = GameObject.FindWithTag("Player").GetComponent<Einho>();
+            healthBar = GameObject.FindWithTag("HealthBar").GetComponent<HealthBarEinho>();
+        }
+        if(SceneManager.GetActiveScene().name == "Naelie_Level")
+        {
+            healthBarNaelie = GameObject.FindWithTag("HealthBarNaelie").GetComponent<HealthBarNaelie>();
+        }
     }
 
     bool InGameplay(int level) => level > 2 && level < 5;

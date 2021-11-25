@@ -36,6 +36,9 @@ public class Boss : MonoBehaviour
     public void PlayerMakeDamage()
     {
         anim.SetBool("Hurt", true);
+        
+        Debug.Log(health);
+        GameManager.instance.GetHealthBarNaelie.SetValue(health);
     }
 
     public void DeleteFromScene()
