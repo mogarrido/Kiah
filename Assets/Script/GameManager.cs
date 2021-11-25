@@ -33,10 +33,7 @@ public class GameManager : MonoBehaviour
 
     void OnLevelWasLoaded(int level)
     {
-        if (InGameplay(level))
-        {
-            Inittialize();
-        }
+        Inittialize();
     }
 
     void Update()
