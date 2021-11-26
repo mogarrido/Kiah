@@ -55,12 +55,12 @@ public class GameManager : MonoBehaviour
         && SceneManager.GetActiveScene().name != "EndingVideo")
         {
             player = GameObject.FindWithTag("Player").GetComponent<Einho>();
-            healthBar = GameObject.FindWithTag("HealthBar").GetComponent<HealthBarEinho>();
+            healthBar = FindObjectOfType<HealthBarEinho>();
         }
         if(SceneManager.GetActiveScene().name == "Naelie_Level")
         {
-            healthBarNaelie = GameObject.FindWithTag("HealthBarNaelie").GetComponent<HealthBarNaelie>();
-        }
+            healthBarNaelie = FindObjectOfType<HealthBarNaelie>();   
+                 }
     }
 
     bool InGameplay(int level) => level > 2 && level < 5;
